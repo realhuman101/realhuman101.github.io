@@ -1,0 +1,9 @@
+# Primary
+.DS_Store
+
+# Editor
+/.vscode
+
+# SCSS
+*.scss
+*.css.map
