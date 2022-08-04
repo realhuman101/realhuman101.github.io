@@ -5,12 +5,62 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="assets/js/script.js"></script>
 
 		<title>Valentina Banner</title>
 	</head>
 	<body>
+		<!-- Loading -->
+		<div id="loader">
+			<div></div>
+		</div>
+
+		<!-- Page Beginning -->
+		<section class="head">
+			<h1 class="head-title">Hello.</h1>
+			<span style="--b:15px;" class="scroll-indicator"></span>
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+				<defs>
+					  <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+				</defs>
+				<g class="wave1">
+					  <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+				</g>
+				<g class="wave2">
+					  <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+				</g>
+				<g class="wave3">
+					  <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+				</g>
+			</svg>
+		</section>
+
+		<!-- Navigation Bar -->
+		<hr id="navY" style="visibility: hidden; height: 0px">
+		<div id="navbar">
+			<div class="navwrapper">
+				<a>
+					<a href="/" class="logo">Valentina Banner</a>
+				</a>
+				<nav>
+					<ul class="navitems">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Page</a></li>
+						<li><a href="#">Page</a></li>
+						<li><a href="#">Page</a></li>
+						<li><a href="#">Page</a></li>
+						<li><a href="#">Page</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 		
 	</body>
 </html>
