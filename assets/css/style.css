@@ -177,7 +177,6 @@ body {
 .navwrapper a {
   color: #5b74f1;
   text-decoration: none;
-  padding-bottom: 10px;
 }
 
 .navwrapper a::after {

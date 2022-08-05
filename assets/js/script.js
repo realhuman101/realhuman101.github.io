@@ -27,26 +27,23 @@ $(window).on('load',() => {
 		event.preventDefault();
 	
 		$('html, body').animate({
-			scrollTop: $( $(event.target).attr('href') ).offset().top
+			scrollTop: $( $(event.target).attr('href') ).offset().top - 65
 		}, 500);
-
-		setTimeout(() => {
-			location.hash = $(event.target).attr('href');
-		}, 500);
+		location.hash = $(event.target).attr('href');
 	});
 
-	$('.content-section').each((i, obj) => {
-		var waypoint = new Waypoint({
-			element: obj,
-			handler: (direction) => {
-				console.log('yes')
-				const hash = '#' + obj.id
-				if (location.hash != hash){
-					location.hash = '#' + obj.id
-				}
-			}
-		})
-	})
+	// $('.content-section').each((i, obj) => {
+	// 	var waypoint = new Waypoint({
+	// 		element: obj,
+	// 		handler: (direction) => {
+	// 			console.log('yes')
+	// 			const hash = '#' + obj.id
+	// 			if (location.hash != hash){
+	// 				location.hash = '#' + obj.id
+	// 			}
+	// 		}
+	// 	})
+	// })
 })
 
 $(window).on('scroll', () => {
