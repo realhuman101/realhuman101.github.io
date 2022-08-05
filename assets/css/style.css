@@ -452,8 +452,8 @@ body {
 }
 
 .social-links a svg {
-  color: #576dde;
-  fill: #576dde;
+  color: #425ee8;
+  fill: #425ee8;
   -webkit-transition: color 400ms ease-in-out, fill 400ms ease-in-out;
   transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 }
@@ -513,7 +513,7 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 100%;
-  background-color: #576dde;
+  background-color: #425ee8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -533,6 +533,24 @@ body {
 
 .skill-title {
   color: #233383;
+}
+
+footer {
+  width: 100vw;
+  height: 65px;
+  padding: 10px;
+  background-color: #425ee8;
+}
+
+footer div {
+  margin: 0 auto;
+  width: 80%;
+  display: block;
+}
+
+footer div p {
+  font-size: 15px;
+  color: white;
 }
 
 @-webkit-keyframes scrollIndicator {
