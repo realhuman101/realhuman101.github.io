@@ -69,7 +69,7 @@ $(window).on('load',() => {
 		},
 		autoplay: {
 			delay: 2500,
-			disableOnInteraction: true,
+			disableOnInteraction: false,
 		},
 		pagination: {
 			el: '.swiper-pagination',
