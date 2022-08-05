@@ -32,6 +32,19 @@ $(window).on('load',() => {
 		location.hash = $(event.target).attr('href');
 	});
 
+	$("#contact-form").on("submit", function() {
+		$.ajax({
+			url: "https://formspree.io/f/xbjbrwnj", 
+			method: "POST",
+			data: {
+				email: $('#email').val(),
+				name: $('#name').val(),
+				message: $('#message').val()
+			},
+			dataType: "json"
+		});
+	});
+
 	const swiper = new Swiper('.swiper', {
 		loop: true,
 		slidesPerView: 'auto',

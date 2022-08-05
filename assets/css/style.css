@@ -171,7 +171,7 @@ input[type='submit']:focus {
 }
 
 #navbar {
-  z-index: 1;
+  z-index: 1000;
   height: 60px;
   width: 100vw;
   -webkit-box-align: center;
@@ -650,6 +650,70 @@ input[type='submit']:focus {
           align-items: center;
   position: absolute;
   bottom: 0;
+}
+
+.contact-card {
+  width: 85%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  padding: 50px;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+#contact-form {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "email name" "textarea textarea" "button button";
+  position: relative;
+}
+
+#contact-form button {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: button;
+}
+
+.contact-email {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: email;
+}
+
+.contact-name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+}
+
+.contact-message {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: textarea;
+}
+
+.contact-message textarea {
+  height: 200px;
+  overflow: auto;
+  resize: none;
+}
+
+.contact-texts {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #eaeaea;
+  border: medium none;
+  margin: 10px 0px;
+  width: 100%;
 }
 
 footer {
