@@ -41,7 +41,18 @@ $(window).on('load',() => {
 				name: $('#name').val(),
 				message: $('#message').val()
 			},
-			dataType: "json"
+			dataType: "json",
+			complete: () => {
+				$('#email').val('')
+				$('#name').val('')
+				$('#message').val('')
+			},
+			success: () => {
+				swal("Success!","Message Sent!",'success');
+			},
+			error: () => {
+				swal("Oops!","Message failed to send...",'error');
+			},
 		});
 	});
 
