@@ -34,10 +34,15 @@ $(window).on('load',() => {
 
 	const swiper = new Swiper('.swiper', {
 		loop: true,
-		slidesPerView: 3,
+		slidesPerView: 'auto',
 		centeredSlides: true,
 		mousewheel: true,
-		spaceBetween: 20,
+		spaceBetween: 50,
+		watchSlidesProgress: true,
+		rewind: true,
+		keyboard: {
+			enabled: true,
+		},
 		autoplay: {
 			delay: 2500,
 			disableOnInteraction: true,

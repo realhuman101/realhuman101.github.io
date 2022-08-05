@@ -596,6 +596,17 @@ input[type='submit']:focus {
   height: 350px;
 }
 
+.swiper-slide {
+  width: 750px !important;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.swiper-slide-visible {
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+}
+
 .project-card {
   padding: 15px;
   background-color: #f8f8f8;
