@@ -32,6 +32,26 @@ $(window).on('load',() => {
 		location.hash = $(event.target).attr('href');
 	});
 
+	const swiper = new Swiper('.swiper', {
+		loop: true,
+		slidesPerView: 3,
+		centeredSlides: true,
+		mousewheel: true,
+		spaceBetween: 20,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: true,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+
 	// $('.content-section').each((i, obj) => {
 	// 	var waypoint = new Waypoint({
 	// 		element: obj,
