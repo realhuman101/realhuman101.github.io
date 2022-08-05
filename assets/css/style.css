@@ -175,7 +175,7 @@ body {
 }
 
 .navwrapper a {
-  color: #6d83f2;
+  color: #5b74f1;
   text-decoration: none;
   padding-bottom: 10px;
 }
@@ -193,7 +193,7 @@ body {
 
 .navwrapper a:hover::after, .navwrapper a:focus::after {
   width: 100%;
-  background-color: #6d83f2;
+  background-color: #5b74f1;
 }
 
 .navitems {
@@ -309,7 +309,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color: #6d83f2;
+  background-color: #5b74f1;
   top: 0;
   right: 0;
 }
@@ -343,7 +343,7 @@ body {
   height: 4px;
   border-radius: 4px;
   position: absolute;
-  background-color: #6d83f2;
+  background-color: #5b74f1;
 }
 
 #hamburger-inner.hamburger-color, #hamburger-inner.hamburger-color::after, #hamburger-inner.hamburger-color::before {
@@ -394,6 +394,7 @@ body {
   position: relative;
   margin-bottom: 100px;
   margin-top: 125px;
+  color: #383838;
 }
 
 .title {
@@ -404,8 +405,63 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  color: #383838;
+  color: #233383;
   font-weight: 100;
+}
+
+.about-content {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 55px;
+}
+
+.about-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  border: .5px solid #b6b6b6;
+  -webkit-box-shadow: 10px 10px 9px -10px rgba(0, 0, 0, 0.39);
+          box-shadow: 10px 10px 9px -10px rgba(0, 0, 0, 0.39);
+}
+
+.about-description {
+  font-size: 20px;
+  font-weight: 100;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto 0;
+}
+
+.social-links {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social-links a {
+  margin: 10px;
+  margin-top: 0px;
+  -webkit-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
+}
+
+.social-links a svg {
+  color: #233383;
+  fill: #233383;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  cursor: pointer;
+  opacity: .7;
 }
 
 @-webkit-keyframes scrollIndicator {
