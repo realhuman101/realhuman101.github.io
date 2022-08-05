@@ -39,13 +39,12 @@ body {
 }
 
 .head {
-  background: linear-gradient(134deg, #6A98F0 0%, #4961DC 99%);
+  background: linear-gradient(134deg, #86B0FF 0%, #4961DC 99%);
   height: 100vh;
 }
 
 .head-title {
   position: absolute;
-  font-size: 55px;
   color: white;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -59,8 +58,22 @@ body {
   bottom: 0;
   margin: auto;
   text-align: center;
+  font-size: 55px;
   -webkit-animation: fade-in 700ms ease-in;
           animation: fade-in 700ms ease-in;
+}
+
+.head-title a {
+  text-decoration: none;
+  color: white;
+}
+
+.head-title a:hover {
+  cursor: default;
+}
+
+.typewrite > .wrap {
+  border-right: 0.08em solid #fff;
 }
 
 .waves {
@@ -374,6 +387,25 @@ body {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.content-section {
+  width: 100%;
+  position: relative;
+  margin-bottom: 100px;
+  margin-top: 125px;
+}
+
+.title {
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-size: 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #383838;
+  font-weight: 100;
 }
 
 @-webkit-keyframes scrollIndicator {
