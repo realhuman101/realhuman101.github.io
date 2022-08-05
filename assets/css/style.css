@@ -449,19 +449,90 @@ body {
 .social-links a {
   margin: 10px;
   margin-top: 0px;
-  -webkit-transition: opacity 400ms ease-in-out;
-  transition: opacity 400ms ease-in-out;
 }
 
 .social-links a svg {
-  color: #233383;
-  fill: #233383;
+  color: #576dde;
+  fill: #576dde;
+  -webkit-transition: color 400ms ease-in-out, fill 400ms ease-in-out;
+  transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 }
 
-.social-links a:hover,
-.social-links a:focus {
+.social-links a:hover svg,
+.social-links a:focus svg {
   cursor: pointer;
-  opacity: .7;
+  color: black;
+  fill: black;
+}
+
+.skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.skill-card {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: #f8f8f8;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+}
+
+.skill-card:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  cursor: pointer;
+}
+
+.skill-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #576dde;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.skill-icon svg {
+  width: 50px;
+  height: 50px;
+  fill: white;
+}
+
+.skill-title {
+  color: #233383;
 }
 
 @-webkit-keyframes scrollIndicator {
