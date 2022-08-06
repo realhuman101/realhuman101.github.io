@@ -13,13 +13,16 @@ $(window).on('load',() => {
 		$('#hamburger-items').toggleClass('hamburger-showing');
 
 		if ($('#hamburger-items').css('display') == 'none') {
-			$('#hamburger-items').css({'display': 'flex'})
+			$('body').css({'overflow': 'hidden'});
+			$('#hamburger-items').css({'display': 'flex'});
 			$('#hamburger-inner').addClass('hamburger-color');
 		} else {
-			$('#hamburger-items').fadeOut(300).delay(400);
-			$('#hamburger-items').css({'display': 'none'})
-			$('#hamburger-inner').removeClass('hamburger-color');
-			checkNavScroll();
+			$('body').css({'overflow': 'scroll'});
+			setTimeout(() => {
+				$('#hamburger-items').css({'display': 'none'})
+				$('#hamburger-inner').removeClass('hamburger-color');
+				checkNavScroll();
+			}, 500);
 		}
 	})
 
@@ -101,7 +104,6 @@ $(window).on('scroll', () => {
 
 function checkNavScroll() {
 	const navbar = $('#navbar');
-	const hamburger = $('#nav-hamburger')
 	const navY = $('#navY');
 
 	if ($(window).scrollTop() >= navY.offset().top) {

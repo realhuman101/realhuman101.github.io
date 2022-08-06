@@ -271,6 +271,7 @@ input[type='submit']:focus {
       -ms-flex-align: center;
           align-items: center;
   z-index: 10000;
+  height: 100%;
   -webkit-transition: opacity 350ms ease-in-out;
   transition: opacity 350ms ease-in-out;
 }
@@ -281,7 +282,10 @@ input[type='submit']:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -300,10 +304,8 @@ input[type='submit']:focus {
   text-decoration: none;
   padding-bottom: 10px;
   font-size: 20px;
-  -webkit-animation: fade-in 300ms ease-in-out 250ms;
-          animation: fade-in 300ms ease-in-out 250ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  -webkit-transition: opacity 300ms ease-in-out 100ms;
+  transition: opacity 300ms ease-in-out 100ms;
 }
 
 #hamburger-items a::after {
@@ -332,20 +334,24 @@ input[type='submit']:focus {
 
 #hamburger-items::before {
   content: '';
-  width: 100vw;
+  width: 0px;
   height: 100vh;
   position: fixed;
   background-color: #5b74f1;
   top: 0;
   right: 0;
+  -webkit-transition: width 500ms ease-in-out;
+  transition: width 500ms ease-in-out;
+}
+
+#hamburger-items.hamburger-showing a {
+  opacity: 1;
 }
 
 #hamburger-items.hamburger-showing::before {
-  width: 0px;
+  width: 100vw;
   -webkit-animation: grow-width 500ms ease-in-out;
           animation: grow-width 500ms ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 .hamburger-box {
@@ -361,10 +367,10 @@ input[type='submit']:focus {
 #hamburger-inner {
   top: auto;
   bottom: 10px;
-  z-index: 1000;
 }
 
 #hamburger-inner, #hamburger-inner::before, #hamburger-inner::after {
+  z-index: 1000;
   width: 29px;
   height: 4px;
   border-radius: 4px;
@@ -941,24 +947,6 @@ footer div p {
   }
   100% {
     width: 100vw;
-  }
-}
-
-@-webkit-keyframes shrink-width {
-  0% {
-    width: 100vw;
-  }
-  100% {
-    width: 0px;
-  }
-}
-
-@keyframes shrink-width {
-  0% {
-    width: 100vw;
-  }
-  100% {
-    width: 0px;
   }
 }
 /*# sourceMappingURL=style.css.map */
