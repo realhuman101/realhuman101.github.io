@@ -1,6 +1,8 @@
 $(window).on('load',() => {
 	$('#loader').fadeOut('fast');
 
+	checkProjectSize();
+
 	var element = document.getElementsByClassName('typewrite')[0];
 	var toRotate = element.getAttribute('data-type');
 	var period = element.getAttribute('data-period');
@@ -65,6 +67,7 @@ $(window).on('load',() => {
 		centeredSlides: true,
 		mousewheel: true,
 		spaceBetween: 50,
+		variableWidth : true,
 		watchSlidesProgress: true,
 		rewind: true,
 		keyboard: {
@@ -83,6 +86,10 @@ $(window).on('load',() => {
 			prevEl: '.swiper-button-prev',
 		},
 	});
+
+	$(window).on('resize', () => {
+		checkProjectSize();
+	})
 
 	// $('.content-section').each((i, obj) => {
 	// 	var waypoint = new Waypoint({
@@ -118,6 +125,17 @@ function checkNavScroll() {
 			navbar.css({"position": "relative","top": "0px"});
 			navY.css({"height": "0px"});
 		}
+	}
+}
+
+function checkProjectSize() {
+	const windWidth = $(window).width();
+	const swiperSlides = $('.swiper-slide');
+
+	if ((450 <= windWidth && windWidth <= 750) && windWidth!= swiperSlides) {
+		swiperSlides.each((i, obj) => {
+			obj.style.setProperty('width',windWidth.toString()+'px','important');
+		})
 	}
 }
 
