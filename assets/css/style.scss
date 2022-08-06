@@ -17,7 +17,7 @@ input[type='submit'] {
 	fill: white;
 	border: none;
 	border-radius: 5px;
-	background-color: #425ee8;
+	background-color: #6788ed;
 	transition: background-color 350ms ease-in-out;
 
 	&:hover,
@@ -28,7 +28,7 @@ input[type='submit'] {
 }
 
 .swal-button { 
-	background-color: #425ee8;
+	background-color: #6788ed;
 }
 
 // Loader
@@ -55,7 +55,7 @@ input[type='submit'] {
 		right: 0;
 		margin: auto;
 		border: 16px solid #f3f3f3;
-		border-top: 16px solid #3498db;
+		border-top: 16px solid #6788ed;
 		border-radius: 50%;
 		animation: spin 2s linear infinite;
 	}
@@ -480,8 +480,8 @@ input[type='submit'] {
 		height: 24px;
 
 		& svg {
-			color: #425ee8;
-			fill: #425ee8;
+			color: #6788ed;
+			fill: #6788ed;
 			transition: color 400ms ease-in-out,
 					fill 400ms ease-in-out;
 		}
@@ -527,7 +527,7 @@ input[type='submit'] {
 	width: 90px;
 	height: 90px;
 	border-radius: 100%;
-	background-color: #425ee8;
+	background-color: #6788ed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -545,7 +545,7 @@ input[type='submit'] {
 
 // Projects
 #projects {
-	background-color: #566ee6;
+	background-color: #6788ed;
 	padding-bottom: 30px;
 
 	& h1.title {
@@ -676,7 +676,7 @@ footer {
 	width: 100vw;
 	height: 65px;
 	padding: 10px;
-	background-color: #4c68f3;
+	background-color: #5a7de9;
 	
 	& div {
 		margin: 0 auto;
