@@ -25,12 +25,12 @@ $(window).on('load',() => {
 
 	$('a[href^="#"]').click((event) => {
 		event.preventDefault();
-	
-		$('html, body').animate({
-			scrollTop: $( $(event.target).attr('href') ).offset().top - 65
-		}, 500);
-		location.hash = $(event.target).attr('href');
+		scrollToElem($( $(event.target).attr('href') ));
 	});
+
+	$('.title').click((event) => {
+		scrollToElem($(event.target).parent());
+	})
 
 	$("#contact-form").on("submit", function() {
 		$.ajax({
@@ -159,3 +159,9 @@ TxtType.prototype.tick = function() {
 		that.tick();
 	}, delta);
 };
+
+function scrollToElem(elem) {
+	$('html, body').animate({
+		scrollTop: elem.offset().top - 65
+	}, 500);
+}
