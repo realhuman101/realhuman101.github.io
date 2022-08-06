@@ -433,6 +433,28 @@ input[type='submit']:focus {
   width: fit-content;
   color: #233383;
   font-weight: 100;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #86B0FF;
+  border-radius: 5px;
+  -webkit-transition: width 400ms ease-in-out;
+  transition: width 400ms ease-in-out;
+}
+
+.title:hover {
+  cursor: default;
+}
+
+.title:hover::after {
+  width: 100%;
 }
 
 .about-content {
@@ -571,6 +593,10 @@ input[type='submit']:focus {
 #projects h1.title {
   color: white;
   padding-top: 20px;
+}
+
+#projects h1.title::after {
+  background-color: #d5d5d5;
 }
 
 .projects {

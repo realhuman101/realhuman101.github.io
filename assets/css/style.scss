@@ -403,6 +403,26 @@ input[type='submit'] {
 	width: fit-content;
 	color: rgb(35, 51, 131);
 	font-weight: 100;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 3px;
+		bottom: 0px;
+		right: 0px;
+		background-color: #86B0FF;
+		border-radius: 5px;
+		transition: width 400ms ease-in-out;
+	}
+	&:hover {
+		cursor: default;
+
+		&::after {
+			width: 100%;
+		}
+	}
 }
 
 // SECTIONS
@@ -511,6 +531,10 @@ input[type='submit'] {
 	& h1.title {
 		color: white;
 		padding-top: 20px;
+
+		&::after {
+			background-color: #d5d5d5;
+		}
 	}
 }
 
