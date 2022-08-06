@@ -497,6 +497,8 @@ input[type='submit']:focus {
 .social-links a {
   margin: 10px;
   margin-top: 0px;
+  width: 24px;
+  height: 24px;
 }
 
 .social-links a svg {
