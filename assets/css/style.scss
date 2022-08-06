@@ -319,19 +319,32 @@ input[type='submit'] {
 }
 
 .hamburger-box {
-	width: 29px;
-	height: 26px;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(86, 110, 230, .3);
+	border-radius: 100%;
 	position: relative;
 
 	&:hover {
 		cursor: pointer;
+
+		& #hamburger-inner {
+			&,
+			&::before,
+			&::after {
+				opacity: .7;
+			}
+		}
 	}
 }
 
 #hamburger-inner {
-	top: auto;
-	bottom: 10px;
-	
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
 	&,
 	&::before,
 	&::after {
@@ -339,13 +352,10 @@ input[type='submit'] {
 		width: 29px;
 		height: 4px;
 		border-radius: 4px;
+		opacity: 1;
+		transition: opacity 400ms ease-in-out;
 		position: absolute;
-		background-color: rgb(91, 116, 241);
-	}
-	&.hamburger-color,
-	&.hamburger-color::after,
-	&.hamburger-color::before {
-		background-color: white !important;
+		background-color: white;
 	}
 
 	&::before,

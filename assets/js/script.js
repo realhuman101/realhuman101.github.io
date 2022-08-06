@@ -17,12 +17,10 @@ $(window).on('load',() => {
 		if ($('#hamburger-items').css('display') == 'none') {
 			$('body').css({'overflow': 'hidden'});
 			$('#hamburger-items').css({'display': 'flex'});
-			$('#hamburger-inner').addClass('hamburger-color');
 		} else {
 			$('body').css({'overflow': 'scroll'});
 			setTimeout(() => {
 				$('#hamburger-items').css({'display': 'none'})
-				$('#hamburger-inner').removeClass('hamburger-color');
 				checkNavScroll();
 			}, 500);
 		}
@@ -115,13 +113,11 @@ function checkNavScroll() {
 
 	if ($(window).scrollTop() >= navY.offset().top) {
 		if ($('#hamburger-items').css('display') == 'none') {
-			$('#hamburger-inner').removeClass('hamburger-color');
 			navbar.css({"position": "fixed","top": "0px"});
 			navY.css({"height": '60px'});
 		}
 	} else {
 		if ($('#hamburger-items').css('display') == 'none') {
-			$('#hamburger-inner').addClass('hamburger-color');
 			navbar.css({"position": "relative","top": "0px"});
 			navY.css({"height": "0px"});
 		}

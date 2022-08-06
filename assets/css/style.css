@@ -355,8 +355,10 @@ input[type='submit']:focus {
 }
 
 .hamburger-box {
-  width: 29px;
-  height: 26px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(86, 110, 230, 0.3);
+  border-radius: 100%;
   position: relative;
 }
 
@@ -364,9 +366,16 @@ input[type='submit']:focus {
   cursor: pointer;
 }
 
+.hamburger-box:hover #hamburger-inner, .hamburger-box:hover #hamburger-inner::before, .hamburger-box:hover #hamburger-inner::after {
+  opacity: .7;
+}
+
 #hamburger-inner {
-  top: auto;
-  bottom: 10px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #hamburger-inner, #hamburger-inner::before, #hamburger-inner::after {
@@ -374,12 +383,11 @@ input[type='submit']:focus {
   width: 29px;
   height: 4px;
   border-radius: 4px;
+  opacity: 1;
+  -webkit-transition: opacity 400ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
   position: absolute;
-  background-color: #5b74f1;
-}
-
-#hamburger-inner.hamburger-color, #hamburger-inner.hamburger-color::after, #hamburger-inner.hamburger-color::before {
-  background-color: white !important;
+  background-color: white;
 }
 
 #hamburger-inner::before, #hamburger-inner::after {
