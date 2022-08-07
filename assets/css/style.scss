@@ -674,6 +674,12 @@ input[type='submit'] {
 	}
 }
 
+@media (max-width: 530px) {
+	#contact-form {
+		grid-template-areas: "email email" "name name" "textarea textarea" "button button";
+	}
+}
+
 .contact-email {
 	grid-area: email;
 }
