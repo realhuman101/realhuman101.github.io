@@ -521,7 +521,7 @@ input[type=submit]:focus {
   padding-top: 20px;
 }
 #projects h1.title::after {
-  background-color: #d5d5d5;
+  background-color: #a6c9ff;
 }
 
 .projects {
