@@ -409,12 +409,12 @@ input[type=submit]:focus {
 }
 
 .about-content {
-  width: 90vw;
+  width: 80vw;
   padding-top: 50px;
   overflow-x: hidden;
   margin: 0 auto;
   display: flex;
-  gap: 55px;
+  gap: 155px;
 }
 
 @media (max-width: 450px) {
