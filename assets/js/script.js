@@ -128,9 +128,13 @@ function checkProjectSize() {
 	const windWidth = $(window).width();
 	const swiperSlides = $('.swiper-slide');
 
-	if (windWidth <= 750 && windWidth != swiperSlides) {
+	if (windWidth <= 600 && windWidth != swiperSlides) {
 		swiperSlides.each((i, obj) => {
 			obj.style.setProperty('width', 'calc(100vw - 30px)','important');
+		})
+	} else {
+		swiperSlides.each((i, obj) => {
+			obj.style.setProperty('width', '600px','important');
 		})
 	}
 }
