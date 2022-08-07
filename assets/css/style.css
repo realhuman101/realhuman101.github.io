@@ -395,7 +395,7 @@ input[type=submit]:focus {
   position: absolute;
   width: 20px;
   height: 3px;
-  bottom: 0px;
+  bottom: -4.5px;
   right: 0px;
   background-color: #86B0FF;
   border-radius: 5px;
