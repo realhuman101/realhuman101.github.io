@@ -462,10 +462,24 @@ input[type='submit'] {
 
 // About
 .about-content {
-	width: 90%;
+	width: 90vw;
+	max-width: 500px;
+	min-width: 300px;
+	overflow-x: hidden;
 	margin: 0 auto;
 	display: flex;
 	gap: 55px;
+}
+
+@media (max-width: 450px) {
+	.about-content {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.about-description {
+		text-align: center;
+	}
 }
 
 .about-avatar {
@@ -592,7 +606,6 @@ input[type='submit'] {
 
 .swiper-slide {
 	width: 750px !important;
-	min-width: 400px;
 	filter: blur(5px);
 }
 

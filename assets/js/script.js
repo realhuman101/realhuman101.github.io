@@ -10,7 +10,7 @@ $(window).on('load',() => {
 		new TxtType(element, JSON.parse(toRotate), period);
 	}
 
-	$('#nav-hamburger').click(() => {
+	$('#nav-hamburger').on('click tap',() => {
 		$('#hamburger-inner').toggleClass('hamburger-clicked');
 		$('#hamburger-items').toggleClass('hamburger-showing');
 
@@ -26,12 +26,12 @@ $(window).on('load',() => {
 		}
 	})
 
-	$('a[href^="#"]').click((event) => {
+	$('a[href^="#"]').on('click tap',(event) => {
 		event.preventDefault();
 		scrollToElem($( $(event.target).attr('href') ));
 	});
 
-	$('.title').click((event) => {
+	$('.title').on('click tap',(event) => {
 		scrollToElem($(event.target).parent());
 	})
 
@@ -128,9 +128,9 @@ function checkProjectSize() {
 	const windWidth = $(window).width();
 	const swiperSlides = $('.swiper-slide');
 
-	if ((450 <= windWidth && windWidth <= 750) && windWidth!= swiperSlides) {
+	if (windWidth <= 750 && windWidth != swiperSlides) {
 		swiperSlides.each((i, obj) => {
-			obj.style.setProperty('width',windWidth.toString()+'px','important');
+			obj.style.setProperty('width', 'calc(100vw - 30px)','important');
 		})
 	}
 }
