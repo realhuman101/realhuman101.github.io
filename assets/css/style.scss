@@ -65,6 +65,7 @@ input[type='submit'] {
 .head {
 	background: linear-gradient(134deg, #86B0FF 0%, #4961DC 99%);
 	height: 100vh;
+	position: relative;
 }
 
 .head-title {
@@ -122,6 +123,7 @@ input[type='submit'] {
 	z-index: 5;
 	position: absolute;
 	bottom: 0;
+	top: auto;
 }
 
 .wave1 use {
