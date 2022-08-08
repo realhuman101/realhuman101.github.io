@@ -712,6 +712,7 @@ footer {
 	width: 100vw;
 	height: 65px;
 	padding: 10px;
+	position: relative;
 	background-color: #5a7de9;
 	
 	& div {
@@ -723,6 +724,52 @@ footer {
 			font-size: 15px;
 			color: white;
 		}
+	}
+}
+
+#toTop {
+	position: absolute;
+	display: block;
+	opacity: 1;
+	bottom: 20px;
+	border: solid white;
+	border-width: 0px 3.5px 3.5px 0;
+	border-bottom-right-radius: 3.5px;
+	width: 20px;
+	height: 20px;
+	transform: rotate(-135deg);
+	transition: opacity 400ms ease-in-out;
+
+	&:hover,
+	&:focus {
+		&,
+		&::before,
+		&::after {
+			opacity: .7;
+			cursor: pointer;
+		}
+	}
+
+	&::before,
+	&::after {
+		content:"";
+		position:absolute;
+		width: 3.5px;
+		height: 3.5px;
+		background: white;
+		border-radius: 50%;
+	}
+
+	&::before {
+		top: calc(-3.5px/2);
+		right: 0;
+		transform: translateX(100%);
+	}
+
+	&::after {
+		left:calc(-3.5px/2);
+		bottom: 0;
+		transform:translateY(100%);
 	}
 }
 

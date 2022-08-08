@@ -646,6 +646,7 @@ footer {
   width: 100vw;
   height: 65px;
   padding: 10px;
+  position: relative;
   background-color: #5a7de9;
 }
 footer div {
@@ -656,6 +657,42 @@ footer div {
 footer div p {
   font-size: 15px;
   color: white;
+}
+
+#toTop {
+  position: absolute;
+  display: block;
+  opacity: 1;
+  bottom: 20px;
+  border: solid white;
+  border-width: 0px 3.5px 3.5px 0;
+  border-bottom-right-radius: 3.5px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-135deg);
+  transition: opacity 400ms ease-in-out;
+}
+#toTop:hover, #toTop:hover::before, #toTop:hover::after, #toTop:focus, #toTop:focus::before, #toTop:focus::after {
+  opacity: 0.7;
+  cursor: pointer;
+}
+#toTop::before, #toTop::after {
+  content: "";
+  position: absolute;
+  width: 3.5px;
+  height: 3.5px;
+  background: white;
+  border-radius: 50%;
+}
+#toTop::before {
+  top: -1.75px;
+  right: 0;
+  transform: translateX(100%);
+}
+#toTop::after {
+  left: -1.75px;
+  bottom: 0;
+  transform: translateY(100%);
 }
 
 @-webkit-keyframes scrollIndicator {

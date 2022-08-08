@@ -59,6 +59,10 @@ $(window).on('load',() => {
 		});
 	});
 
+	$('#toTop').on('click tap', () => {
+		$('html, body').animate({ scrollTop: 0 }, 500);
+	})
+
 	const swiper = new Swiper('.swiper', {
 		loop: true,
 		slidesPerView: 'auto',
@@ -88,19 +92,6 @@ $(window).on('load',() => {
 	$(window).on('resize', () => {
 		checkProjectSize();
 	})
-
-	// $('.content-section').each((i, obj) => {
-	// 	var waypoint = new Waypoint({
-	// 		element: obj,
-	// 		handler: (direction) => {
-	// 			console.log('yes')
-	// 			const hash = '#' + obj.id
-	// 			if (location.hash != hash){
-	// 				location.hash = '#' + obj.id
-	// 			}
-	// 		}
-	// 	})
-	// })
 })
 
 $(window).on('scroll', () => {
