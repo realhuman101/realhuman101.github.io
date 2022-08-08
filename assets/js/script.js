@@ -70,7 +70,7 @@ $(window).on('load',() => {
 		slidesPerView: 'auto',
 		centeredSlides: true,
 		mousewheel: true,
-		spaceBetween: 50,
+		spaceBetween: 75,
 		variableWidth : true,
 		watchSlidesProgress: true,
 		rewind: true,
@@ -78,8 +78,8 @@ $(window).on('load',() => {
 			enabled: true,
 		},
 		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false,
+			delay: 3500,
+			disableOnInteraction: true,
 		},
 		pagination: {
 			el: '.swiper-pagination',
