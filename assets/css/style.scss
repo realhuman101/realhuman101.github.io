@@ -106,6 +106,10 @@ input[type='submit'] {
 	}
 }
 
+.typewrite {
+	pointer-events: none;
+}
+
 .typewrite > .wrap { 
 	border-right: 0.08em solid #fff
 }
@@ -406,7 +410,8 @@ input[type='submit'] {
 }
 
 @media (max-width: 800px) {
-	#navbar {
+	#navbar,
+	#navitems {
 		display: none;
 	}
 
