@@ -16,11 +16,13 @@ $(window).on('load',() => {
 
 		if ($('#hamburger-items').css('display') == 'none') {
 			$('body').css({'overflow': 'hidden'});
+			$('#nav-hamburger').css({'height': '100%'});
 			$('#hamburger-items').css({'display': 'flex'});
 		} else {
 			$('body').css({'overflow': 'scroll'});
 			setTimeout(() => {
 				$('#hamburger-items').css({'display': 'none'})
+				$('#nav-hamburger').css({'height': 'fit-content'});
 				checkNavScroll();
 			}, 500);
 		}
