@@ -517,6 +517,7 @@ input[type=submit]:focus {
 
 .skill-title {
   color: rgb(35, 51, 131);
+  font-weight: 400;
 }
 
 #projects {
