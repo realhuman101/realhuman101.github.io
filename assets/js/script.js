@@ -1,6 +1,6 @@
 $(window).on('load',() => {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		darkmode();
+		darkmode(true);
 	}
 
 	$('#loader').fadeOut('fast');
@@ -102,6 +102,10 @@ $(window).on('load',() => {
 	$(window).on('resize', () => {
 		checkProjectSize();
 	})
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+		darkmode(event.matches ? true : false);
+	});
 })
 
 $(window).on('scroll', () => {
@@ -187,35 +191,68 @@ function scrollToElem(elem) {
 	}, 500);
 }
 
-function darkmode () {
-	$('body').toggleClass('bodydark');
-	$('.title').toggleClass('darktitle');
-
-	$('.head-title').toggleClass('darkheadtitle');
-	$('#navbar').toggleClass('darknavbar');
-	$('.waves').toggleClass('darkwaves');
-	$('.scroll-indicator').toggleClass('dark-scroll-indicate')
-
-	$('#darkmode').toggleClass('darkmodeactive');
-
-	$('button').toggleClass('dark-button');
-	$('input[type="button"]').toggleClass('dark-button');
-	$('input[type="submit"]').toggleClass('dark-button');
-
-	$('footer').toggleClass('dark-footer');
-
-	$('.social-links').toggleClass('dark-social-links');
-	$('.about-description').toggleClass('darktitle');
-
-	$('.skill-card').toggleClass('dark-card');
-	$('.skill-title').toggleClass('dark-description');
-	$('.skill-icon').toggleClass('dark-icon');
-
-	$('#projects').toggleClass('dark-section');
-	$('.project-card').toggleClass('dark-card');
-	$('.project-title').toggleClass('darktitle');
-	$('.project-description').toggleClass('dark-hyperlink');
-
-	$('.contact-card').toggleClass('dark-card');
-	$('.contact-texts').toggleClass('dark-input');
+function darkmode (theme = 'none') {
+	if (theme == 'none') {
+		$('body').toggleClass('bodydark');
+		$('.title').toggleClass('darktitle');
+	
+		$('.head-title').toggleClass('darkheadtitle');
+		$('#navbar').toggleClass('darknavbar');
+		$('.waves').toggleClass('darkwaves');
+		$('.scroll-indicator').toggleClass('dark-scroll-indicate')
+	
+		$('#darkmode').toggleClass('darkmodeactive');
+	
+		$('button').toggleClass('dark-button');
+		$('input[type="button"]').toggleClass('dark-button');
+		$('input[type="submit"]').toggleClass('dark-button');
+	
+		$('footer').toggleClass('dark-footer');
+	
+		$('.social-links').toggleClass('dark-social-links');
+		$('.about-description').toggleClass('darktitle');
+	
+		$('.skill-card').toggleClass('dark-card');
+		$('.skill-title').toggleClass('dark-description');
+		$('.skill-icon').toggleClass('dark-icon');
+	
+		$('#projects').toggleClass('dark-section');
+		$('.project-card').toggleClass('dark-card');
+		$('.project-title').toggleClass('darktitle');
+		$('.project-description').toggleClass('dark-hyperlink');
+	
+		$('.contact-card').toggleClass('dark-card');
+		$('.contact-texts').toggleClass('dark-input');
+	} else {
+		$('body').toggleClass('bodydark');
+		$('.title').toggleClass('darktitle');
+	
+		$('.head-title').toggleClass('darkheadtitle', theme);
+		$('#navbar').toggleClass('darknavbar', theme);
+		$('.waves').toggleClass('darkwaves', theme);
+		$('.scroll-indicator').toggleClass('dark-scroll-indicate', theme);
+	
+		$('#darkmode').toggleClass('darkmodeactive', theme);
+	
+		$('button').toggleClass('dark-button', theme);
+		$('input[type="button"]').toggleClass('dark-button', theme);
+		$('input[type="submit"]').toggleClass('dark-button', theme);
+	
+		$('footer').toggleClass('dark-footer', theme);
+	
+		$('.social-links').toggleClass('dark-social-links', theme);
+		$('.about-description').toggleClass('darktitle', theme);
+	
+		$('.skill-card').toggleClass('dark-card', theme);
+		$('.skill-title').toggleClass('dark-description', theme);
+		$('.skill-icon').toggleClass('dark-icon', theme);
+	
+		$('#projects').toggleClass('dark-section', theme);
+		$('.project-card').toggleClass('dark-card', theme);
+		$('.project-title').toggleClass('darktitle', theme);
+		$('.project-description').toggleClass('dark-hyperlink', theme);
+	
+		$('.contact-card').toggleClass('dark-card', theme);
+		$('.contact-texts').toggleClass('dark-input', theme);
+	}
 }
