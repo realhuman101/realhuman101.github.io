@@ -219,35 +219,35 @@ function darkmode (theme = 'none') {
 		darkTheme = theme;
 	}
 
-	$('body').toggleClass('bodydark');
-	$('.title').toggleClass('darktitle');
+	$('body').toggleClass('bodydark', darkTheme);
+	$('.title').toggleClass('darktitle', darkTheme);
 
-	$('.head-title').toggleClass('darkheadtitle', theme);
-	$('#navbar').toggleClass('darknavbar', theme);
-	$('.waves').toggleClass('darkwaves', theme);
-	$('.scroll-indicator').toggleClass('dark-scroll-indicate', theme);
+	$('.head-title').toggleClass('darkheadtitle', darkTheme);
+	$('#navbar').toggleClass('darknavbar', darkTheme);
+	$('.waves').toggleClass('darkwaves', darkTheme);
+	$('.scroll-indicator').toggleClass('dark-scroll-indicate', darkTheme);
 
-	$('.darkmode').toggleClass('darkmodeactive', theme);
+	$('.darkmode').toggleClass('darkmodeactive', darkTheme);
 
-	$('button').toggleClass('dark-button', theme);
-	$('input[type="button"]').toggleClass('dark-button', theme);
-	$('input[type="submit"]').toggleClass('dark-button', theme);
+	$('button').toggleClass('dark-button', darkTheme);
+	$('input[type="button"]').toggleClass('dark-button', darkTheme);
+	$('input[type="submit"]').toggleClass('dark-button', darkTheme);
 
-	$('footer').toggleClass('dark-footer', theme);
+	$('footer').toggleClass('dark-footer', darkTheme);
 
-	$('.social-links').toggleClass('dark-social-links', theme);
-	$('.about-description').toggleClass('darktitle', theme);
+	$('.social-links').toggleClass('dark-social-links', darkTheme);
+	$('.about-description').toggleClass('darktitle', darkTheme);
 
-	$('.skill-card').toggleClass('dark-card', theme);
-	$('.skill-title').toggleClass('dark-description', theme);
-	$('.skill-icon').toggleClass('dark-icon', theme);
+	$('.skill-card').toggleClass('dark-card', darkTheme);
+	$('.skill-title').toggleClass('dark-description', darkTheme);
+	$('.skill-icon').toggleClass('dark-icon', darkTheme);
 
-	$('#projects').toggleClass('dark-section', theme);
-	$('.project-card').toggleClass('dark-card', theme);
-	$('.project-title').toggleClass('darktitle', theme);
-	$('.project-description').toggleClass('dark-hyperlink', theme);
-	$('.project-github').toggleClass('dark-github', theme);
+	$('#projects').toggleClass('dark-section', darkTheme);
+	$('.project-card').toggleClass('dark-card', darkTheme);
+	$('.project-title').toggleClass('darktitle', darkTheme);
+	$('.project-description').toggleClass('dark-hyperlink', darkTheme);
+	$('.project-github').toggleClass('dark-github', darkTheme);
 
-	$('.contact-card').toggleClass('dark-card', theme);
-	$('.contact-texts').toggleClass('dark-input', theme);
+	$('.contact-card').toggleClass('dark-card', darkTheme);
+	$('.contact-texts').toggleClass('dark-input', darkTheme);
 }
