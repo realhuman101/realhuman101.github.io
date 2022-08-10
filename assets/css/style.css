@@ -695,6 +695,27 @@ input[type=submit]:focus {
   margin: 10px 0px;
   width: 100%;
 }
+.contact-texts::-moz-placeholder {
+  font-style: italic;
+}
+.contact-texts:-ms-input-placeholder {
+  font-style: italic;
+}
+.contact-texts::placeholder {
+  font-style: italic;
+}
+.contact-texts::-moz-placeholder {
+  font-style: italic;
+}
+.contact-texts:-moz-placeholder {
+  font-style: italic;
+}
+.contact-texts::-webkit-input-placeholder {
+  font-style: italic;
+}
+.contact-texts:-ms-input-placeholder {
+  font-style: italic;
+}
 
 footer {
   width: 100vw;
@@ -860,18 +881,31 @@ footer div p {
   color: rgb(231, 236, 245);
 }
 .dark-input::-moz-placeholder {
+  font-style: italic;
   color: rgb(213, 217, 224);
 }
 .dark-input:-ms-input-placeholder {
+  font-style: italic;
   color: rgb(213, 217, 224);
 }
 .dark-input::placeholder {
+  font-style: italic;
+  color: rgb(213, 217, 224);
+}
+.dark-input::-moz-placeholder {
+  font-style: italic;
+  color: rgb(213, 217, 224);
+}
+.dark-input:-moz-placeholder {
+  font-style: italic;
+  color: rgb(213, 217, 224);
+}
+.dark-input::-webkit-input-placeholder {
+  font-style: italic;
   color: rgb(213, 217, 224);
 }
 .dark-input:-ms-input-placeholder {
-  color: rgb(213, 217, 224);
-}
-.dark-input::-ms-input-placeholder {
+  font-style: italic;
   color: rgb(213, 217, 224);
 }
 

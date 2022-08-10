@@ -738,7 +738,7 @@ input[type='submit'] {
 	grid-area: name;
 }
 
-.contact-message{
+.contact-message {
 	grid-area: textarea;
 
 	& textarea {
@@ -755,6 +755,22 @@ input[type='submit'] {
 	border: medium none;
 	margin: 10px 0px;
 	width: 100%;
+
+	&::placeholder {
+		font-style: italic;
+	}
+	&::-moz-placeholder {
+		font-style: italic;
+	}
+	&:-moz-placeholder {
+		font-style: italic;
+	}
+	&::-webkit-input-placeholder {
+		font-style: italic;
+	}
+	&:-ms-input-placeholder {  
+		font-style: italic; 
+	}
 }
 
 // Footer
@@ -958,12 +974,23 @@ footer {
 	color: rgb(231, 236, 245);
 
 	&::placeholder {
+		font-style: italic;
 		color: rgb(213, 217, 224);
 	}
-	&:-ms-input-placeholder {
+	&::-moz-placeholder {
+		font-style: italic;
 		color: rgb(213, 217, 224);
 	}
-	&::-ms-input-placeholder {
+	&:-moz-placeholder {
+		font-style: italic;
+		color: rgb(213, 217, 224);
+	}
+	&::-webkit-input-placeholder {
+		font-style: italic;
+		color: rgb(213, 217, 224);
+	}
+	&:-ms-input-placeholder {  
+		font-style: italic; 
 		color: rgb(213, 217, 224);
 	}
 }
