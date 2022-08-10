@@ -676,13 +676,14 @@ input[type='submit'] {
 
 .project-title {
 	font-size: 25px;
-	font-weight: 600;
+	font-weight: 300;
 	color: #3e54c0;
 	user-select: none;
 }
 
 .project-description {
 	user-select: none;
+	font-weight: 200;
 
 	& a {
 		color: #233383;

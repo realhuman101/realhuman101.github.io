@@ -605,7 +605,7 @@ input[type=submit]:focus-within {
 
 .project-title {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 300;
   color: #3e54c0;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -618,6 +618,7 @@ input[type=submit]:focus-within {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  font-weight: 200;
 }
 .project-description a {
   color: #233383;
