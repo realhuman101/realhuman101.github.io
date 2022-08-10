@@ -5,6 +5,7 @@ body {
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   box-sizing: border-box;
+  transition: color 400ms ease-in-out, fill 400ms ease-in-out, background-color 400ms ease-in-out;
 }
 
 button,
@@ -715,6 +716,29 @@ footer div p {
   left: -1.75px;
   bottom: 0;
   transform: translateY(100%);
+}
+
+#darkmode svg {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 0px;
+  fill: rgb(91, 116, 241);
+  transform: scaleX(-1);
+}
+#darkmode svg:hover {
+  cursor: pointer;
+  fill: black;
+}
+#darkmode::after, #darkmode::before {
+  display: none;
+}
+#darkmode.darkmodeactive svg {
+  fill: black;
+  transform: scaleX(1);
+}
+#darkmode.darkmodeactive svg:hover {
+  fill: rgb(91, 116, 241);
 }
 
 @-webkit-keyframes scrollIndicator {
