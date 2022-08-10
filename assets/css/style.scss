@@ -21,7 +21,8 @@ input[type='submit'] {
 	transition: background-color 350ms ease-in-out;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:focus-within {
 		background-color: black;
 		cursor: pointer;
 	}
@@ -216,7 +217,8 @@ input[type='submit'] {
 		}
 
 		&:hover::after,
-		&:focus::after {
+		&:focus::after,
+		&:focus-within::after {
 			width: 100%;
 			background-color: rgb(91, 116, 241);
 		}
@@ -299,7 +301,8 @@ input[type='submit'] {
 		}
 
 		&:hover::after,
-		&:focus::after {
+		&:focus::after,
+		&:focus-within::after {
 			width: 100%;
 			background-color: white;
 		}
@@ -309,7 +312,9 @@ input[type='submit'] {
 		z-index: 10000;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		opacity: 1;
 	}
 
@@ -354,7 +359,9 @@ input[type='submit'] {
 	border-radius: 100%;
 	position: relative;
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		cursor: pointer;
 
 		& #hamburger-inner {
@@ -410,7 +417,8 @@ input[type='submit'] {
 	}
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:focus-within {
 		&,
 		&::after,
 		&::before {
@@ -464,7 +472,9 @@ input[type='submit'] {
 		border-radius: 5px;
 		transition: width 400ms ease-in-out;
 	}
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		cursor: default;
 
 		&::after {
@@ -531,7 +541,8 @@ input[type='submit'] {
 	}
 
 	& a:hover svg,
-	& a:focus svg{
+	& a:focus svg,
+	& a:focus-within svg{
 		cursor: pointer;
 		color: black;
 		fill: black;
@@ -560,7 +571,9 @@ input[type='submit'] {
 	border-radius: 10px;
 	transition: transform 400ms ease-in-out;
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		transform: scale(1.1);
 		cursor: pointer;
 	}
@@ -677,7 +690,9 @@ input[type='submit'] {
 	position: absolute;
 	transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		color:black;
 		fill:black;
 	}
@@ -807,7 +822,8 @@ footer {
 	transition: opacity 400ms ease-in-out;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:focus-within {
 		&,
 		&::before,
 		&::after {
@@ -849,7 +865,9 @@ footer {
 		fill: rgb(91, 116, 241);
 		transform: scaleX(-1);
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:focus-within {
 			cursor: pointer;
 			fill: black;
 		}
@@ -864,7 +882,9 @@ footer {
 		fill: rgb(91, 116, 241);
 		transform: scaleX(1);
 
-		&:hover {
+		&:hover,
+		&:focus,
+		&:focus-within {
 			fill: rgb(223, 228, 251);
 		}
 	}
@@ -937,7 +957,9 @@ footer {
 }
 
 .dark-social-links {
-	& a:hover svg{
+	& a:hover svg,
+	& a:focus svg,
+	& a:focus-within svg {
 		color: rgb(231, 236, 245);
 		fill: rgb(231, 236, 245);	
 	}
@@ -970,7 +992,8 @@ footer {
 }
 
 .dark-github:hover,
-.dark-github:focus {
+.dark-github:focus,
+.dark-github:focus-within {
 	fill: white;
 }
 
@@ -1005,7 +1028,9 @@ footer {
 	transition: background-color 350ms ease-in-out, 
 				color 350ms ease-in-out;
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:focus-within {
 		background-color: #bcc6e5;
 		color: black;
 	}

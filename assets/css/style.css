@@ -19,11 +19,13 @@ input[type=submit] {
   background-color: #6788ed;
   transition: background-color 350ms ease-in-out;
 }
-button:hover, button:focus,
+button:hover, button:focus, button:focus-within,
 input[type=button]:hover,
 input[type=button]:focus,
+input[type=button]:focus-within,
 input[type=submit]:hover,
-input[type=submit]:focus {
+input[type=submit]:focus,
+input[type=submit]:focus-within {
   background-color: black;
   cursor: pointer;
 }
@@ -213,7 +215,7 @@ input[type=submit]:focus {
   background-color: transparent;
   transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-.navwrapper a:hover::after, .navwrapper a:focus::after {
+.navwrapper a:hover::after, .navwrapper a:focus::after, .navwrapper a:focus-within::after {
   width: 100%;
   background-color: rgb(91, 116, 241);
 }
@@ -289,14 +291,14 @@ input[type=submit]:focus {
   background-color: transparent;
   transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-#hamburger-items a:hover::after, #hamburger-items a:focus::after {
+#hamburger-items a:hover::after, #hamburger-items a:focus::after, #hamburger-items a:focus-within::after {
   width: 100%;
   background-color: white;
 }
 #hamburger-items li {
   z-index: 10000;
 }
-#hamburger-items:hover {
+#hamburger-items:hover, #hamburger-items:focus, #hamburger-items:focus-within {
   opacity: 1;
 }
 #hamburger-items::before {
@@ -335,10 +337,10 @@ input[type=submit]:focus {
   border-radius: 100%;
   position: relative;
 }
-.hamburger-box:hover {
+.hamburger-box:hover, .hamburger-box:focus, .hamburger-box:focus-within {
   cursor: pointer;
 }
-.hamburger-box:hover #hamburger-inner, .hamburger-box:hover #hamburger-inner::before, .hamburger-box:hover #hamburger-inner::after {
+.hamburger-box:hover #hamburger-inner, .hamburger-box:hover #hamburger-inner::before, .hamburger-box:hover #hamburger-inner::after, .hamburger-box:focus #hamburger-inner, .hamburger-box:focus #hamburger-inner::before, .hamburger-box:focus #hamburger-inner::after, .hamburger-box:focus-within #hamburger-inner, .hamburger-box:focus-within #hamburger-inner::before, .hamburger-box:focus-within #hamburger-inner::after {
   opacity: 0.7;
 }
 
@@ -374,7 +376,7 @@ input[type=submit]:focus {
 #hamburger-inner.hamburger-clicked::after, #hamburger-inner.hamburger-clicked::before {
   top: 0px;
 }
-#hamburger-inner:hover, #hamburger-inner:hover::after, #hamburger-inner:hover::before, #hamburger-inner:focus, #hamburger-inner:focus::after, #hamburger-inner:focus::before {
+#hamburger-inner:hover, #hamburger-inner:hover::after, #hamburger-inner:hover::before, #hamburger-inner:focus, #hamburger-inner:focus::after, #hamburger-inner:focus::before, #hamburger-inner:focus-within, #hamburger-inner:focus-within::after, #hamburger-inner:focus-within::before {
   opacity: 0.7;
 }
 
@@ -421,10 +423,10 @@ input[type=submit]:focus {
   border-radius: 5px;
   transition: width 400ms ease-in-out;
 }
-.title:hover {
+.title:hover, .title:focus, .title:focus-within {
   cursor: default;
 }
-.title:hover::after {
+.title:hover::after, .title:focus::after, .title:focus-within::after {
   width: 100%;
 }
 
@@ -481,7 +483,7 @@ input[type=submit]:focus {
   fill: #6788ed;
   transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 }
-.social-links a:hover svg, .social-links a:focus svg {
+.social-links a:hover svg, .social-links a:focus svg, .social-links a:focus-within svg {
   cursor: pointer;
   color: black;
   fill: black;
@@ -508,7 +510,7 @@ input[type=submit]:focus {
   border-radius: 10px;
   transition: transform 400ms ease-in-out;
 }
-.skill-card:hover {
+.skill-card:hover, .skill-card:focus, .skill-card:focus-within {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -618,7 +620,7 @@ input[type=submit]:focus {
   position: absolute;
   transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 }
-.project-github:hover {
+.project-github:hover, .project-github:focus, .project-github:focus-within {
   color: black;
   fill: black;
 }
@@ -747,7 +749,7 @@ footer div p {
   transform: rotate(-135deg);
   transition: opacity 400ms ease-in-out;
 }
-#toTop:hover, #toTop:hover::before, #toTop:hover::after, #toTop:focus, #toTop:focus::before, #toTop:focus::after {
+#toTop:hover, #toTop:hover::before, #toTop:hover::after, #toTop:focus, #toTop:focus::before, #toTop:focus::after, #toTop:focus-within, #toTop:focus-within::before, #toTop:focus-within::after {
   opacity: 0.7;
   cursor: pointer;
 }
@@ -778,7 +780,7 @@ footer div p {
   fill: rgb(91, 116, 241);
   transform: scaleX(-1);
 }
-.darkmode svg:hover {
+.darkmode svg:hover, .darkmode svg:focus, .darkmode svg:focus-within {
   cursor: pointer;
   fill: black;
 }
@@ -789,7 +791,7 @@ footer div p {
   fill: rgb(91, 116, 241);
   transform: scaleX(1);
 }
-.darkmode.darkmodeactive svg:hover {
+.darkmode.darkmodeactive svg:hover, .darkmode.darkmodeactive svg:focus, .darkmode.darkmodeactive svg:focus-within {
   fill: rgb(223, 228, 251);
 }
 
@@ -846,7 +848,7 @@ footer div p {
   background-color: black;
 }
 
-.dark-social-links a:hover svg {
+.dark-social-links a:hover svg, .dark-social-links a:focus svg, .dark-social-links a:focus-within svg {
   color: rgb(231, 236, 245);
   fill: rgb(231, 236, 245);
 }
@@ -877,7 +879,8 @@ footer div p {
 }
 
 .dark-github:hover,
-.dark-github:focus {
+.dark-github:focus,
+.dark-github:focus-within {
   fill: white;
 }
 
@@ -918,7 +921,7 @@ footer div p {
   background-color: #6788ed;
   transition: background-color 350ms ease-in-out, color 350ms ease-in-out;
 }
-.dark-button:hover {
+.dark-button:hover, .dark-button:focus, .dark-button:focus-within {
   background-color: #bcc6e5;
   color: black;
 }
