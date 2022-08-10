@@ -697,13 +697,17 @@ input[type='submit'] {
 	fill:rgb(91, 116, 241);
 	bottom: 0;
 	position: absolute;
-	transition: color 400ms ease-in-out, fill 400ms ease-in-out;
+
+	& svg {
+		transition: fill 400ms ease-in-out;
+	}
 
 	&:hover,
 	&:focus,
 	&:focus-within {
-		color:black;
-		fill:black;
+		& svg {
+			fill:black;
+		}
 	}
 }
 
@@ -1000,9 +1004,9 @@ footer {
 	background-color: #6685e1 !important;
 }
 
-.dark-github:hover,
-.dark-github:focus,
-.dark-github:focus-within {
+.dark-github:hover svg,
+.dark-github:focus svg,
+.dark-github:focus-within svg {
 	fill: white;
 }
 
