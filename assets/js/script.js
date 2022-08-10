@@ -79,7 +79,6 @@ $(window).on('load',() => {
 		loop: true,
 		slidesPerView: 'auto',
 		centeredSlides: true,
-		mousewheel: true,
 		spaceBetween: 75,
 		variableWidth : true,
 		watchSlidesProgress: true,
