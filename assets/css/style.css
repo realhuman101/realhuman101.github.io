@@ -805,14 +805,14 @@ footer div p {
 }
 
 .dark-icon {
-  background-color: #8c9ed2;
+  background-color: #6685e1;
 }
 .dark-icon svg {
   fill: rgb(39, 39, 39);
 }
 
 .dark-section {
-  background-color: #788fd2 !important;
+  background-color: #6685e1 !important;
 }
 
 .dark-input {
