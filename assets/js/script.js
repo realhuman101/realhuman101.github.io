@@ -200,6 +200,8 @@ function darkmode () {
 	$('input[type="button"]').toggleClass('dark-button');
 	$('input[type="submit"]').toggleClass('dark-button');
 
+	$('footer').toggleClass('dark-footer');
+
 	$('.social-links').toggleClass('dark-social-links');
 	$('.about-description').toggleClass('darktitle');
 

@@ -845,6 +845,10 @@ footer div p {
   color: black;
 }
 
+.dark-footer {
+  background-color: #333;
+}
+
 @-webkit-keyframes scrollIndicator {
   0% {
     transform: translate(0, -40px) rotate(45deg);
