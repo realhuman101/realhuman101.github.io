@@ -1,11 +1,15 @@
 $(window).on('load',() => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		darkmode(true);
+	if (window.matchMedia) {
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			darkmode(true);
+		}
+
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+			darkmode(event.matches ? true : false);
+		});
 	}
 
 	$('#loader').fadeOut('fast');
-
-	$('*').css({'transition': 'color 400ms ease-in-out, fill 400ms ease-in-out, background-color 400ms ease-in-out'});
 
 	checkProjectSize();
 
@@ -102,10 +106,6 @@ $(window).on('load',() => {
 	$(window).on('resize', () => {
 		checkProjectSize();
 	})
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-		darkmode(event.matches ? true : false);
-	});
 })
 
 $(window).on('scroll', () => {
