@@ -42,11 +42,11 @@ input[type=submit]:focus {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: white;
+  background-color: inherit;
 }
 #loader div {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   z-index: 1000;
   position: absolute;
   top: 0;
@@ -54,8 +54,8 @@ input[type=submit]:focus {
   left: 0;
   right: 0;
   margin: auto;
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #6788ed;
+  border: 10px solid transparent;
+  border-top: 10px solid #6788ed;
   border-radius: 50%;
   -webkit-animation: spin 2s linear infinite;
           animation: spin 2s linear infinite;
