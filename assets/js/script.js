@@ -213,7 +213,6 @@ function darkmode () {
 	$('.project-card').toggleClass('dark-card');
 	$('.project-title').toggleClass('darktitle');
 	$('.project-description').toggleClass('dark-hyperlink');
-	$('.swiper-pagination-bullet').toggleClass('dark-swiper-pagination');
 
 	$('.contact-card').toggleClass('dark-card');
 	$('.contact-texts').toggleClass('dark-input');
