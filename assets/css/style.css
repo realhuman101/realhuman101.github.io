@@ -310,6 +310,8 @@ input[type=submit]:focus {
   transition: width 500ms ease-in-out;
 }
 #hamburger-items.hamburger-showing a {
+  -webkit-animation: fade-in 300ms ease-in-out;
+          animation: fade-in 300ms ease-in-out;
   opacity: 1;
 }
 #hamburger-items.hamburger-showing::before {
