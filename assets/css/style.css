@@ -836,6 +836,15 @@ footer div p {
   color: rgb(213, 217, 224);
 }
 
+.dark-button {
+  background-color: #6788ed;
+  transition: background-color 350ms ease-in-out, color 350ms ease-in-out;
+}
+.dark-button:hover {
+  background-color: #bcc6e5;
+  color: black;
+}
+
 @-webkit-keyframes scrollIndicator {
   0% {
     transform: translate(0, -40px) rotate(45deg);

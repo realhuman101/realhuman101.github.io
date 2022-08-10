@@ -196,6 +196,10 @@ function darkmode () {
 
 	$('#darkmode').toggleClass('darkmodeactive');
 
+	$('button').toggleClass('dark-button');
+	$('input[type="button"]').toggleClass('dark-button');
+	$('input[type="submit"]').toggleClass('dark-button');
+
 	$('.social-links').toggleClass('dark-social-links');
 	$('.about-description').toggleClass('darktitle');
 

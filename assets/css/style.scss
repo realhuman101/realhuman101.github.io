@@ -926,6 +926,17 @@ footer {
 	}
 }
 
+.dark-button {
+	background-color: #6788ed;
+	transition: background-color 350ms ease-in-out, 
+				color 350ms ease-in-out;
+
+	&:hover {
+		background-color: #bcc6e5;
+		color: black;
+	}
+}
+
 // Keyframes
 @keyframes scrollIndicator {
 	0%   { 
