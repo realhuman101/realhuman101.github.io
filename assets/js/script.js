@@ -1,4 +1,4 @@
-var darkTheme;
+var darkTheme = false;
 
 $(window).on('load',() => {
 	if (window.matchMedia) {
@@ -122,7 +122,7 @@ $(window).on('load',() => {
 		},
 	});
 
-	$('.darkmode').on('click tap', darkmode)
+	$('.darkmode').on('click tap', () => {darkmode()})
 
 	$(window).on('resize', () => {
 		checkProjectSize();
@@ -214,7 +214,7 @@ function scrollToElem(elem) {
 
 function darkmode (theme = 'none') {
 	if (theme == 'none') {
-		darkTheme = darkTheme ? false : true;
+		darkTheme = !(!!(darkTheme));
 
 		$('body').toggleClass('bodydark');
 		$('.title').toggleClass('darktitle');
