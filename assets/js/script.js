@@ -1,3 +1,5 @@
+var darkMode;
+
 $(window).on('load',() => {
 	if (window.matchMedia) {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -63,10 +65,30 @@ $(window).on('load',() => {
 				$('#message').val('')
 			},
 			success: () => {
-				swal("Success!","Message Sent!",'success');
+				if (!(darkMode)) {
+					Swal.fire({title: "Success!",
+							   text: "Message Sent!",
+							   icon: 'success'});
+				} else {
+					Swal.fire({title: "Success!",
+							   text: "Message Sent!",
+							   icon: 'success',
+							   background: '#303030',
+							   color: 'white'});
+				}
 			},
 			error: () => {
-				swal("Oops!","Message failed to send...",'error');
+				if (!(darkMode)) {
+					Swal.fire({title: "Oops...",
+							   text: "Message Failed to Send",
+							   icon: 'error'});
+				} else {
+					Swal.fire({title: "Oops...",
+							   text: "Message Failed to Send",
+							   icon: 'error',
+							   background: '#303030',
+							   color: 'white'});
+				}
 			},
 		});
 	});
@@ -192,6 +214,8 @@ function scrollToElem(elem) {
 
 function darkmode (theme = 'none') {
 	if (theme == 'none') {
+		darkMode = darkMode ? false : true;
+
 		$('body').toggleClass('bodydark');
 		$('.title').toggleClass('darktitle');
 	
@@ -224,6 +248,8 @@ function darkmode (theme = 'none') {
 		$('.contact-card').toggleClass('dark-card');
 		$('.contact-texts').toggleClass('dark-input');
 	} else {
+		darkMode = theme;
+		
 		$('body').toggleClass('bodydark');
 		$('.title').toggleClass('darktitle');
 	
