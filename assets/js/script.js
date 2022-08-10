@@ -1,7 +1,9 @@
 $(window).on('load',() => {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		darkmode();
-	}	
+	}
+
+	$('*').css({'transition': 'color 400ms ease-in-out, fill 400ms ease-in-out, background-color 400ms ease-in-out'});
 
 	$('#loader').fadeOut('fast');
 
