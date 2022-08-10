@@ -739,7 +739,7 @@ footer div p {
   transform: translateY(100%);
 }
 
-#darkmode svg {
+.darkmode svg {
   width: 20px;
   height: 20px;
   padding: 0px;
@@ -747,18 +747,18 @@ footer div p {
   fill: rgb(91, 116, 241);
   transform: scaleX(-1);
 }
-#darkmode svg:hover {
+.darkmode svg:hover {
   cursor: pointer;
   fill: black;
 }
-#darkmode::after, #darkmode::before {
-  display: none;
+.darkmode::after, .darkmode::before {
+  display: none !important;
 }
-#darkmode.darkmodeactive svg {
+.darkmode.darkmodeactive svg {
   fill: rgb(91, 116, 241);
   transform: scaleX(1);
 }
-#darkmode.darkmodeactive svg:hover {
+.darkmode.darkmodeactive svg:hover {
   fill: rgb(223, 228, 251);
 }
 

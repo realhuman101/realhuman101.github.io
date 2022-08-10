@@ -101,7 +101,7 @@ $(window).on('load',() => {
 		},
 	});
 
-	$('#darkmode').on('click tap', darkmode)
+	$('.darkmode').on('click tap', darkmode)
 
 	$(window).on('resize', () => {
 		checkProjectSize();
@@ -201,7 +201,7 @@ function darkmode (theme = 'none') {
 		$('.waves').toggleClass('darkwaves');
 		$('.scroll-indicator').toggleClass('dark-scroll-indicate')
 	
-		$('#darkmode').toggleClass('darkmodeactive');
+		$('.darkmode').toggleClass('darkmodeactive');
 	
 		$('button').toggleClass('dark-button');
 		$('input[type="button"]').toggleClass('dark-button');
@@ -232,7 +232,7 @@ function darkmode (theme = 'none') {
 		$('.waves').toggleClass('darkwaves', theme);
 		$('.scroll-indicator').toggleClass('dark-scroll-indicate', theme);
 	
-		$('#darkmode').toggleClass('darkmodeactive', theme);
+		$('.darkmode').toggleClass('darkmodeactive', theme);
 	
 		$('button').toggleClass('dark-button', theme);
 		$('input[type="button"]').toggleClass('dark-button', theme);

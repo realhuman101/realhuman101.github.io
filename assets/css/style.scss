@@ -813,7 +813,7 @@ footer {
 }
 
 // Dark Mode
-#darkmode {
+.darkmode {
 	& svg {
 		width: 20px;
 		height: 20px;
@@ -830,7 +830,7 @@ footer {
 
 	&::after,
 	&::before {
-		display: none;
+		display: none !important;
 	}
 
 	&.darkmodeactive svg{
