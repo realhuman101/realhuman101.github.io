@@ -3,9 +3,9 @@ $(window).on('load',() => {
 		darkmode();
 	}
 
-	$('*').css({'transition': 'color 400ms ease-in-out, fill 400ms ease-in-out, background-color 400ms ease-in-out'});
-
 	$('#loader').fadeOut('fast');
+
+	$('*').css({'transition': 'color 400ms ease-in-out, fill 400ms ease-in-out, background-color 400ms ease-in-out'});
 
 	checkProjectSize();
 
