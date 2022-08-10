@@ -219,6 +219,7 @@ function darkmode (theme = 'none') {
 		$('.project-card').toggleClass('dark-card');
 		$('.project-title').toggleClass('darktitle');
 		$('.project-description').toggleClass('dark-hyperlink');
+		$('.project-github').toggleClass('dark-github');
 	
 		$('.contact-card').toggleClass('dark-card');
 		$('.contact-texts').toggleClass('dark-input');
@@ -250,6 +251,7 @@ function darkmode (theme = 'none') {
 		$('.project-card').toggleClass('dark-card', theme);
 		$('.project-title').toggleClass('darktitle', theme);
 		$('.project-description').toggleClass('dark-hyperlink', theme);
+		$('.project-github').toggleClass('dark-github', theme);
 	
 		$('.contact-card').toggleClass('dark-card', theme);
 		$('.contact-texts').toggleClass('dark-input', theme);

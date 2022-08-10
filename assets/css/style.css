@@ -876,6 +876,11 @@ footer div p {
   background-color: #6685e1 !important;
 }
 
+.dark-github:hover,
+.dark-github:focus {
+  fill: white;
+}
+
 .dark-input {
   background-color: rgb(72, 72, 72);
   color: rgb(231, 236, 245);
