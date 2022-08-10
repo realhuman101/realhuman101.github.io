@@ -613,6 +613,25 @@ input[type=submit]:focus {
   fill: black;
 }
 
+.project-languages {
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 24px;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.project-languages svg {
+  width: 24px;
+  height: 24px;
+  color: rgb(91, 116, 241);
+  fill: rgb(91, 116, 241);
+}
+
 .contact-card {
   width: 85%;
   height: -webkit-fit-content;

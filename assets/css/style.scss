@@ -672,6 +672,24 @@ input[type='submit'] {
 	}
 }
 
+.project-languages {
+	position: absolute;
+	width: fit-content;
+	height: 24px;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+
+	& svg {
+		width: 24px;
+		height: 24px;
+		color:rgb(91, 116, 241);
+		fill:rgb(91, 116, 241);
+	}
+}
+
 // Contact
 .contact-card {
 	width: 85%;
