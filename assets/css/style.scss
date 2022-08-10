@@ -678,11 +678,16 @@ input[type='submit'] {
 	font-size: 25px;
 	font-weight: 600;
 	color: #3e54c0;
+	user-select: none;
 }
 
-.project-description a {
-	color: #233383;
-	text-decoration: none;
+.project-description {
+	user-select: none;
+
+	& a {
+		color: #233383;
+		text-decoration: none;
+	}
 }
 
 .project-github {

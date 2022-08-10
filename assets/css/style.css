@@ -607,8 +607,18 @@ input[type=submit]:focus-within {
   font-size: 25px;
   font-weight: 600;
   color: #3e54c0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
+.project-description {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 .project-description a {
   color: #233383;
   text-decoration: none;
