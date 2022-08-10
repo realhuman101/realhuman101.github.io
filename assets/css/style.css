@@ -127,24 +127,27 @@ input[type=submit]:focus {
 }
 
 .wave1 use {
+  fill: rgba(255, 255, 255, 0.1);
   -webkit-animation: move-forever1 10s linear infinite;
-  animation: move-forever1 10s linear infinite;
+          animation: move-forever1 10s linear infinite;
   -webkit-animation-delay: -2s;
-  animation-delay: -2s;
+          animation-delay: -2s;
 }
 
 .wave2 use {
+  fill: rgba(255, 255, 255, 0.2);
   -webkit-animation: move-forever2 8s linear infinite;
-  animation: move-forever2 8s linear infinite;
+          animation: move-forever2 8s linear infinite;
   -webkit-animation-delay: -2s;
-  animation-delay: -2s;
+          animation-delay: -2s;
 }
 
 .wave3 use {
+  fill: #fff;
   -webkit-animation: move-forever3 6s linear infinite;
-  animation: move-forever3 6s linear infinite;
+          animation: move-forever3 6s linear infinite;
   -webkit-animation-delay: -2s;
-  animation-delay: -2s;
+          animation-delay: -2s;
 }
 
 .scroll-indicator {
@@ -734,11 +737,103 @@ footer div p {
   display: none;
 }
 #darkmode.darkmodeactive svg {
-  fill: black;
+  fill: rgb(91, 116, 241);
   transform: scaleX(1);
 }
 #darkmode.darkmodeactive svg:hover {
-  fill: rgb(91, 116, 241);
+  fill: rgb(223, 228, 251);
+}
+
+.bodydark {
+  background: black;
+  background-color: black;
+  color: white;
+}
+
+.darktitle {
+  color: rgb(217, 229, 247);
+}
+
+.darkwaves .wave1 use {
+  fill: rgba(30, 30, 30, 0.1);
+}
+.darkwaves .wave2 use {
+  fill: rgba(30, 30, 30, 0.2);
+}
+.darkwaves .wave3 use {
+  fill: rgb(30, 30, 30);
+}
+
+.darknavbar {
+  background-color: rgb(30, 30, 30) !important;
+}
+
+.darkheadtitle {
+  color: black;
+}
+.darkheadtitle a {
+  color: black;
+}
+.darkheadtitle .typewrite > .wrap {
+  border-right: 0.08em solid rgb(31, 31, 31);
+}
+
+.dark-scroll-indicate {
+  border: solid black;
+  border-width: 0px 3.5px 3.5px 0;
+}
+.dark-scroll-indicate::before, .dark-scroll-indicate::after {
+  background-color: black;
+}
+
+.dark-social-links a:hover svg {
+  color: rgb(231, 236, 245);
+  fill: rgb(231, 236, 245);
+}
+
+.dark-card {
+  background-color: rgb(39, 39, 39) !important;
+  color: rgb(196, 201, 230);
+}
+
+.dark-description {
+  color: rgb(196, 201, 230);
+}
+
+.dark-hyperlink a {
+  color: #94a6ff;
+  text-decoration: none;
+}
+
+.dark-icon {
+  background-color: #8c9ed2;
+}
+.dark-icon svg {
+  fill: rgb(39, 39, 39);
+}
+
+.dark-section {
+  background-color: #788fd2 !important;
+}
+
+.dark-input {
+  background-color: rgb(72, 72, 72);
+  color: rgb(231, 236, 245);
+}
+.dark-input::-moz-placeholder {
+  color: rgb(213, 217, 224);
+}
+.dark-input:-ms-input-placeholder {
+  color: rgb(213, 217, 224);
+}
+.dark-input::placeholder {
+  color: rgb(213, 217, 224);
+}
+.dark-input:-ms-input-placeholder {
+  color: rgb(213, 217, 224);
+}
+.dark-input::-ms-input-placeholder {
+  color: rgb(213, 217, 224);
 }
 
 @-webkit-keyframes scrollIndicator {

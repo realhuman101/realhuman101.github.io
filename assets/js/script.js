@@ -1,4 +1,8 @@
 $(window).on('load',() => {
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		darkmode();
+	}	
+
 	$('#loader').fadeOut('fast');
 
 	checkProjectSize();
@@ -91,6 +95,8 @@ $(window).on('load',() => {
 		},
 	});
 
+	$('#darkmode').on('click tap', darkmode)
+
 	$(window).on('resize', () => {
 		checkProjectSize();
 	})
@@ -177,4 +183,31 @@ function scrollToElem(elem) {
 	$('html, body').animate({
 		scrollTop: elem.offset().top - 65
 	}, 500);
+}
+
+function darkmode () {
+	$('body').toggleClass('bodydark');
+	$('.title').toggleClass('darktitle');
+
+	$('.head-title').toggleClass('darkheadtitle');
+	$('#navbar').toggleClass('darknavbar');
+	$('.waves').toggleClass('darkwaves');
+	$('.scroll-indicator').toggleClass('dark-scroll-indicate')
+
+	$('#darkmode').toggleClass('darkmodeactive');
+
+	$('.social-links').toggleClass('dark-social-links');
+	$('.about-description').toggleClass('darktitle');
+
+	$('.skill-card').toggleClass('dark-card');
+	$('.skill-title').toggleClass('dark-description');
+	$('.skill-icon').toggleClass('dark-icon');
+
+	$('#projects').toggleClass('dark-section');
+	$('.project-card').toggleClass('dark-card');
+	$('.project-title').toggleClass('darktitle');
+	$('.project-description').toggleClass('dark-hyperlink');
+
+	$('.contact-card').toggleClass('dark-card');
+	$('.contact-texts').toggleClass('dark-input');
 }
