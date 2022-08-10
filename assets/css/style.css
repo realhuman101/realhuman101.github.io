@@ -263,7 +263,7 @@ input[type=submit]:focus {
   display: none;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
+  gap: 40px;
   align-items: center;
   list-style: none;
   position: absolute;
@@ -316,6 +316,14 @@ input[type=submit]:focus {
   width: 100vw;
   -webkit-animation: grow-width 500ms ease-in-out;
           animation: grow-width 500ms ease-in-out;
+}
+#hamburger-items .darkmode {
+  padding-bottom: 0px;
+}
+#hamburger-items .darkmode svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
 }
 
 .hamburger-box {
