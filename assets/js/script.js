@@ -1,4 +1,4 @@
-var darkMode;
+var darkTheme;
 
 $(window).on('load',() => {
 	if (window.matchMedia) {
@@ -65,7 +65,7 @@ $(window).on('load',() => {
 				$('#message').val('')
 			},
 			success: () => {
-				if (!(darkMode)) {
+				if (!(darkTheme)) {
 					Swal.fire({title: "Success!",
 							   text: "Message Sent!",
 							   icon: 'success'});
@@ -78,7 +78,7 @@ $(window).on('load',() => {
 				}
 			},
 			error: () => {
-				if (!(darkMode)) {
+				if (!(darkTheme)) {
 					Swal.fire({title: "Oops...",
 							   text: "Message Failed to Send",
 							   icon: 'error'});
@@ -214,7 +214,7 @@ function scrollToElem(elem) {
 
 function darkmode (theme = 'none') {
 	if (theme == 'none') {
-		darkMode = darkMode ? false : true;
+		darkTheme = darkTheme ? false : true;
 
 		$('body').toggleClass('bodydark');
 		$('.title').toggleClass('darktitle');
@@ -248,7 +248,7 @@ function darkmode (theme = 'none') {
 		$('.contact-card').toggleClass('dark-card');
 		$('.contact-texts').toggleClass('dark-input');
 	} else {
-		darkMode = theme;
+		darkTheme = theme;
 		
 		$('body').toggleClass('bodydark');
 		$('.title').toggleClass('darktitle');
