@@ -792,6 +792,17 @@ footer div p {
   fill: rgb(30, 30, 30);
 }
 
+@media (max-width: 800px) {
+  .darkwaves .wave1 use {
+    fill: rgba(0, 0, 0, 0.1);
+  }
+  .darkwaves .wave2 use {
+    fill: rgba(0, 0, 0, 0.2);
+  }
+  .darkwaves .wave3 use {
+    fill: rgb(0, 0, 0);
+  }
+}
 .darknavbar {
   background-color: rgb(30, 30, 30) !important;
 }

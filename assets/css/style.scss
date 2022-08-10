@@ -127,13 +127,13 @@ input[type='submit'] {
 }
 
 .wave1 use {
-	fill: rgba(255,255,255, .1);
+	fill: rgba(255, 255, 255, .1);
 	animation: move-forever1 10s linear infinite;
 	animation-delay: -2s;
 }
 
 .wave2 use {
-	fill: rgba(255,255,255, .2);
+	fill: rgba(255, 255, 255, .2);
 	animation: move-forever2 8s linear infinite;
 	animation-delay: -2s;
 }
@@ -875,6 +875,22 @@ footer {
 
 	& .wave3 use {
 		fill: rgb(30, 30, 30);
+	}
+}
+
+@media (max-width: 800px) {
+	.darkwaves {
+		& .wave1 use {
+			fill: rgba(0, 0, 0, .1);
+		}
+
+		& .wave2 use {
+			fill: rgba(0, 0, 0, .2);
+		}
+
+		& .wave3 use {
+			fill: rgb(0, 0, 0);
+		}
 	}
 }
 
