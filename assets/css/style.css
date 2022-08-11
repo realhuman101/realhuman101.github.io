@@ -47,7 +47,7 @@ input[type=submit]:focus-within {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: inherit;
+  background-color: #6788ed;
 }
 #loader div {
   width: 75px;
@@ -60,7 +60,7 @@ input[type=submit]:focus-within {
   right: 0;
   margin: auto;
   border: 10px solid transparent;
-  border-top: 10px solid #6788ed;
+  border-top: 10px solid white;
   border-radius: 50%;
   -webkit-animation: spin 2s linear infinite;
           animation: spin 2s linear infinite;
