@@ -207,9 +207,15 @@ TxtType.prototype.tick = function() {
 };
 
 function scrollToElem(elem) {
-	$('html, body').animate({
-		scrollTop: elem.offset().top - 65
-	}, 500);
+	if ($(window).width() > 800) {
+		$('html, body').animate({
+			scrollTop: elem.offset().top - 65
+		}, 500);
+	} else {
+		$('html, body').animate({
+			scrollTop: elem.offset().top - 5
+		}, 500);
+	}
 }
 
 function darkmode (theme = 'none') {
