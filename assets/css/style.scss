@@ -88,7 +88,7 @@ input[type='submit'] {
 	margin: auto;
 	text-align: center;
 	font-size: 55px;
-	animation: fade-in 700ms ease-in;
+	animation: slide-in 400ms ease-in;
 
 	& * {
 		margin: 0;
@@ -1129,5 +1129,17 @@ footer {
 	}
 	100% {
 		width: 100vw;
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		bottom: 10%;
+	}
+
+	100% {
+		opacity: 1;
+		bottom: 0;
 	}
 }
