@@ -122,15 +122,23 @@ $(window).on('load',() => {
 		},
 	});
 
+	$(() => {
+		$.scrollify({
+			section: '.scrollSect',
+			updateHash: false,
+			offset: -65
+		})
+	})
+
 	$('.darkmode').on('click tap', () => {darkmode()})
 
 	$(window).on('resize', () => {
 		checkProjectSize();
 	})
-})
 
-$(window).on('scroll', () => {
-	checkNavScroll();
+	$(window).on('scroll', () => {
+		checkNavScroll();
+	})
 })
 
 function checkNavScroll() {
