@@ -737,22 +737,47 @@ input[type=submit]:focus-within {
 footer {
   width: 100vw;
   height: 65px;
-  padding: 10px;
+  padding: 30px;
   position: relative;
   background-color: #5a7de9;
 }
 footer div {
   margin: 0 auto;
   width: 80%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
-footer div p {
+footer div a {
   font-size: 15px;
+  height: 15px;
+  line-height: 15px;
   color: white;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  position: relative;
+  bottom: 5px;
+}
+footer div a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: white;
+  border-radius: 10px;
+  bottom: -5.5px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  transition: width 400ms ease-in-out;
+}
+footer div a:hover::before {
+  width: 100%;
 }
 
 #toTop {
-  position: absolute;
   display: block;
   opacity: 1;
   bottom: 20px;
