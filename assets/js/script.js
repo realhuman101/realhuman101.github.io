@@ -123,31 +123,13 @@ $(window).on('load',() => {
 	});
 
 	$(() => {
-		var options = {
+		$.scrollify({
 			section: '.scrollSect',
 			updateHash: false,
 			scrollSpeed: 1000,
 			setHeights: false,
-			before: () => {
-				if ($.scrollify.current().attr('id') == 'home') {
-					options.offset = 0;
-				} else {
-					options.offset = -65;
-				}
-
-				$.scrollify.setOptions(options);
-			},
-			after: () => {
-				if ($.scrollify.current().attr('id') == 'home') {
-					options.offset = -65;
-				} else {
-					options.offset = 0;
-				}
-
-				$.scrollify.setOptions(options);
-			}
-		}
-		$.scrollify(options)
+			offset: 0
+		})
 	})
 
 	$('.darkmode').on('click tap', () => {darkmode()})
