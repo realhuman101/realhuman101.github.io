@@ -97,6 +97,10 @@ $(window).on('load',() => {
 		$('html, body').animate({ scrollTop: 0 }, 500);
 	})
 
+	$('.scroll-indicator').on('click tap', () => {
+		scrollToElem($('#about'));
+	})
+
 	const swiper = new Swiper('.swiper', {
 		loop: true,
 		slidesPerView: 'auto',
