@@ -126,7 +126,8 @@ $(window).on('load',() => {
 		$.scrollify({
 			section: '.scrollSect',
 			updateHash: false,
-			offset: -65
+			offset: -65,
+			scrollSpeed: 1000
 		})
 	})
 
