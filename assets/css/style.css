@@ -247,9 +247,27 @@ input[type=submit]:focus-within {
 .logo {
   margin: auto 0;
   margin-right: auto;
+  position: relative;
+}
+.logo::before {
+  content: attr(data-content);
+  width: 0%;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #5b74f1;
+  color: white;
+  transition: width 400ms ease-in-out;
+}
+.logo::after {
+  content: "";
+  display: none !important;
 }
 .logo:hover {
   cursor: pointer;
+}
+.logo:hover::before {
+  width: 100%;
 }
 
 #nav-hamburger {

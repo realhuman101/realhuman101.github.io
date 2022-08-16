@@ -254,9 +254,29 @@ input[type='submit'] {
 .logo {
 	margin: auto 0;
 	margin-right: auto;
+	position: relative;
+
+	&::before {
+		content: attr(data-content);
+		width: 0%;
+		position: absolute;
+		white-space: nowrap;
+  		overflow: hidden;
+		background-color: #5b74f1;
+		color: white;
+		transition: width 400ms ease-in-out;
+	}
+	&::after {
+		content: '';
+		display: none !important;
+	}
 
 	&:hover {
 		cursor: pointer;
+
+		&::before {
+			width: 100%;
+		}
 	}
 }
 
