@@ -1010,9 +1010,16 @@ footer div {
   0% {
     opacity: 1;
   }
-  100% {
+  80% {
     opacity: 0;
     transform: translateY(46px);
+  }
+  81% {
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
@@ -1020,9 +1027,16 @@ footer div {
   0% {
     opacity: 1;
   }
-  100% {
+  80% {
     opacity: 0;
     transform: translateY(46px);
+  }
+  81% {
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 @-webkit-keyframes up-down {
