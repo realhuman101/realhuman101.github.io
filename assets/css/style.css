@@ -757,8 +757,10 @@ input[type=submit]:focus-within {
 
 footer {
   width: 100vw;
-  height: 65px;
-  padding: 30px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
   position: relative;
   background-color: #5a7de9;
 }
@@ -769,33 +771,9 @@ footer div {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-}
-footer div a {
-  font-size: 15px;
-  height: 15px;
-  line-height: 15px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  display: block;
+  bottom: 0;
+  top: 0;
   position: relative;
-  bottom: 5px;
-}
-footer div a::before {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: white;
-  border-radius: 10px;
-  bottom: -5.5px;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  transition: width 400ms ease-in-out;
-}
-footer div a:hover::before {
-  width: 100%;
 }
 
 #toTop {
@@ -831,6 +809,47 @@ footer div a:hover::before {
   left: -1.75px;
   bottom: 0;
   transform: translateY(100%);
+}
+
+#credits {
+  display: inline;
+  white-space: nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  height: 15px;
+  font-size: 15px;
+  position: relative;
+}
+#credits a {
+  display: inline;
+  font-size: 15px;
+  height: 15px;
+  line-height: 15px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+}
+#credits a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: white;
+  border-radius: 10px;
+  bottom: -5.5px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  transition: width 400ms ease-in-out;
+}
+#credits a:hover {
+  cursor: pointer;
+}
+#credits a:hover::before {
+  width: 100%;
 }
 
 .darkmode svg {
