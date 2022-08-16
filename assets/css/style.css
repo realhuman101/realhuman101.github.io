@@ -67,7 +67,7 @@ input[type=submit]:focus-within {
 }
 
 .head {
-  background: linear-gradient(134deg, rgb(197, 217, 255) 0%, rgb(42, 72, 229) 100%);
+  background: linear-gradient(134deg, rgb(149, 181, 230) 0%, rgb(42, 72, 229) 100%);
   background-size: 250%;
   height: 100vh;
   position: relative;
