@@ -68,8 +68,11 @@ input[type=submit]:focus-within {
 
 .head {
   background: linear-gradient(134deg, #86B0FF 0%, #4961DC 99%);
+  background-size: 200%;
   height: 100vh;
   position: relative;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
 }
 
 .head-title {
@@ -1213,5 +1216,27 @@ footer div {
   }
   100% {
     border-right: 0.08em solid rgb(31, 31, 31);
+  }
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }/*# sourceMappingURL=style.css.map */
