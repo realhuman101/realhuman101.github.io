@@ -158,36 +158,28 @@ input[type=submit]:focus-within {
 
 .scroll-indicator {
   position: absolute;
-  border: solid white;
-  border-width: 0px 3.5px 3.5px 0;
-  border-bottom-right-radius: 3.5px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 70px;
   left: 0;
   right: 0;
   margin: 0 auto;
   bottom: 50px;
-  transform: rotate(45deg);
-  -webkit-animation: scrollIndicator 2s ease-in-out infinite;
-          animation: scrollIndicator 2s ease-in-out infinite;
-}
-.scroll-indicator::before, .scroll-indicator::after {
-  content: "";
-  position: absolute;
-  width: 3.5px;
-  height: 3.5px;
-  background: white;
-  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #fff;
+  border: none;
+  border-radius: 25px;
 }
 .scroll-indicator::before {
-  top: -1.75px;
-  right: 0;
-  transform: translateX(100%);
-}
-.scroll-indicator::after {
-  left: -1.75px;
-  bottom: 0;
-  transform: translateY(100%);
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  -webkit-animation: scrollIndicator 1.5s ease-in-out infinite;
+          animation: scrollIndicator 1.5s ease-in-out infinite;
 }
 
 #navbar {
@@ -926,10 +918,9 @@ footer div {
 }
 
 .dark-scroll-indicate {
-  border: solid black;
-  border-width: 0px 3.5px 3.5px 0;
+  box-shadow: inset 0 0 0 1px black;
 }
-.dark-scroll-indicate::before, .dark-scroll-indicate::after {
+.dark-scroll-indicate::before {
   background-color: black;
 }
 
@@ -1017,29 +1008,21 @@ footer div {
 
 @-webkit-keyframes scrollIndicator {
   0% {
-    transform: translate(0, -40px) rotate(45deg);
-    opacity: 0;
-  }
-  50% {
     opacity: 1;
   }
   100% {
-    transform: rotate(45deg);
     opacity: 0;
+    transform: translateY(46px);
   }
 }
 
 @keyframes scrollIndicator {
   0% {
-    transform: translate(0, -40px) rotate(45deg);
-    opacity: 0;
-  }
-  50% {
     opacity: 1;
   }
   100% {
-    transform: rotate(45deg);
     opacity: 0;
+    transform: translateY(46px);
   }
 }
 @-webkit-keyframes up-down {
