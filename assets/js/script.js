@@ -249,6 +249,8 @@ function darkmode (theme = 'none') {
 
 	$('.darkmode').toggleClass('darkmodeactive', darkTheme);
 
+	$('.logo').toggleClass('dark-logo', darkTheme);
+
 	$('button').toggleClass('dark-button', darkTheme);
 	$('input[type="button"]').toggleClass('dark-button', darkTheme);
 	$('input[type="submit"]').toggleClass('dark-button', darkTheme);

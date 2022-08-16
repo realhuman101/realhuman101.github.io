@@ -263,6 +263,9 @@ input[type=submit]:focus-within {
   content: "";
   display: none !important;
 }
+.logo.dark-logo::before {
+  color: #1e1e1e;
+}
 .logo:hover {
   cursor: pointer;
 }
