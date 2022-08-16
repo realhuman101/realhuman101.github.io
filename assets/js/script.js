@@ -134,6 +134,7 @@ $(window).on('load',() => {
 			updateHash: false,
 			scrollSpeed: 1000,
 			setHeights: false,
+			touchScroll: false,
 			offset: 0
 		})
 	})
