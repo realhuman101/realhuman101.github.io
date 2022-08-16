@@ -11,6 +11,8 @@ $(window).on('load',() => {
 		});
 	}
 
+	checkNavScroll();
+
 	$('#loader').fadeOut('fast');
 
 	checkProjectSize();
