@@ -67,12 +67,12 @@ input[type=submit]:focus-within {
 }
 
 .head {
-  background: linear-gradient(134deg, #86B0FF 0%, #4961DC 99%);
-  background-size: 200%;
+  background: linear-gradient(134deg, rgb(197, 217, 255) 0%, rgb(42, 72, 229) 100%);
+  background-size: 250%;
   height: 100vh;
   position: relative;
-  -webkit-animation: gradient 15s ease infinite;
-          animation: gradient 15s ease infinite;
+  -webkit-animation: gradient 13s ease infinite;
+          animation: gradient 13s ease infinite;
 }
 
 .head-title {

@@ -68,11 +68,11 @@ input[type='submit'] {
 
 // Head Section
 .head {
-	background: linear-gradient(134deg, #86B0FF 0%, #4961DC 99%);
-	background-size: 200%;
+	background: linear-gradient(134deg, rgba(197,217,255,1) 0%, rgba(42,72,229,1) 100%);
+	background-size: 250%;
 	height: 100vh;
 	position: relative;
-	animation: gradient 15s ease infinite;
+	animation: gradient 13s ease infinite;
 }
 
 .head-title {
