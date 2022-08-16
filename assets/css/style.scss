@@ -704,6 +704,23 @@ input[type='submit'] {
 	& a {
 		color: #233383;
 		text-decoration: none;
+		position: relative;
+
+		&::before {
+			content: attr(data-content);
+			width: 0%;
+			overflow: hidden;
+			white-space: nowrap;
+			position: absolute;
+			background-color: #233383;
+			color: white;
+			bottom: 0;
+			left: 0;
+			transition: width 400ms ease-in-out;
+		}
+		&:hover::before {
+			width: 100%;
+		}
 	}
 }
 

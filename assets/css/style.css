@@ -641,6 +641,22 @@ input[type=submit]:focus-within {
 .project-description a {
   color: #233383;
   text-decoration: none;
+  position: relative;
+}
+.project-description a::before {
+  content: attr(data-content);
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  background-color: #233383;
+  color: white;
+  bottom: 0;
+  left: 0;
+  transition: width 400ms ease-in-out;
+}
+.project-description a:hover::before {
+  width: 100%;
 }
 
 .project-github {
