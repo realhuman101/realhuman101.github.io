@@ -117,7 +117,8 @@ input[type='submit'] {
 }
 
 .typewrite > .wrap { 
-	border-right: 0.08em solid #fff
+	border-right: 0.08em solid #fff;
+	animation: blink-border-light .9s ease-in-out infinite;
 }
 
 .waves {
@@ -1023,6 +1024,7 @@ footer {
 
 	& .typewrite > .wrap { 
 		border-right: 0.08em solid rgb(31, 31, 31);
+		animation: blink-border-dark .9s ease-in-out infinite;
 	}
 }
 
@@ -1207,5 +1209,33 @@ footer {
 	100% {
 		opacity: 1;
 		bottom: 0;
+	}
+}
+
+@keyframes blink-border-light {
+	0% {
+		border-right: 0.08em solid #fff;
+	}
+
+	50% {
+		border-right: 0.08em solid transparent;
+	}
+
+	100% {
+		border-right: 0.08em solid #fff;
+	}
+}
+
+@keyframes blink-border-dark {
+	0% {
+		border-right: 0.08em solid rgb(31, 31, 31);
+	}
+
+	50% {
+		border-right: 0.08em solid transparent;
+	}
+
+	100% {
+		border-right: 0.08em solid rgb(31, 31, 31);
 	}
 }

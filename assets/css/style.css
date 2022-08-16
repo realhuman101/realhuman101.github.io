@@ -117,6 +117,8 @@ input[type=submit]:focus-within {
 
 .typewrite > .wrap {
   border-right: 0.08em solid #fff;
+  -webkit-animation: blink-border-light 0.9s ease-in-out infinite;
+          animation: blink-border-light 0.9s ease-in-out infinite;
 }
 
 .waves {
@@ -918,6 +920,8 @@ footer div {
 }
 .darkheadtitle .typewrite > .wrap {
   border-right: 0.08em solid rgb(31, 31, 31);
+  -webkit-animation: blink-border-dark 0.9s ease-in-out infinite;
+          animation: blink-border-dark 0.9s ease-in-out infinite;
 }
 
 .dark-scroll-indicate {
@@ -1167,5 +1171,49 @@ footer div {
   100% {
     opacity: 1;
     bottom: 0;
+  }
+}
+@-webkit-keyframes blink-border-light {
+  0% {
+    border-right: 0.08em solid #fff;
+  }
+  50% {
+    border-right: 0.08em solid transparent;
+  }
+  100% {
+    border-right: 0.08em solid #fff;
+  }
+}
+@keyframes blink-border-light {
+  0% {
+    border-right: 0.08em solid #fff;
+  }
+  50% {
+    border-right: 0.08em solid transparent;
+  }
+  100% {
+    border-right: 0.08em solid #fff;
+  }
+}
+@-webkit-keyframes blink-border-dark {
+  0% {
+    border-right: 0.08em solid rgb(31, 31, 31);
+  }
+  50% {
+    border-right: 0.08em solid transparent;
+  }
+  100% {
+    border-right: 0.08em solid rgb(31, 31, 31);
+  }
+}
+@keyframes blink-border-dark {
+  0% {
+    border-right: 0.08em solid rgb(31, 31, 31);
+  }
+  50% {
+    border-right: 0.08em solid transparent;
+  }
+  100% {
+    border-right: 0.08em solid rgb(31, 31, 31);
   }
 }/*# sourceMappingURL=style.css.map */
