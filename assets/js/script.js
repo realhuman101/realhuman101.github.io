@@ -129,14 +129,16 @@ $(window).on('load',() => {
 	});
 
 	$(() => {
-		$.scrollify({
-			section: '.scrollSect',
-			updateHash: false,
-			scrollSpeed: 1000,
-			setHeights: false,
-			touchScroll: false,
-			offset: 0
-		})
+		if (!(/^((?!chrome|android).)*safari/i.test(navigator.userAgent))) {
+			$.scrollify({
+				section: '.scrollSect',
+				updateHash: false,
+				scrollSpeed: 1000,
+				setHeights: false,
+				touchScroll: false,
+				offset: 0
+			})
+		}
 	})
 
 	$('.darkmode').on('click tap', () => {darkmode()})
