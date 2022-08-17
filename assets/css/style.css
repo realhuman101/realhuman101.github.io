@@ -1034,6 +1034,7 @@ footer div {
 
 @-webkit-keyframes scrollIndicator {
   0% {
+    transform: translateY(0px);
     opacity: 1;
   }
   80% {
@@ -1051,6 +1052,7 @@ footer div {
 
 @keyframes scrollIndicator {
   0% {
+    transform: translateY(0px);
     opacity: 1;
   }
   80% {
