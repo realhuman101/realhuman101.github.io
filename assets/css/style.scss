@@ -188,7 +188,8 @@ input[type='submit'] {
 	justify-content: space-between;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	overflow: hidden;
-	background-color: white;
+	background-color: rgba(255, 255, 255, .8);
+	backdrop-filter: blur(10px);
 }
 
 .navwrapper {
@@ -1021,7 +1022,7 @@ footer {
 }
 
 .darknavbar {
-	background-color: rgb(30, 30, 30) !important;
+	background-color: rgba(30, 30, 30, .8) !important;
 }
 
 .darkheadtitle {
