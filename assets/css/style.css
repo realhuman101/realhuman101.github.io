@@ -596,6 +596,11 @@ input[type=submit]:focus-within {
   filter: blur(0px) !important;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 35px !important;

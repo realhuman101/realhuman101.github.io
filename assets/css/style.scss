@@ -664,6 +664,8 @@ input[type='submit'] {
 
 .swiper-button-next,
 .swiper-button-prev {
+	backdrop-filter: blur(10px);
+
 	&::after {
 		font-size: 35px !important;
 		color:rgb(59, 74, 153);
