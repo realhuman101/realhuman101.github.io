@@ -3,3 +3,4 @@ A Portfolio Website
   
 *You can visit the page **[here](https://realhuman101.github.io)***
  
+> **NOTE:** Works best on Firefox
