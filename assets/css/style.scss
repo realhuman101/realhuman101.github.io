@@ -664,11 +664,15 @@ input[type='submit'] {
 
 .swiper-button-next,
 .swiper-button-prev {
-	backdrop-filter: blur(10px);
+	color: rgb(46, 46, 62) !important;
+
+	&.dark-swiper-button {
+		color: rgb(215, 247, 255) !important;
+	}
 
 	&::after {
 		font-size: 35px !important;
-		color:rgb(59, 74, 153);
+		color: inherit !important;
 	}
 }
 

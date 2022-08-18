@@ -272,6 +272,7 @@ function darkmode (theme = 'none') {
 	$('.project-title').toggleClass('darktitle', darkTheme);
 	$('.project-description').toggleClass('dark-hyperlink', darkTheme);
 	$('.project-github').toggleClass('dark-github', darkTheme);
+	$('.swiper-button-next, .swiper-button-prev').toggleClass('dark-swiper-button', darkTheme);
 
 	$('.contact-card').toggleClass('dark-card', darkTheme);
 	$('.contact-texts').toggleClass('dark-input', darkTheme);

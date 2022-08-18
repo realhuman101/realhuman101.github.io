@@ -598,13 +598,16 @@ input[type=submit]:focus-within {
 
 .swiper-button-next,
 .swiper-button-prev {
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  color: rgb(46, 46, 62) !important;
+}
+.swiper-button-next.dark-swiper-button,
+.swiper-button-prev.dark-swiper-button {
+  color: rgb(215, 247, 255) !important;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 35px !important;
-  color: rgb(59, 74, 153);
+  color: inherit !important;
 }
 
 .swiper-button-next {
