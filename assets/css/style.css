@@ -653,19 +653,18 @@ input[type=submit]:focus-within {
   text-decoration: none;
   position: relative;
 }
-.project-description a::before {
-  content: attr(data-content);
-  width: 0%;
-  overflow: hidden;
-  white-space: nowrap;
+.project-description a::after {
+  content: "";
   position: absolute;
-  background-color: #233383;
-  color: white;
-  bottom: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #394ba8;
   transition: width 400ms ease-in-out;
 }
-.project-description a:hover::before {
+.project-description a:hover::after {
   width: 100%;
 }
 
