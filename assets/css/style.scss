@@ -701,7 +701,24 @@ input[type='submit'] {
 	font-size: 25px;
 	font-weight: 300;
 	color: #3e54c0;
+	width: fit-content;
 	user-select: none;
+	position: relative;
+
+	&::before {
+		content: attr(data-content);
+		width: 0%;
+		position: absolute;
+		white-space: nowrap;
+  		overflow: hidden;
+		background-color: #5b74f1;
+		color: white;
+		transition: width 400ms ease-in-out;
+	}
+	&:hover::before {
+		width: 100%;
+		cursor: pointer;
+	}
 }
 
 .project-description {

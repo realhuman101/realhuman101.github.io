@@ -635,10 +635,28 @@ input[type=submit]:focus-within {
   font-size: 25px;
   font-weight: 300;
   color: #3e54c0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
+}
+.project-title::before {
+  content: attr(data-content);
+  width: 0%;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #5b74f1;
+  color: white;
+  transition: width 400ms ease-in-out;
+}
+.project-title:hover::before {
+  width: 100%;
+  cursor: pointer;
 }
 
 .project-description {
