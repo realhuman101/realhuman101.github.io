@@ -446,15 +446,20 @@ input[type=submit]:focus-within {
   bottom: 4.5px;
   right: -15px;
   z-index: 0;
+  -webkit-animation: blink 950ms ease-in-out infinite;
+          animation: blink 950ms ease-in-out infinite;
   background-color: #86B0FF;
   transition: width 400ms ease-in-out, right 400ms ease-in-out;
 }
 .title:hover, .title:focus, .title:focus-within {
-  cursor: default;
+  cursor: pointer;
 }
 .title:hover::before, .title:focus::before, .title:focus-within::before {
   width: 100%;
   right: 0;
+  -webkit-animation: blink 0ms ease-in-out;
+          animation: blink 0ms ease-in-out;
+  opacity: 1;
 }
 
 .about-content {
@@ -1298,5 +1303,27 @@ footer div {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }/*# sourceMappingURL=style.css.map */
