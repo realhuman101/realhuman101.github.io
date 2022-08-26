@@ -500,10 +500,21 @@ input[type=submit]:focus-within {
   margin-top: 0px;
   width: 24px;
   height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .social-links a svg {
   color: #6788ed;
   fill: #6788ed;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  display: block;
   transition: color 400ms ease-in-out, fill 400ms ease-in-out;
 }
 .social-links a:hover svg, .social-links a:focus svg, .social-links a:focus-within svg {

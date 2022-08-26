@@ -552,10 +552,17 @@ input[type='submit'] {
 		margin-top: 0px;
 		width: 24px;
 		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		& svg {
 			color: #6788ed;
 			fill: #6788ed;
+			width: fit-content;
+			height: fit-content;
+			margin: auto;
+			display: block;
 			transition: color 400ms ease-in-out,
 					fill 400ms ease-in-out;
 		}
