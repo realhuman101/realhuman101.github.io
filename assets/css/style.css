@@ -434,23 +434,27 @@ input[type=submit]:focus-within {
   color: rgb(35, 51, 131);
   font-weight: 100;
   position: relative;
+  z-index: 10;
+  display: block;
 }
-.title::after {
+.title::before {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 3px;
-  bottom: -4.5px;
-  right: 0px;
+  display: block;
+  width: 15px;
+  height: 2px;
+  bottom: 4.5px;
+  right: -15px;
+  z-index: 0;
   background-color: #86B0FF;
-  border-radius: 5px;
-  transition: width 400ms ease-in-out;
+  transition: width 400ms ease-in-out, right 400ms ease-in-out;
 }
 .title:hover, .title:focus, .title:focus-within {
   cursor: default;
 }
-.title:hover::after, .title:focus::after, .title:focus-within::after {
+.title:hover::before, .title:focus::before, .title:focus-within::before {
   width: 100%;
+  right: 0;
 }
 
 .about-content {
@@ -577,8 +581,8 @@ input[type=submit]:focus-within {
   color: white;
   padding-top: 20px;
 }
-#projects h1.title::after {
-  background-color: #a6c9ff;
+#projects h1.title::before {
+  background-color: #dfecff;
 }
 
 .projects {
