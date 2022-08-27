@@ -446,8 +446,6 @@ input[type=submit]:focus-within {
   bottom: 4.5px;
   right: -15px;
   z-index: 0;
-  -webkit-animation: blink 950ms ease-in-out infinite;
-          animation: blink 950ms ease-in-out infinite;
   background-color: #86B0FF;
   transition: width 400ms ease-in-out, right 400ms ease-in-out;
 }
@@ -457,8 +455,6 @@ input[type=submit]:focus-within {
 .title:hover::before, .title:focus::before, .title:focus-within::before {
   width: 100%;
   right: 0;
-  -webkit-animation: blink 0ms ease-in-out;
-          animation: blink 0ms ease-in-out;
   opacity: 1;
 }
 
