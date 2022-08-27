@@ -1,5 +1,7 @@
 var darkTheme = false;
 
+setParticles();
+
 $(window).on('load',() => {
 	if (window.matchMedia) {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -276,4 +278,10 @@ function darkmode (theme = 'none') {
 
 	$('.contact-card').toggleClass('dark-card', darkTheme);
 	$('.contact-texts').toggleClass('dark-input', darkTheme);
+
+	if (darkTheme) {setParticles('./assets/js/particles/dark-particles.json')} else {setParticles()}
+}
+
+function setParticles (path = './assets/js/particles/light-particles.json') {
+	particlesJS.load('home', path);
 }
