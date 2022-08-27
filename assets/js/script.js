@@ -6,6 +6,7 @@ $(window).on('load',() => {
 	if (window.matchMedia) {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			darkmode(true);
+			setParticles('./assets/js/particles/dark-particles.json');
 		}
 
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
