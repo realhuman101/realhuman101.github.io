@@ -659,6 +659,8 @@ input[type=submit]:focus-within {
       -ms-user-select: none;
           user-select: none;
   position: relative;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 .project-title::before {
   content: attr(data-content);
@@ -673,6 +675,17 @@ input[type=submit]:focus-within {
 .project-title:hover::before {
   width: 100%;
   cursor: pointer;
+}
+
+.project-date {
+  padding: 0px;
+  margin: 0px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 300;
+  opacity: 0.85;
+  font-style: italic;
 }
 
 .project-description {

@@ -717,6 +717,8 @@ input[type='submit'] {
 	width: fit-content;
 	user-select: none;
 	position: relative;
+	padding-bottom: 0;
+	margin-bottom: 0;
 
 	&::before {
 		content: attr(data-content);
@@ -732,6 +734,15 @@ input[type='submit'] {
 		width: 100%;
 		cursor: pointer;
 	}
+}
+
+.project-date {
+	padding: 0px;
+	margin: 0px;
+	width: fit-content;
+	font-weight: 300;
+	opacity: .85;
+	font-style: italic;
 }
 
 .project-description {
