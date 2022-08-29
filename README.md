@@ -1,6 +1,6 @@
 # [realhuman101.github.io](https://realhuman101.github.io)
-A Portfolio Website  
-  
-*You can visit the page **[here](https://realhuman101.github.io)***
- 
-> **NOTE:** Works best on Firefox
+A portfolio website showcasing my skillset and projects.  
+Written in plain HTML, SCSS, and jQuery/JavaScript  
+If you decide to use this as a template, please give credit
+***
+Visit the website [here](https://realhuman101.github.io)
