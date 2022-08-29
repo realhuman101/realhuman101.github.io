@@ -686,6 +686,10 @@ input[type=submit]:focus-within {
   font-weight: 300;
   opacity: 0.85;
   font-style: italic;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .project-description {
