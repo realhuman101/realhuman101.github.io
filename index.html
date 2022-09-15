@@ -33,9 +33,9 @@
 		<noscript>This site runs best with JavaScript enabled.</noscript>
 
 		<!-- Loading -->
-		<style>#loader{width:100%;height:100%;position:fixed;z-index:99999;top:0;bottom:0;left:0;right:0;margin:auto;background-color:#6788ed}#loader div{width:75px;height:75px;z-index:1000;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;border:10px solid transparent;border-top:10px solid #fff;border-radius:50%;-webkit-animation:spin 2s linear infinite;animation:spin 2s linear infinite}@-webkit-keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
+		<style>#loader{width:100%;height:100%;position:fixed;display:flex;justify-content:center;align-items:center;z-index:99999;top:0;bottom:0;left:0;right:0;margin:auto;background-color:#6788ed}.loader{display:flex;width:120px;height:60px;margin:auto;position:relative}.loader::before{content:"";position:absolute;display:block;left:0;width:60px;height:60px;margin:0;border-radius:50%;background-color:#344ddb;-webkit-animation:loader1 1.2s linear infinite;animation:loader1 1.2s linear infinite}.loader::after{content:"";position:absolute;display:block;left:50%;width:60px;height:60px;margin:0;border-radius:50%;background-color:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);-webkit-animation:loader2 1.2s linear infinite;animation:loader2 1.2s linear infinite}@-webkit-keyframes loader1{13%{left:0}38%{left:50%}63%{left:50%}88%{left:0}}@keyframes loader1{13%{left:0}38%{left:50%}63%{left:50%}88%{left:0}}@-webkit-keyframes loader2{13%{left:50%}38%{left:0}63%{left:0}88%{left:50%}}@keyframes loader2{13%{left:50%}38%{left:0}63%{left:0}88%{left:50%}}</style>
 		<div id="loader">
-			<div></div>
+			<span class="loader"></span>
 		</div>
 
 		<!-- Page Beginning -->
