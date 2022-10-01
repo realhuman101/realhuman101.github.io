@@ -1147,6 +1147,30 @@ footer {
 	background-color: #333;
 }
 
+// Scroll Hidden
+.hidden {
+	opacity: 0 !important;
+	filter: blur(3px) !important;
+
+	transition: opacity 400ms ease-in-out,
+				filter 300ms ease-in-out;
+
+	&.stagger {
+		transform: translateX(-10%);
+
+		transition: transform 400ms ease-in-out;
+	}
+}
+
+.visible {
+	opacity: 1 !important;
+	filter: blur(0px) !important;
+
+	&.stagger {
+		transform: translateX(0%);
+	}
+}
+
 // Keyframes
 @keyframes scrollIndicator {
 	0%   {

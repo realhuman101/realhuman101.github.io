@@ -1056,6 +1056,24 @@ footer div {
   background-color: #333;
 }
 
+.hidden {
+  opacity: 0 !important;
+  filter: blur(3px) !important;
+  transition: opacity 400ms ease-in-out, filter 300ms ease-in-out;
+}
+.hidden.stagger {
+  transform: translateX(-10%);
+  transition: transform 400ms ease-in-out;
+}
+
+.visible {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+}
+.visible.stagger {
+  transform: translateX(0%);
+}
+
 @-webkit-keyframes scrollIndicator {
   0% {
     transform: translateY(0px);
