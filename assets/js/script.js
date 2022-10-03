@@ -58,12 +58,12 @@ $(window).on('load',() => {
 		$.ajax({
 			url: "https://formspree.io/f/xbjbrwnj", 
 			method: "POST",
+			dataType: "json",
 			data: {
 				email: $('#email').val(),
 				name: $('#name').val(),
 				message: $('#message').val()
 			},
-			dataType: "json",
 			complete: () => {
 				$('#email').val('')
 				$('#name').val('')
