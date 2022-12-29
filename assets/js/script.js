@@ -279,40 +279,44 @@ function darkmode (theme = 'none') {
 		darkTheme = theme;
 	}
 
-	$('body').toggleClass('bodydark', darkTheme);
-	$('.title').toggleClass('darktitle', darkTheme);
+	const elementChanges = [
+		['body', 'bodydark'],
+		['.title', 'darktitle'],
+		
+		['.head-title', 'darkheadtitle'],
+		['#navbar', 'darknavbar'],
+		['.waves', 'darkwaves'],
+		['.scroll-indicator', 'dark-scroll-indicate'],
 
-	$('.head-title').toggleClass('darkheadtitle', darkTheme);
-	$('#navbar').toggleClass('darknavbar', darkTheme);
-	$('.waves').toggleClass('darkwaves', darkTheme);
-	$('.scroll-indicator').toggleClass('dark-scroll-indicate', darkTheme);
+		['.darkmode', 'darkmodeactive'],
+		['.logo', 'dark-logo'],
 
-	$('.darkmode').toggleClass('darkmodeactive', darkTheme);
+		['button', 'dark-button'],
+		['input[type="button"]', 'dark-button'],
+		['input[type="submit"]', 'dark-button'],
 
-	$('.logo').toggleClass('dark-logo', darkTheme);
+		['footer', 'dark-footer'],
+		['.social-links', 'dark-social-links'],
+		['.about-description', 'darktitle'],
 
-	$('button').toggleClass('dark-button', darkTheme);
-	$('input[type="button"]').toggleClass('dark-button', darkTheme);
-	$('input[type="submit"]').toggleClass('dark-button', darkTheme);
+		['.skill-card', 'dark-card'],
+		['.skill-title', 'dark-description'],
+		['.skill-icon', 'dark-icon'],
 
-	$('footer').toggleClass('dark-footer', darkTheme);
+		['#projects', 'dark-section'],
+		['.project-card', 'dark-card'],
+		['.project-title', 'darktitle'],
+		['.project-description', 'dark-hyperlink'],
+		['.project-github', 'dark-github'],
+		['.swiper-button-next, .swiper-button-prev', 'dark-swiper-button'],
 
-	$('.social-links').toggleClass('dark-social-links', darkTheme);
-	$('.about-description').toggleClass('darktitle', darkTheme);
+		['.contact-card', 'dark-card'],
+		['.contact-texts', 'dark-input'],
+	]
 
-	$('.skill-card').toggleClass('dark-card', darkTheme);
-	$('.skill-title').toggleClass('dark-description', darkTheme);
-	$('.skill-icon').toggleClass('dark-icon', darkTheme);
-
-	$('#projects').toggleClass('dark-section', darkTheme);
-	$('.project-card').toggleClass('dark-card', darkTheme);
-	$('.project-title').toggleClass('darktitle', darkTheme);
-	$('.project-description').toggleClass('dark-hyperlink', darkTheme);
-	$('.project-github').toggleClass('dark-github', darkTheme);
-	$('.swiper-button-next, .swiper-button-prev').toggleClass('dark-swiper-button', darkTheme);
-
-	$('.contact-card').toggleClass('dark-card', darkTheme);
-	$('.contact-texts').toggleClass('dark-input', darkTheme);
+	elementChanges.forEach(element => {
+		$(element[0]).toggleClass(element[1], darkTheme);
+	});
 
 	if (darkTheme) {setParticles('./assets/js/particles/dark-particles.json')} else {setParticles()}
 }
