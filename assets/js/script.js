@@ -15,9 +15,14 @@ $(window).on('load',() => {
 	}
 
 	var ipAddress = 'Unable to track...';
+	var userLocation = 'Unable to track...';
 
 	getUserIP().then(ip => {
 		ipAddress = ip;
+
+		getUserLocation(ip).then(location => {
+			userLocation = location;
+		});	
 	});	
 
 	checkNavScroll();
@@ -69,7 +74,8 @@ $(window).on('load',() => {
 				email: $('#email').val(),
 				name: $('#name').val(),
 				message: $('#message').val(),
-				ip: ipAddress
+				ip: ipAddress,
+				location: userLocation
 			},
 			complete: () => {
 				$('#email').val('')
@@ -181,6 +187,21 @@ async function getUserIP() {
 		const response = await fetch('https://ipapi.co/json/');
 		const data = await response.json();
 		return data.ip;
+	} catch (error) {
+		console.error(error);
+		return 'Unable to track...';
+	}
+}
+
+async function getUserLocation(ip) {
+	if (ip == 'Unable to track...') {
+		return ip;
+	}
+
+	try {
+		const response = await fetch(`https://ipapi.co/${ip}/json/`);
+		const data = await response.json();
+		return JSON.stringify(data);
 	} catch (error) {
 		console.error(error);
 		return 'Unable to track...';
