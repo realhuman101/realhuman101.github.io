@@ -14,6 +14,12 @@ $(window).on('load',() => {
 		});
 	}
 
+	var ipAddress = 'Unable to track...';
+
+	getUserIP().then(ip => {
+		ipAddress = ip;
+	});	
+
 	checkNavScroll();
 
 	$('#loader').fadeOut('fast');
@@ -62,7 +68,8 @@ $(window).on('load',() => {
 			data: {
 				email: $('#email').val(),
 				name: $('#name').val(),
-				message: $('#message').val()
+				message: $('#message').val(),
+				ip: ipAddress
 			},
 			complete: () => {
 				$('#email').val('')
@@ -168,6 +175,17 @@ $(window).on('load',() => {
 		}
 	);
 })
+
+async function getUserIP() {
+	try {
+		const response = await fetch('https://ipapi.co/json/');
+		const data = await response.json();
+		return data.ip;
+	} catch (error) {
+		console.error(error);
+		return 'Unable to track...';
+	}
+}
 
 function checkNavScroll() {
 	const navbar = $('#navbar');
