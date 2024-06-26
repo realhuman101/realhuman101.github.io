@@ -6,7 +6,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const backgroundColor = new THREE.Color('rgb(67, 177, 232)');
+const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
@@ -15,7 +15,7 @@ const light1 = new THREE.DirectionalLight(0x888888, 12)
 light1.position.set(10, 1000, 15)
 scene.add(light1)
 
-const light2 = new THREE.AmbientLight(0xaaaaaa, 2)
+const light2 = new THREE.AmbientLight(0x999999, 1)
 light2.position.set(10, 1000, 15)
 scene.add(light2)
 
