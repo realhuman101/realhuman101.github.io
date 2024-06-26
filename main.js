@@ -106,6 +106,8 @@ function ( error ) {
 loader.load('assets/models/Nameplate.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	gltf.scene.rotateZ(degToRad(180))
+
+	gltf.scene.position.set(10, 9.5, -65)
 	scene.add(gltf.scene);
 
 	nameplate = gltf;
