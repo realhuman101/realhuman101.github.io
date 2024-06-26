@@ -1,6 +1,21 @@
-/*# sourceMappingURL=style.css.map */
-
 html,
 body {
-	margin: 0;
+  margin: 0;
 }
+
+#loading {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+}
+#loading * {
+  font-family: "VT323";
+  color: rgb(244, 255, 241);
+  padding: 10px;
+  margin: auto;
+}/*# sourceMappingURL=style.css.map */
