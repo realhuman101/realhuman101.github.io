@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { rotate } from 'three/examples/jsm/nodes/Nodes.js';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -12,9 +11,13 @@ const backgroundColor = new THREE.Color('rgb(67, 177, 232)');
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
-const light = new THREE.AmbientLight(0x888888, 12)
-light.position.set(10, 1000, 15)
-scene.add(light)
+const light1 = new THREE.DirectionalLight(0x888888, 12)
+light1.position.set(10, 1000, 15)
+scene.add(light1)
+
+const light2 = new THREE.AmbientLight(0xaaaaaa, 2)
+light2.position.set(10, 1000, 15)
+scene.add(light2)
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
 
@@ -26,7 +29,6 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
-var desk = null;
 var desk = null;
 var cup = null;
 var laptop = null
@@ -56,6 +58,7 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 // Load in cup
 loader.load('assets/models/Cup.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
+	gltf.scene.rotateZ(degToRad(-90))
 	scene.add(gltf.scene);
 
 	cup = gltf;
@@ -77,9 +80,11 @@ function ( error ) {
 // Load in laptop
 loader.load('assets/models/Laptop.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
+
+	gltf.scene.position.set(0,9.5,-20)
 	scene.add(gltf.scene);
 
-	laptop = gltf;
+	globalThis.laptop = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -98,6 +103,7 @@ function ( error ) {
 // Load in nameplate
 loader.load('assets/models/Nameplate.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
+	gltf.scene.rotateZ(degToRad(180))
 	scene.add(gltf.scene);
 
 	nameplate = gltf;
@@ -129,13 +135,14 @@ function onWindowResize() {
 }
 
 function animate() {
-
 	requestAnimationFrame(animate );
 
 	// required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
 
 	renderer.render(scene, camera);
+
+	// console.log(laptop.scene.position)
 }
 
 renderer.setAnimationLoop(animate)
