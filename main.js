@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { rotate } from 'three/examples/jsm/nodes/Nodes.js';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -21,8 +22,13 @@ const controls = new OrbitControls( camera, renderer.domElement );
 
 const loader = new GLTFLoader();
 
+function degToRad(degrees) {
+	return degrees * (Math.PI / 180)
+}
+
 // Load in desk
 loader.load('assets/models/Desk.glb', (gltf) => {
+		gltf.scene.rotateX(degToRad(270))
 		scene.add(gltf.scene);
 	},
 	// called while loading is progressing
@@ -41,6 +47,7 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 
 // Load in cup
 loader.load('assets/models/Cup.glb', (gltf) => {
+	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
 },
 // called while loading is progressing
@@ -59,6 +66,7 @@ function ( error ) {
 
 // Load in laptop
 loader.load('assets/models/Laptop.glb', (gltf) => {
+	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
 },
 // called while loading is progressing
@@ -114,7 +122,7 @@ function animate() {
 
 	renderer.render(scene, camera);
 
-	console.log(camera.position)
+	// console.log(camera.position)
 
 }
 
