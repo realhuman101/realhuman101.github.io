@@ -39,6 +39,60 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 	}
 )
 
+// Load in cup
+loader.load('assets/models/Cup.glb', (gltf) => {
+	scene.add(gltf.scene);
+},
+// called while loading is progressing
+function ( xhr ) {
+
+	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in laptop
+loader.load('assets/models/Laptop.glb', (gltf) => {
+	scene.add(gltf.scene);
+},
+// called while loading is progressing
+function ( xhr ) {
+
+	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in nameplate
+loader.load('assets/models/Nameplate.glb', (gltf) => {
+	scene.add(gltf.scene);
+},
+// called while loading is progressing
+function ( xhr ) {
+
+	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
 //controls.update() must be called after any manual changes to the camera's transform
 camera.position.set(-0.03, 0.859, 1.59);
 controls.update();
