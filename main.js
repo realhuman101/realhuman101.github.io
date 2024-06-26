@@ -85,6 +85,7 @@ function ( error ) {
 
 // Load in nameplate
 loader.load('assets/models/Nameplate.glb', (gltf) => {
+	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
 },
 // called while loading is progressing
