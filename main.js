@@ -127,7 +127,13 @@ function ( error ) {
 )
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set(-0.03, 0.859, 1.59);
+camera.position.set(10, 40, 10); //{ x: 13.54063716107861, y: 32.331714351441335, z: 8.103838827399384 }
+
+const cameraVectorDirection = new THREE.Vector3(10,9.5,-20)
+
+controls.target = cameraVectorDirection;
+camera.lookAt(cameraVectorDirection);
+
 controls.update();
 
 window.addEventListener('resize', onWindowResize, false)
@@ -151,3 +157,5 @@ function animate() {
 
 renderer.setAnimationLoop(animate)
 animate()
+
+globalThis.camera = camera
