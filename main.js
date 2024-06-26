@@ -11,7 +11,7 @@ const backgroundColor = new THREE.Color('rgb(67, 177, 232)');
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
-const light = new THREE.PointLight(0xffffff, 1000)
+const light = new THREE.PointLight(0xffffff, 1000000)
 light.position.set(10, 130, 15)
 scene.add(light)
 
@@ -22,7 +22,7 @@ const controls = new OrbitControls( camera, renderer.domElement );
 const loader = new GLTFLoader();
 
 // Load in desk
-loader.load('assets/models/Desk.gltf', (gltf) => {
+loader.load('assets/models/Desk.glb', (gltf) => {
 		scene.add(gltf.scene);
 	},
 	// called while loading is progressing
