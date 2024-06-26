@@ -40,7 +40,7 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 )
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set( 0, 20, 100 );
+camera.position.set(-0.03, 0.859, 1.59);
 controls.update();
 
 window.addEventListener('resize', onWindowResize, false)
@@ -59,6 +59,8 @@ function animate() {
 	controls.update();
 
 	renderer.render(scene, camera);
+
+	console.log(camera.position)
 
 }
 
