@@ -26,10 +26,18 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
+var desk = null;
+var desk = null;
+var cup = null;
+var laptop = null
+var nameplate = null;
+
 // Load in desk
 loader.load('assets/models/Desk.glb', (gltf) => {
 		gltf.scene.rotateX(degToRad(270))
 		scene.add(gltf.scene);
+
+		desk = gltf;
 	},
 	// called while loading is progressing
 	function ( xhr ) {
@@ -49,6 +57,8 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 loader.load('assets/models/Cup.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
+
+	cup = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -68,6 +78,8 @@ function ( error ) {
 loader.load('assets/models/Laptop.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
+
+	laptop = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -87,6 +99,8 @@ function ( error ) {
 loader.load('assets/models/Nameplate.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	scene.add(gltf.scene);
+
+	nameplate = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -122,9 +136,6 @@ function animate() {
 	controls.update();
 
 	renderer.render(scene, camera);
-
-	// console.log(camera.position)
-
 }
 
 renderer.setAnimationLoop(animate)
