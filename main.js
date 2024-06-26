@@ -59,6 +59,8 @@ loader.load('assets/models/Desk.glb', (gltf) => {
 loader.load('assets/models/Cup.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	gltf.scene.rotateZ(degToRad(-90))
+
+	gltf.scene.position.set(-16,9.5,-30)
 	scene.add(gltf.scene);
 
 	cup = gltf;
