@@ -86,6 +86,39 @@ function checkLoaded() {
 	loadingMenu.style.display = 'flex'
 }
 
+function loadGLTF(fileName, name) {
+	loader.load('assets/models/'+fileName, (gltf) => {
+		scene.add(gltf.scene);
+
+		gltf.scene.traverse( function ( object ) {
+
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
+
+		} );
+
+		return gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = name.charAt(0).toUpperCase() + name.slice(1) + ' ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+		document.getElementById(name).textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.error( 'An error happened when loading ' + name, error );
+
+	})
+
+}
+
 // ------------
 // = PROJECTS =
 // ------------
@@ -136,382 +169,30 @@ var projects = [ // name, github, link, tech, date, desc
 
 var amtProjects = projects.length;
 
+// ---------------
+// = LOAD ASSETS =
+// ---------------
+
 // ASSET VARIABLES
-var chair = null;
-var desk = null;
-var plant = null;
-var clock = null;
-var paperTray = null;
-var paper = null;
-var board = null;
-var computer = null;
-var walls = null;
-var drawerMain = null;
-var drawer = null;
+var chair = loadGLTF('Chair.glb', 'chair');
+var desk = loadGLTF('MainDesk.glb', 'desk');
+var plant = loadGLTF('Plant.glb', 'chair');
+var clock = loadGLTF('Clock.glb', 'chair');
+var paperTray = loadGLTF('PaperTray.glb', 'paperTray');
+var paper = loadGLTF('Paper.glb', 'paper');
+var board = loadGLTF('NoteBoard.glb', 'board');
+var computer = loadGLTF('Computer.glb', 'computer');
+var walls = loadGLTF('Walls.glb', 'walls');
+var drawerMain = loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain');
+var drawer = loadGLTF('/Drawer/Drawer.glb', 'drawer');
 var files = [];
-
-// ---------------------
-// = LOADING IN MODELS =
-// ---------------------
-
-// === DESK ===
-loader.load('assets/models/MainDesk.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		desk = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Desk ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('desk').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === CHAIR ===
-loader.load('assets/models/Chair.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-	
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-	
-		} );
-
-		chair = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Chair ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('chair').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-		console.log( 'An error happened', error );
-	}
-)
-
-// === PAPER TRAY ===
-loader.load('assets/models/PaperTray.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		paperTray = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Paper Tray ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('paperTray').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-		console.log( 'An error happened', error );
-	}
-)
-
-// === PAPERS ===
-loader.load('assets/models/Paper.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		paper = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Paper ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('paper').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-		console.log( 'An error happened', error );
-	}
-)
-
-// === PLANT ===
-loader.load('assets/models/Plant.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		plant = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Plant ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('plant').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === CLOCK ===
-loader.load('assets/models/Clock.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		clock = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('clock').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === BOARD ===
-loader.load('assets/models/NoteBoard.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		board = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Board ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('board').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === COMPUTER ===
-loader.load('assets/models/Computer.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		computer = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Computer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('computer').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// ===== WALLS =====
 
 // FLOOR
 var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xa3a3a3, depthWrite: true } ) );
 floor.rotation.x = - Math.PI / 2;
 floor.position.set(0, 0.02, 0)
 floor.receiveShadow = true;
-scene.add( floor );
-
-// WALLS
-loader.load('assets/models/Walls.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.recieveShadow = true;
-			};
-
-		} );
-
-		
-		walls = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Walls ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('walls').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === DRAWER CONTAINER ===
-loader.load('assets/models/Drawer/CabinetContainer.glb', (gltf) => {
-		scene.add(gltf.scene);
-		
-		drawerMain = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Drawer Container ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('drawerMain').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === DRAWER ===
-loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
-		scene.add(gltf.scene);
-
-		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) {
-				object.castShadow = true
-				object.recieveShadow = true;
-			};
-
-		} );
-		
-		drawer = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		let message = 'Drawer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-		document.getElementById('drawer').textContent = message;
-
-		if ((xhr.loaded / xhr.total) == 1) {
-			checkLoaded()
-		}
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened', error );
-
-	}
-)
-
-// === FILES ===
+scene.add( floor );// === FILES ===
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		gltf.scene.traverse( function ( object ) {
 			if ( object.isMesh ) {
