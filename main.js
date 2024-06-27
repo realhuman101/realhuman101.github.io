@@ -97,6 +97,7 @@ var chair = null;
 var desk = null;
 var plant = null
 var clock = null;
+var board = null;
 var computer = null;
 var walls = null;
 var drawerMain = null;
@@ -184,6 +185,30 @@ function ( xhr ) {
 	let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('clock').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in board
+loader.load('assets/models/NoteBoard.glb', (gltf) => {
+	scene.add(gltf.scene);
+
+	board = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Board ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('board').textContent = message;
 
 	if ((xhr.loaded / xhr.total) == 1) {
 		checkLoaded()
@@ -373,6 +398,7 @@ globalThis.desk = desk
 globalThis.chair = chair
 globalThis.plant = plant
 globalThis.clock = clock
+globalThis.board = board
 globalThis.computer = computer
 globalThis.walls = walls
 globalThis.drawerMain = drawerMain
