@@ -29,11 +29,18 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
+// var projects = [
+// 	{'name' : "Automated Wildfile Prediction"}
+// ]
+
 var chair = null;
 var desk = null;
 var plant = null
 var clock = null;
 var computer = null;
+var walls = null;
+var drawerMain = null;
+var drawer = null;
 
 // Load in desk
 loader.load('assets/models/MainDesk.glb', (gltf) => {
@@ -43,9 +50,9 @@ loader.load('assets/models/MainDesk.glb', (gltf) => {
 },
 // called while loading is progressing
 function ( xhr ) {
+	let message = 'Desk ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
+	document.getElementById('desk').textContent = message;
 },
 // called when loading has errors
 function ( error ) {
@@ -63,7 +70,9 @@ loader.load('assets/models/Chair.glb', (gltf) => {
 	},
 	// called while loading is progressing
 	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		let message = 'Chair ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+		document.getElementById('chair').textContent = message;
 	},
 	// called when loading has errors
 	function ( error ) {
@@ -79,9 +88,9 @@ loader.load('assets/models/Plant.glb', (gltf) => {
 },
 // called while loading is progressing
 function ( xhr ) {
+	let message = 'Plant ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
+	document.getElementById('plant').textContent = message;
 },
 // called when loading has errors
 function ( error ) {
@@ -99,9 +108,9 @@ loader.load('assets/models/Clock.glb', (gltf) => {
 },
 // called while loading is progressing
 function ( xhr ) {
+	let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
+	document.getElementById('clock').textContent = message;
 },
 // called when loading has errors
 function ( error ) {
@@ -119,9 +128,49 @@ loader.load('assets/models/Computer.glb', (gltf) => {
 },
 // called while loading is progressing
 function ( xhr ) {
+	let message = 'Computer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	document.getElementById('computer').textContent = message;
+},
+// called when loading has errors
+function ( error ) {
 
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in walls
+loader.load('assets/models/Walls.glb', (gltf) => {
+	scene.add(gltf.scene);
+	
+	walls = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Walls ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('walls').textContent = message;
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in drawer container
+loader.load('assets/models/Drawer/CabinetContainer.glb', (gltf) => {
+	scene.add(gltf.scene);
+	
+	drawerMain = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Drawer Container ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('drawerMain').textContent = message;
 },
 // called when loading has errors
 function ( error ) {
