@@ -1,23 +1,24 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { all } from 'three/examples/jsm/nodes/Nodes.js';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+
+renderer.shadowMap.enabled = true;
 
 const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
-const light1 = new THREE.DirectionalLight(0x888888, 12)
-light1.position.set(0, 20, 5)
+const light1 = new THREE.PointLight(0xffffff, 10000) //3
+light1.position.set(5, 50, 20)
 scene.add(light1)
 
-const light2 = new THREE.AmbientLight(0xffffff, 2)
-light2.position.set(0, 20, 5)
+const light2 = new THREE.AmbientLight(0x333333, 20)
+light2.position.set(5, 50, 20)
 scene.add(light2)
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
@@ -28,6 +29,15 @@ const loader = new GLTFLoader();
 
 function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
+}
+
+function gltfEnableShadows(gltf) {
+	gltf.scene.traverse(function (child) {
+		if (child.isMesh) {
+		  	child.castShadow = true;
+		}
+	});
+	return gltf
 }
 
 function checkLoaded() {
@@ -106,7 +116,18 @@ var files = [];
 
 // Load in desk
 loader.load('assets/models/MainDesk.glb', (gltf) => {
+	gltf.scene.traverse(function (child) {
+		if (child.isMesh) {
+		  	child.castShadow = true;
+		}
+	});
 	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) object.castShadow = true;
+
+	} );
 
 	desk = gltf;
 },
@@ -130,6 +151,7 @@ function ( error ) {
 
 // Load in chair
 loader.load('assets/models/Chair.glb', (gltf) => {
+		gltf = gltfEnableShadows(gltf)
 		scene.add(gltf.scene);
 
 		chair = gltf;
@@ -247,8 +269,27 @@ function ( error ) {
 )
 
 // Load in walls
+
+// FLOOR
+var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshPhongMaterial( { color: 0xcbcbcb, depthWrite: true } ) );
+floor.rotation.x = - Math.PI / 2;
+floor.position.set(0, 0.02, 0)
+floor.receiveShadow = true;
+scene.add( floor );
+
+// WALLS
 loader.load('assets/models/Walls.glb', (gltf) => {
 	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
+
 	
 	walls = gltf;
 },
@@ -395,6 +436,9 @@ globalThis.THREE = THREE
 globalThis.controls = controls
 globalThis.renderer = renderer
 globalThis.camera = camera
+
+globalThis.light1 = light1
+globalThis.light2 = light2
 
 globalThis.desk = desk
 globalThis.chair = chair
