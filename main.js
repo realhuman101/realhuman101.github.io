@@ -116,11 +116,6 @@ var files = [];
 
 // Load in desk
 loader.load('assets/models/MainDesk.glb', (gltf) => {
-	gltf.scene.traverse(function (child) {
-		if (child.isMesh) {
-		  	child.castShadow = true;
-		}
-	});
 	scene.add(gltf.scene);
 
 	gltf.scene.traverse( function ( object ) {
@@ -153,6 +148,12 @@ function ( error ) {
 loader.load('assets/models/Chair.glb', (gltf) => {
 		gltf = gltfEnableShadows(gltf)
 		scene.add(gltf.scene);
+
+		gltf.scene.traverse( function ( object ) {
+
+			if ( object.isMesh ) object.castShadow = true;
+	
+		} );
 
 		chair = gltf;
 	},
@@ -271,7 +272,7 @@ function ( error ) {
 // Load in walls
 
 // FLOOR
-var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshPhongMaterial( { color: 0xcbcbcb, depthWrite: true } ) );
+var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xa3a3a3, depthWrite: true } ) );
 floor.rotation.x = - Math.PI / 2;
 floor.position.set(0, 0.02, 0)
 floor.receiveShadow = true;
