@@ -16,8 +16,8 @@ const light1 = new THREE.DirectionalLight(0x888888, 12)
 light1.position.set(0, 20, 5)
 scene.add(light1)
 
-const light2 = new THREE.AmbientLight(0x999999, 3)
-light2.position.set(10, 1000, 15)
+const light2 = new THREE.AmbientLight(0xffffff, 2)
+light2.position.set(0, 20, 5)
 scene.add(light2)
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
@@ -45,10 +45,51 @@ function checkLoaded() {
 	loadingMenu.style.display = 'none'
 }
 
-// var projects = [
-// 	{'name' : "Automated Wildfile Prediction"}
-// ]
+// all projects
+var projects = [ // name, github, link, tech, date, desc
+	{
+		'name' : 'LionelLogin',
+		'github' : 'https://github.com/realhuman101/LionelLogin',
+		'link' : 'https://github.com/realhuman101/LionelLogin?tab=readme-ov-file#lionellogin',
+		'tech' : ['Javascript', 'HTML', 'CSS'],
+		'date' : '6/3/2022',
+		'desc' : 'A customizable Chrome/Firefox extension allowing users to automatically sign-in to the KGV School website, Lionel2'
+	},
+	{
+		'name' : 'Wordle Clone',
+		'github' : 'https://github.com/realhuman101/wordle',
+		'link' : 'https://realhuman101.github.io/wordle/',
+		'tech' : ['Javascript', 'HTML', 'CSS'],
+		'date' : '11/3/2022',
+		'desc' : 'A clone of the famous New york Times game Wordle, re-created in pure HTML, CSS and Javascript'
+	},
+	{
+		'name' : 'Flashcard Revision Software',
+		'github' : 'https://github.com/realhuman101/FRS',
+		'link' : 'https://github.com/realhuman101/FRS?tab=readme-ov-file#frs---flashcard-revision-software-',
+		'tech' : ['Javascript', 'HTML', 'CSS', 'Electron.JS'],
+		'date' : '28/7/2022',
+		'desc' : 'FRS (Flashcard Revision Software) is an application dedicated to assisting students in learning, through the use of electronic flashcards users can create.'
+	},
+	{
+		'name' : "Automated Wildfile Prediction",
+		'github' : 'https://github.com/realhuman101/AWP',
+		'link': 'https://github.com/realhuman101/AWP?tab=readme-ov-file#awp---automated-wildfire-prediction',
+		'tech' : ['Python', 'Tensorflow'],
+		'date': '27/11/2022',
+		'desc' : "AWP (Automated Wildfire Prediction) is a Python-based project that uses machine learning and Tensorflow to predict and prevent wildfires."
+	},
+	{
+		'name' : "Quantum Minigolf",
+		'github' : 'https://github.com/QC2023-Group-3/QuantumMinigolf',
+		'link': 'https://github.com/QC2023-Group-3/QuantumMinigolf?tab=readme-ov-file#quantum-minigolf',
+		'tech' : ['Python', 'PyGame'],
+		'date': '25/11/2023',
+		'desc' : "Quantum Minigolf reinvents the traditional game of minigolf by incorporating quantum mechanics principles, featuring a golf ball with quantum behavior distinct from classical physics."
+	},
+]
 
+// assets
 var chair = null;
 var desk = null;
 var plant = null
