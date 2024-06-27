@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { all } from 'three/examples/jsm/nodes/Nodes.js';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -29,6 +30,21 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
+function checkLoaded() {
+	let allAssets = document.getElementsByClassName('loadingText')
+
+	for (let i = 0; i < allAssets.length; ++i) {
+		let asset = allAssets[i]
+
+		if (!(asset.textContent.includes("100%"))) {
+			return
+		}
+	}
+
+	let loadingMenu = document.getElementById('loading')
+	loadingMenu.style.display = 'none'
+}
+
 // var projects = [
 // 	{'name' : "Automated Wildfile Prediction"}
 // ]
@@ -41,6 +57,7 @@ var computer = null;
 var walls = null;
 var drawerMain = null;
 var drawer = null;
+var files = [];
 
 // Load in desk
 loader.load('assets/models/MainDesk.glb', (gltf) => {
@@ -53,6 +70,10 @@ function ( xhr ) {
 	let message = 'Desk ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('desk').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
@@ -73,6 +94,10 @@ loader.load('assets/models/Chair.glb', (gltf) => {
 		let message = 'Chair ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 		document.getElementById('chair').textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
 	},
 	// called when loading has errors
 	function ( error ) {
@@ -91,6 +116,10 @@ function ( xhr ) {
 	let message = 'Plant ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('plant').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
@@ -111,6 +140,10 @@ function ( xhr ) {
 	let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('clock').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
@@ -131,6 +164,10 @@ function ( xhr ) {
 	let message = 'Computer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('computer').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
@@ -151,6 +188,10 @@ function ( xhr ) {
 	let message = 'Walls ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('walls').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
@@ -171,6 +212,34 @@ function ( xhr ) {
 	let message = 'Drawer Container ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 	document.getElementById('drawerMain').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in drawer
+loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
+	scene.add(gltf.scene);
+	
+	drawer = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Drawer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('drawer').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
 },
 // called when loading has errors
 function ( error ) {
