@@ -68,6 +68,7 @@ function degToRad(degrees) {
 }
 
 function checkLoaded() {
+	console.log('checking')
 	let allAssets = document.getElementsByClassName('loadingText')
 
 	for (let i = 0; i < allAssets.length; ++i) {
@@ -176,8 +177,8 @@ var amtProjects = projects.length;
 // ASSET VARIABLES
 var chair = loadGLTF('Chair.glb', 'chair');
 var desk = loadGLTF('MainDesk.glb', 'desk');
-var plant = loadGLTF('Plant.glb', 'chair');
-var clock = loadGLTF('Clock.glb', 'chair');
+var plant = loadGLTF('Plant.glb', 'plant');
+var clock = loadGLTF('Clock.glb', 'clock');
 var paperTray = loadGLTF('PaperTray.glb', 'paperTray');
 var paper = loadGLTF('Paper.glb', 'paper');
 var board = loadGLTF('NoteBoard.glb', 'board');
@@ -192,7 +193,9 @@ var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshS
 floor.rotation.x = - Math.PI / 2;
 floor.position.set(0, 0.02, 0)
 floor.receiveShadow = true;
-scene.add( floor );// === FILES ===
+scene.add( floor );
+
+// FILES 
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		gltf.scene.traverse( function ( object ) {
 			if ( object.isMesh ) {
@@ -217,7 +220,7 @@ loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 	// called when loading has errors
 	function ( error ) {
 
-		console.log( 'An error happened', error );
+		console.log( 'An error happened when loading files', error );
 
 	}
 )
