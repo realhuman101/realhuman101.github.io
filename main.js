@@ -302,11 +302,10 @@ for (let i = 0; i < amtProjects; i++) {
 	mainElem.appendChild(folderElem)
 		
 	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
-		scene.add(gltf.scene);
-
 		gltf.scene.position.set(0,0,-position);
+		scene.add(gltf.scene);
 		
-		drawer = gltf;
+		files.push(gltf);
 	},
 	// called while loading is progressing
 	function ( xhr ) {
