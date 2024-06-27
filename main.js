@@ -87,7 +87,9 @@ var projects = [ // name, github, link, tech, date, desc
 		'date': '25/11/2023',
 		'desc' : "Quantum Minigolf reinvents the traditional game of minigolf by incorporating quantum mechanics principles, featuring a golf ball with quantum behavior distinct from classical physics."
 	},
-]
+];
+
+var amtProjects = projects.length;
 
 // assets
 var chair = null;
@@ -289,6 +291,47 @@ function ( error ) {
 
 }
 )
+
+// Load in project files
+let position = 0;
+for (let i = 0; i < amtProjects; i++) {
+	let mainElem = document.getElementById('loading')
+	let folderElem = document.createElement('h2')
+	folderElem.classList.add('loadingText')
+	folderElem.setAttribute('id', 'file'+(i+1))
+	mainElem.appendChild(folderElem)
+		
+	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
+		scene.add(gltf.scene);
+
+		gltf.scene.position.set(0,0,-position);
+		
+		drawer = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'File #' + (i+1) + ' ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+		document.getElementById('file' + (i+1)).textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			let elem = document.getElementById('stopper')
+			if (elem !== null) {
+				elem.remove()
+			}
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
+	}
+	)
+
+	position = position + 10;
+}
 
 //controls.update() must be called after any manual changes to the camera's transform
 camera.position.set(3.87, 2.75, 2.80);
