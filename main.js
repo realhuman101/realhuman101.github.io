@@ -512,53 +512,34 @@ loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
 )
 
 // === FILES ===
-let filePos = 0;
-for (let i = 0; i < amtProjects; i++) {
-	let mainElem = document.getElementById('loading')
-	let folderElem = document.createElement('h2')
-	folderElem.classList.add('loadingText')
-	folderElem.setAttribute('id', 'file'+(i+1))
-	mainElem.appendChild(folderElem)
-		
-	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
-			gltf.scene.position.set(0,0,-filePos);
-			scene.add(gltf.scene);
+loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
+		gltf.scene.traverse( function ( object ) {
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-			gltf.scene.traverse( function ( object ) {
-		
-				if ( object.isMesh ) {
-					object.castShadow = true
-					object.recieveShadow = true;
-				};
-		
-			} );
-			
-			files.push(gltf);
-		},
-		// called while loading is progressing
-		function ( xhr ) {
-			let message = 'File #' + (i+1) + ' ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		} );
 
-			document.getElementById('file' + (i+1)).textContent = message;
-
-			if ((xhr.loaded / xhr.total) == 1) {
-				let elem = document.getElementById('stopper')
-				if (elem !== null) {
-					elem.remove()
-				}
-				checkLoaded()
-			}
-		},
-		// called when loading has errors
-		function ( error ) {
-
-			console.log( 'An error happened', error );
-
+		for (let i = 0; i < amtProjects; i++) {
+			let newFolder = gltf.scene.clone(); // clone obj
+			newFolder.position.set(0,0, i*-10) //make each folder -10 px away from each other
+			files.push(newFolder) // add file to files list
 		}
-	)
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'File ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	filePos = filePos + 1;
-}
+		document.getElementById('file').textContent = message;
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
+	}
+)
 
 // ----------
 // = CAMERA =
