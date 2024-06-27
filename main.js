@@ -132,9 +132,9 @@ function ( error ) {
 )
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set(10, 40, 10); //{ x: 13.54063716107861, y: 32.331714351441335, z: 8.103838827399384 }
+camera.position.set(3.87, 2.75, 2.80);
 
-const cameraVectorDirection = new THREE.Vector3(10,9.5,-20)
+const cameraVectorDirection = new THREE.Vector3(0,0,0)
 
 controls.target = cameraVectorDirection;
 camera.lookAt(cameraVectorDirection);
