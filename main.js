@@ -105,8 +105,10 @@ var amtProjects = projects.length;
 // assets
 var chair = null;
 var desk = null;
-var plant = null
+var plant = null;
 var clock = null;
+var paperTray = null;
+var paper = null;
 var board = null;
 var computer = null;
 var walls = null;
@@ -171,6 +173,64 @@ loader.load('assets/models/Chair.glb', (gltf) => {
 	function ( error ) {
 		console.log( 'An error happened', error );
 	}
+)
+
+// Load in paper tray
+loader.load('assets/models/PaperTray.glb', (gltf) => {
+	gltf = gltfEnableShadows(gltf)
+	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) object.castShadow = true;
+
+	} );
+
+	paperTray = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Paper Tray ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('paperTray').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
+},
+// called when loading has errors
+function ( error ) {
+	console.log( 'An error happened', error );
+}
+)
+
+// Load in papers
+loader.load('assets/models/Paper.glb', (gltf) => {
+	gltf = gltfEnableShadows(gltf)
+	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) object.castShadow = true;
+
+	} );
+
+	paper = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+	let message = 'Paper ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+	document.getElementById('paper').textContent = message;
+
+	if ((xhr.loaded / xhr.total) == 1) {
+		checkLoaded()
+	}
+},
+// called when loading has errors
+function ( error ) {
+	console.log( 'An error happened', error );
+}
 )
 
 // Load in plant
