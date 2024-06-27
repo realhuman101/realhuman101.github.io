@@ -29,41 +29,37 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
+var chair = null;
 var desk = null;
-var cup = null;
-var laptop = null
-var nameplate = null;
+var plant = null
+var clock = null;
 
-// Load in desk
-loader.load('assets/models/Desk.glb', (gltf) => {
+// Load in chair
+loader.load('assets/models/Chair.glb', (gltf) => {
 		gltf.scene.rotateX(degToRad(270))
 		scene.add(gltf.scene);
 
-		desk = gltf;
+		chair = gltf;
 	},
 	// called while loading is progressing
 	function ( xhr ) {
-
 		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
 	},
 	// called when loading has errors
 	function ( error ) {
-
 		console.log( 'An error happened', error );
-
 	}
 )
 
-// Load in cup
-loader.load('assets/models/Cup.glb', (gltf) => {
+// Load in desk
+loader.load('assets/models/MainDesk.glb', (gltf) => {
 	gltf.scene.rotateX(degToRad(270))
 	gltf.scene.rotateZ(degToRad(-90))
 
 	gltf.scene.position.set(-16,9.5,-30)
 	scene.add(gltf.scene);
 
-	cup = gltf;
+	desk = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -79,14 +75,14 @@ function ( error ) {
 }
 )
 
-// Load in laptop
-loader.load('assets/models/Laptop.glb', (gltf) => {
-	gltf.scene.rotateX(degToRad(270))
+// Load in plant
+loader.load('assets/models/Plant.glb', (gltf) => {
+	// gltf.scene.rotateX(degToRad(270))
 
 	gltf.scene.position.set(0,9.5,-20)
 	scene.add(gltf.scene);
 
-	globalThis.laptop = gltf;
+	plant = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
@@ -102,15 +98,12 @@ function ( error ) {
 }
 )
 
-// Load in nameplate
-loader.load('assets/models/Nameplate.glb', (gltf) => {
-	gltf.scene.rotateX(degToRad(270))
-	gltf.scene.rotateZ(degToRad(180))
-
+// Load in clock
+loader.load('assets/models/Clock.glb', (gltf) => {
 	gltf.scene.position.set(10, 9.5, -65)
 	scene.add(gltf.scene);
 
-	nameplate = gltf;
+	clock = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
