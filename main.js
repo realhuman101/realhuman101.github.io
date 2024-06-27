@@ -18,6 +18,18 @@ const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
+// -------------
+// = RAYCASTER =
+// -------------
+
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
+function onPointerMove(event) {
+	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+}
+
 // ------------
 // = LIGHTING =
 // ------------
@@ -572,6 +584,8 @@ function onWindowResize() {
 // -----------
 
 function animate() {
+	raycaster.setFromCamera( pointer, camera );
+
 	requestAnimationFrame(animate );
 
 	// required if controls.enableDamping or controls.autoRotate are set to true
@@ -579,6 +593,8 @@ function animate() {
 
 	renderer.render(scene, camera);
 }
+
+window.addEventListener( 'pointermove', onPointerMove );
 
 renderer.setAnimationLoop(animate)
 animate()
