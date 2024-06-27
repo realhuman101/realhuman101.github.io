@@ -78,6 +78,9 @@ function checkLoaded() {
 		}
 	}
 
+	let loadingText = document.getElementById('loadingText')
+	loadingText.textContent = 'LOADING COMPLETE'
+
 	let loadingMenu = document.getElementById('continue')
 	loadingMenu.parentNode.appendChild(loadingMenu);
 	loadingMenu.style.display = 'flex'
