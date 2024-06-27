@@ -7,17 +7,25 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
-const light1 = new THREE.PointLight(0xffffff, 10000) //3
+const light1 = new THREE.DirectionalLight(0xffffff, 3) //3
 light1.position.set(5, 50, 20)
+light1.castShadow = true;
+// light1.shadow.camera.top = .4;
+// light1.shadow.camera.bottom = -.4;
+// light1.shadow.camera.left = -.4;
+// light1.shadow.camera.right = .4;
+// light1.shadow.camera.near = 0.1;
+// light1.shadow.camera.far = 5;
 scene.add(light1)
 
-const light2 = new THREE.AmbientLight(0x333333, 20)
+const light2 = new THREE.HemisphereLight(0x333333, 20)
 light2.position.set(5, 50, 20)
 scene.add(light2)
 
@@ -122,7 +130,10 @@ loader.load('assets/models/MainDesk.glb', (gltf) => {
 
 	gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) object.castShadow = true;
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
 
 	} );
 
@@ -148,12 +159,14 @@ function ( error ) {
 
 // Load in chair
 loader.load('assets/models/Chair.glb', (gltf) => {
-		gltf = gltfEnableShadows(gltf)
 		scene.add(gltf.scene);
 
 		gltf.scene.traverse( function ( object ) {
-
-			if ( object.isMesh ) object.castShadow = true;
+	
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 	
 		} );
 
@@ -177,12 +190,14 @@ loader.load('assets/models/Chair.glb', (gltf) => {
 
 // Load in paper tray
 loader.load('assets/models/PaperTray.glb', (gltf) => {
-	gltf = gltfEnableShadows(gltf)
 	scene.add(gltf.scene);
 
 	gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) object.castShadow = true;
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
 
 	} );
 
@@ -206,12 +221,14 @@ function ( error ) {
 
 // Load in papers
 loader.load('assets/models/Paper.glb', (gltf) => {
-	gltf = gltfEnableShadows(gltf)
 	scene.add(gltf.scene);
 
 	gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) object.castShadow = true;
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
 
 	} );
 
@@ -237,6 +254,15 @@ function ( error ) {
 loader.load('assets/models/Plant.glb', (gltf) => {
 	scene.add(gltf.scene);
 
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
+
 	plant = gltf;
 },
 // called while loading is progressing
@@ -260,6 +286,15 @@ function ( error ) {
 // Load in clock
 loader.load('assets/models/Clock.glb', (gltf) => {
 	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
 
 	clock = gltf;
 },
@@ -285,6 +320,15 @@ function ( error ) {
 loader.load('assets/models/NoteBoard.glb', (gltf) => {
 	scene.add(gltf.scene);
 
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
+
 	board = gltf;
 },
 // called while loading is progressing
@@ -308,6 +352,15 @@ function ( error ) {
 // Load in computer
 loader.load('assets/models/Computer.glb', (gltf) => {
 	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
 
 	computer = gltf;
 },
@@ -345,7 +398,6 @@ loader.load('assets/models/Walls.glb', (gltf) => {
 	gltf.scene.traverse( function ( object ) {
 
 		if ( object.isMesh ) {
-			object.castShadow = true
 			object.recieveShadow = true;
 		};
 
@@ -399,6 +451,15 @@ function ( error ) {
 // Load in drawer
 loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
 	scene.add(gltf.scene);
+
+	gltf.scene.traverse( function ( object ) {
+
+		if ( object.isMesh ) {
+			object.castShadow = true
+			object.recieveShadow = true;
+		};
+
+	} );
 	
 	drawer = gltf;
 },
@@ -432,6 +493,15 @@ for (let i = 0; i < amtProjects; i++) {
 	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		gltf.scene.position.set(0,0,-filePos);
 		scene.add(gltf.scene);
+
+		gltf.scene.traverse( function ( object ) {
+	
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
+	
+		} );
 		
 		files.push(gltf);
 	},
