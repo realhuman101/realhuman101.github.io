@@ -569,6 +569,16 @@ const cameraVectorDirection = new THREE.Vector3(0,0,0)
 controls.target = cameraVectorDirection;
 camera.lookAt(cameraVectorDirection);
 
+globalThis.helper = false;
+let helperExist = false;
+
+if (globalThis.helper) {
+	const helper = new THREE.CameraHelper( light1.shadow.camera ); // add a helper
+	scene.add( helper );
+
+	helperExist = true;
+}
+
 controls.update();
 
 window.addEventListener('resize', onWindowResize, false)
@@ -592,6 +602,13 @@ function animate() {
 	controls.update();
 
 	renderer.render(scene, camera);
+
+	if (!(helperExist) && globalThis.helper) {
+		const helper = new THREE.CameraHelper( light1.shadow.camera ); // add a helper
+		scene.add( helper );
+
+		helperExist = true;
+	} 
 }
 
 window.addEventListener( 'pointermove', onPointerMove );
