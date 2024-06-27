@@ -12,10 +12,10 @@ const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
 const light1 = new THREE.DirectionalLight(0x888888, 12)
-light1.position.set(10, 1000, 15)
+light1.position.set(0, 20, 5)
 scene.add(light1)
 
-const light2 = new THREE.AmbientLight(0x999999, 1)
+const light2 = new THREE.AmbientLight(0x999999, 3)
 light2.position.set(10, 1000, 15)
 scene.add(light2)
 
