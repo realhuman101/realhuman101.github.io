@@ -39,15 +39,6 @@ function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
 }
 
-function gltfEnableShadows(gltf) {
-	gltf.scene.traverse(function (child) {
-		if (child.isMesh) {
-		  	child.castShadow = true;
-		}
-	});
-	return gltf
-}
-
 function checkLoaded() {
 	let allAssets = document.getElementsByClassName('loadingText')
 
