@@ -2,6 +2,10 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
+// ------------
+// = RENDERER =
+// ------------
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
@@ -14,6 +18,10 @@ const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
+// ------------
+// = LIGHTING =
+// ------------
+
 const light1 = new THREE.DirectionalLight(0xffffff, 3) //3
 light1.position.set(5, 50, 20)
 light1.castShadow = true;
@@ -25,15 +33,23 @@ light1.castShadow = true;
 // light1.shadow.camera.far = 5;
 scene.add(light1)
 
-const light2 = new THREE.HemisphereLight(0x333333, 20)
+const light2 = new THREE.HemisphereLight(0x333333, 55)
 light2.position.set(5, 50, 20)
 scene.add(light2)
+
+// ------------
+// = CONTROLS =
+// ------------
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
 
 const controls = new OrbitControls( camera, renderer.domElement );
 
 const loader = new GLTFLoader();
+
+// -------------
+// = FUNCTIONS =
+// -------------
 
 function degToRad(degrees) {
 	return degrees * (Math.PI / 180)
@@ -54,6 +70,10 @@ function checkLoaded() {
 	loadingMenu.parentNode.appendChild(loadingMenu);
 	loadingMenu.style.display = 'flex'
 }
+
+// ------------
+// = PROJECTS =
+// ------------
 
 // all projects
 var projects = [ // name, github, link, tech, date, desc
@@ -101,7 +121,7 @@ var projects = [ // name, github, link, tech, date, desc
 
 var amtProjects = projects.length;
 
-// assets
+// ASSET VARIABLES
 var chair = null;
 var desk = null;
 var plant = null;
@@ -115,40 +135,44 @@ var drawerMain = null;
 var drawer = null;
 var files = [];
 
-// Load in desk
+// ---------------------
+// = LOADING IN MODELS =
+// ---------------------
+
+// === DESK ===
 loader.load('assets/models/MainDesk.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	desk = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Desk ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		desk = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Desk ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('desk').textContent = message;
+		document.getElementById('desk').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
 	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
 )
 
-// Load in chair
+// === CHAIR ===
 loader.load('assets/models/Chair.glb', (gltf) => {
 		scene.add(gltf.scene);
 
@@ -179,201 +203,201 @@ loader.load('assets/models/Chair.glb', (gltf) => {
 	}
 )
 
-// Load in paper tray
+// === PAPER TRAY ===
 loader.load('assets/models/PaperTray.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	paperTray = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Paper Tray ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		paperTray = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Paper Tray ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('paperTray').textContent = message;
+		document.getElementById('paperTray').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened', error );
 	}
-},
-// called when loading has errors
-function ( error ) {
-	console.log( 'An error happened', error );
-}
 )
 
-// Load in papers
+// === PAPERS ===
 loader.load('assets/models/Paper.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	paper = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Paper ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		paper = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Paper ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('paper').textContent = message;
+		document.getElementById('paper').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened', error );
 	}
-},
-// called when loading has errors
-function ( error ) {
-	console.log( 'An error happened', error );
-}
 )
 
-// Load in plant
+// === PLANT ===
 loader.load('assets/models/Plant.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	plant = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Plant ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		plant = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Plant ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('plant').textContent = message;
+		document.getElementById('plant').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
 	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
 )
 
-// Load in clock
+// === CLOCK ===
 loader.load('assets/models/Clock.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	clock = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		clock = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Clock ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('clock').textContent = message;
+		document.getElementById('clock').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
 	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
 )
 
-// Load in board
+// === BOARD ===
 loader.load('assets/models/NoteBoard.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	board = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Board ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		board = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Board ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('board').textContent = message;
+		document.getElementById('board').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
 	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
 )
 
-// Load in computer
+// === COMPUTER ===
 loader.load('assets/models/Computer.glb', (gltf) => {
-	scene.add(gltf.scene);
+		scene.add(gltf.scene);
 
-	gltf.scene.traverse( function ( object ) {
+		gltf.scene.traverse( function ( object ) {
 
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
 
-	} );
+		} );
 
-	computer = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Computer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		computer = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Computer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-	document.getElementById('computer').textContent = message;
+		document.getElementById('computer').textContent = message;
 
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
 	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
 )
 
-// Load in walls
+// ===== WALLS =====
 
 // FLOOR
 var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xa3a3a3, depthWrite: true } ) );
@@ -384,129 +408,26 @@ scene.add( floor );
 
 // WALLS
 loader.load('assets/models/Walls.glb', (gltf) => {
-	scene.add(gltf.scene);
-
-	gltf.scene.traverse( function ( object ) {
-
-		if ( object.isMesh ) {
-			object.recieveShadow = true;
-		};
-
-	} );
-
-	
-	walls = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Walls ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-	document.getElementById('walls').textContent = message;
-
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
-	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
-)
-
-// Load in drawer container
-loader.load('assets/models/Drawer/CabinetContainer.glb', (gltf) => {
-	scene.add(gltf.scene);
-	
-	drawerMain = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Drawer Container ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-	document.getElementById('drawerMain').textContent = message;
-
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
-	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
-)
-
-// Load in drawer
-loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
-	scene.add(gltf.scene);
-
-	gltf.scene.traverse( function ( object ) {
-
-		if ( object.isMesh ) {
-			object.castShadow = true
-			object.recieveShadow = true;
-		};
-
-	} );
-	
-	drawer = gltf;
-},
-// called while loading is progressing
-function ( xhr ) {
-	let message = 'Drawer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
-
-	document.getElementById('drawer').textContent = message;
-
-	if ((xhr.loaded / xhr.total) == 1) {
-		checkLoaded()
-	}
-},
-// called when loading has errors
-function ( error ) {
-
-	console.log( 'An error happened', error );
-
-}
-)
-
-// Load in project files
-let filePos = 0;
-for (let i = 0; i < amtProjects; i++) {
-	let mainElem = document.getElementById('loading')
-	let folderElem = document.createElement('h2')
-	folderElem.classList.add('loadingText')
-	folderElem.setAttribute('id', 'file'+(i+1))
-	mainElem.appendChild(folderElem)
-		
-	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
-		gltf.scene.position.set(0,0,-filePos);
 		scene.add(gltf.scene);
 
 		gltf.scene.traverse( function ( object ) {
-	
+
 			if ( object.isMesh ) {
-				object.castShadow = true
 				object.recieveShadow = true;
 			};
-	
+
 		} );
+
 		
-		files.push(gltf);
+		walls = gltf;
 	},
 	// called while loading is progressing
 	function ( xhr ) {
-		let message = 'File #' + (i+1) + ' ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+		let message = 'Walls ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
-		document.getElementById('file' + (i+1)).textContent = message;
+		document.getElementById('walls').textContent = message;
 
 		if ((xhr.loaded / xhr.total) == 1) {
-			let elem = document.getElementById('stopper')
-			if (elem !== null) {
-				elem.remove()
-			}
 			checkLoaded()
 		}
 	},
@@ -516,10 +437,117 @@ for (let i = 0; i < amtProjects; i++) {
 		console.log( 'An error happened', error );
 
 	}
+)
+
+// === DRAWER CONTAINER ===
+loader.load('assets/models/Drawer/CabinetContainer.glb', (gltf) => {
+		scene.add(gltf.scene);
+		
+		drawerMain = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Drawer Container ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+		document.getElementById('drawerMain').textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
+	}
+)
+
+// === DRAWER ===
+loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
+		scene.add(gltf.scene);
+
+		gltf.scene.traverse( function ( object ) {
+
+			if ( object.isMesh ) {
+				object.castShadow = true
+				object.recieveShadow = true;
+			};
+
+		} );
+		
+		drawer = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		let message = 'Drawer ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+		document.getElementById('drawer').textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened', error );
+
+	}
+)
+
+// === FILES ===
+let filePos = 0;
+for (let i = 0; i < amtProjects; i++) {
+	let mainElem = document.getElementById('loading')
+	let folderElem = document.createElement('h2')
+	folderElem.classList.add('loadingText')
+	folderElem.setAttribute('id', 'file'+(i+1))
+	mainElem.appendChild(folderElem)
+		
+	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
+			gltf.scene.position.set(0,0,-filePos);
+			scene.add(gltf.scene);
+
+			gltf.scene.traverse( function ( object ) {
+		
+				if ( object.isMesh ) {
+					object.castShadow = true
+					object.recieveShadow = true;
+				};
+		
+			} );
+			
+			files.push(gltf);
+		},
+		// called while loading is progressing
+		function ( xhr ) {
+			let message = 'File #' + (i+1) + ' ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
+
+			document.getElementById('file' + (i+1)).textContent = message;
+
+			if ((xhr.loaded / xhr.total) == 1) {
+				let elem = document.getElementById('stopper')
+				if (elem !== null) {
+					elem.remove()
+				}
+				checkLoaded()
+			}
+		},
+		// called when loading has errors
+		function ( error ) {
+
+			console.log( 'An error happened', error );
+
+		}
 	)
 
 	filePos = filePos + 1;
 }
+
+// ----------
+// = CAMERA =
+// ----------
 
 //controls.update() must be called after any manual changes to the camera's transform
 camera.position.set(3.87, 2.75, 2.80);
@@ -539,6 +567,10 @@ function onWindowResize() {
     // render()
 }
 
+// -----------
+// = ANIMATE =
+// -----------
+
 function animate() {
 	requestAnimationFrame(animate );
 
@@ -552,7 +584,10 @@ renderer.setAnimationLoop(animate)
 animate()
 
 
-//debugging
+// -------------
+// = DEBUGGING =
+// -------------
+
 globalThis.THREE = THREE
 
 globalThis.controls = controls
@@ -567,6 +602,8 @@ globalThis.chair = chair
 globalThis.plant = plant
 globalThis.clock = clock
 globalThis.board = board
+globalThis.paperTray = paperTray
+globalThis.paper = paper
 globalThis.computer = computer
 globalThis.walls = walls
 globalThis.drawerMain = drawerMain
