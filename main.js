@@ -271,7 +271,7 @@ function ( error ) {
 
 // Load in drawer
 loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
-	// scene.add(gltf.scene);
+	scene.add(gltf.scene);
 	
 	drawer = gltf;
 },
@@ -358,11 +358,23 @@ function animate() {
 	controls.update();
 
 	renderer.render(scene, camera);
-
-	// console.log(laptop.scene.position)
 }
 
 renderer.setAnimationLoop(animate)
 animate()
 
+
+//debugging
+globalThis.controls = controls
+globalThis.renderer = renderer
 globalThis.camera = camera
+
+globalThis.desk = desk
+globalThis.chair = chair
+globalThis.plant = plant
+globalThis.clock = clock
+globalThis.computer = computer
+globalThis.walls = walls
+globalThis.drawerMain = drawerMain
+globalThis.drawer = drawer
+globalThis.files = files
