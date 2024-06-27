@@ -33,30 +33,10 @@ var chair = null;
 var desk = null;
 var plant = null
 var clock = null;
-
-// Load in chair
-loader.load('assets/models/Chair.glb', (gltf) => {
-		gltf.scene.rotateX(degToRad(270))
-		scene.add(gltf.scene);
-
-		chair = gltf;
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	},
-	// called when loading has errors
-	function ( error ) {
-		console.log( 'An error happened', error );
-	}
-)
+var computer = null;
 
 // Load in desk
 loader.load('assets/models/MainDesk.glb', (gltf) => {
-	gltf.scene.rotateX(degToRad(270))
-	gltf.scene.rotateZ(degToRad(-90))
-
-	gltf.scene.position.set(-16,9.5,-30)
 	scene.add(gltf.scene);
 
 	desk = gltf;
@@ -75,11 +55,24 @@ function ( error ) {
 }
 )
 
+// Load in chair
+loader.load('assets/models/Chair.glb', (gltf) => {
+		scene.add(gltf.scene);
+
+		chair = gltf;
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened', error );
+	}
+)
+
 // Load in plant
 loader.load('assets/models/Plant.glb', (gltf) => {
-	// gltf.scene.rotateX(degToRad(270))
-
-	gltf.scene.position.set(0,9.5,-20)
 	scene.add(gltf.scene);
 
 	plant = gltf;
@@ -100,10 +93,29 @@ function ( error ) {
 
 // Load in clock
 loader.load('assets/models/Clock.glb', (gltf) => {
-	gltf.scene.position.set(10, 9.5, -65)
 	scene.add(gltf.scene);
 
 	clock = gltf;
+},
+// called while loading is progressing
+function ( xhr ) {
+
+	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+// called when loading has errors
+function ( error ) {
+
+	console.log( 'An error happened', error );
+
+}
+)
+
+// Load in computer
+loader.load('assets/models/Computer.glb', (gltf) => {
+	scene.add(gltf.scene);
+
+	computer = gltf;
 },
 // called while loading is progressing
 function ( xhr ) {
