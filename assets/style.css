@@ -53,6 +53,7 @@ h2.loadingText {
 }
 #continue h3 {
   display: block;
+  padding-left: 10px;
 }
 #continue h3 a {
   color: rgb(147, 242, 255);
