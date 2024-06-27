@@ -25,4 +25,40 @@ h2.loadingText {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   padding-left: 20px !important;
+}
+
+#continue {
+  width: 100%;
+  flex-direction: column;
+}
+#continue button {
+  padding: 10px;
+  fill: none;
+  background-color: black;
+  border: 2px solid rgb(244, 255, 241);
+  border-radius: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: rgb(244, 255, 241);
+  font-family: monospace;
+  font-size: 25px;
+  transition: background-color 150ms ease-in-out;
+}
+#continue button:hover {
+  background-color: rgb(244, 255, 241);
+  color: black;
+  cursor: pointer;
+}
+#continue h3 {
+  display: block;
+}
+#continue h3 a {
+  color: rgb(147, 242, 255);
+  transition: opacity 150ms ease-in-out;
+}
+#continue h3 a:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }/*# sourceMappingURL=style.css.map */

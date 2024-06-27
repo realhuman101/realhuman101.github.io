@@ -15,7 +15,7 @@ body {
 	height: 100%;
 	color: rgb(244, 255, 241);
 
-	h1, h2 {
+	& h1, & h2 {
 		color: rgb(244, 255, 241);
 		padding: 10px;
 		margin: auto;
@@ -26,4 +26,47 @@ h2.loadingText {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 	padding-left: 20px !important;
+}
+
+#continue {
+	width: 100%;
+	flex-direction: column;
+
+	& button {
+		padding: 10px;
+		fill: none;
+		background-color: black;
+		border: 2px solid rgb(244, 255, 241);
+		border-radius: 2%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		margin-bottom: 0px;
+		color: rgb(244, 255, 241);
+		font-family: monospace;
+		font-size: 25px;
+
+		transition: background-color 150ms ease-in-out;
+
+		&:hover {
+			background-color: rgb(244, 255, 241);
+			color: black;
+			cursor: pointer;
+		}
+	}
+
+	& h3 {
+		display: block;
+
+		& a {
+			color: rgb(147, 242, 255);
+			
+			transition: opacity 150ms ease-in-out;
+
+			&:hover {
+				cursor: pointer;
+				opacity: .7;;
+			}
+		}
+	}
 }

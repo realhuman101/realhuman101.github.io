@@ -41,8 +41,9 @@ function checkLoaded() {
 		}
 	}
 
-	let loadingMenu = document.getElementById('loading')
-	loadingMenu.style.display = 'none'
+	let loadingMenu = document.getElementById('continue')
+	loadingMenu.parentNode.appendChild(loadingMenu);
+	loadingMenu.style.display = 'flex'
 }
 
 // all projects
@@ -270,7 +271,7 @@ function ( error ) {
 
 // Load in drawer
 loader.load('assets/models/Drawer/Drawer.glb', (gltf) => {
-	scene.add(gltf.scene);
+	// scene.add(gltf.scene);
 	
 	drawer = gltf;
 },
@@ -293,7 +294,7 @@ function ( error ) {
 )
 
 // Load in project files
-let position = 0;
+let filePos = 0;
 for (let i = 0; i < amtProjects; i++) {
 	let mainElem = document.getElementById('loading')
 	let folderElem = document.createElement('h2')
@@ -302,7 +303,7 @@ for (let i = 0; i < amtProjects; i++) {
 	mainElem.appendChild(folderElem)
 		
 	loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
-		gltf.scene.position.set(0,0,-position);
+		gltf.scene.position.set(0,0,-filePos);
 		scene.add(gltf.scene);
 		
 		files.push(gltf);
@@ -329,7 +330,7 @@ for (let i = 0; i < amtProjects; i++) {
 	}
 	)
 
-	position = position + 10;
+	filePos = filePos + 1;
 }
 
 //controls.update() must be called after any manual changes to the camera's transform
