@@ -565,7 +565,7 @@ for (let i = 0; i < amtProjects; i++) {
 // ----------
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set(3.87, 2.75, 2.80);
+camera.position.set(3.55, 2.507, 3.7488);
 
 const cameraVectorDirection = new THREE.Vector3(0,0,0)
 
