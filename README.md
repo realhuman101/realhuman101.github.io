@@ -1,6 +1,8 @@
 # [realhuman101.github.io](https://realhuman101.github.io)
 
-Website made with ThreeJS. I really liked Henry Heffernan's site, and thought I'd make my own except make it more interactive.
+Website made with ThreeJS to learn ThreeJS. I really liked Henry Heffernan's site, and thought I'd make my own except make it more interactive.
+
+If you're reading through the code, apologies in advance.
 
 ## Credits
 
