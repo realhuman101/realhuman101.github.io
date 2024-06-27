@@ -390,6 +390,8 @@ animate()
 
 
 //debugging
+globalThis.THREE = THREE
+
 globalThis.controls = controls
 globalThis.renderer = renderer
 globalThis.camera = camera
