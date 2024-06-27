@@ -5,6 +5,7 @@ body {
 }
 
 #loading {
+	animation-fill-mode: forwards;
 	position: absolute;
 	display: block;
 	top: 0;
@@ -19,6 +20,10 @@ body {
 		color: rgb(244, 255, 241);
 		padding: 10px;
 		margin: auto;
+	}
+
+	& * {
+		animation-fill-mode: forwards;
 	}
 }
 
@@ -69,5 +74,14 @@ h2.loadingText {
 				opacity: .7;;
 			}
 		}
+	}
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(-100%);
 	}
 }

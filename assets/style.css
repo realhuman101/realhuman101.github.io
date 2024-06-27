@@ -5,6 +5,7 @@ body {
 }
 
 #loading {
+  animation-fill-mode: forwards;
   position: absolute;
   display: block;
   top: 0;
@@ -19,6 +20,9 @@ body {
   color: rgb(244, 255, 241);
   padding: 10px;
   margin: auto;
+}
+#loading * {
+  animation-fill-mode: forwards;
 }
 
 h2.loadingText {
@@ -62,4 +66,13 @@ h2.loadingText {
 #continue h3 a:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }/*# sourceMappingURL=style.css.map */
