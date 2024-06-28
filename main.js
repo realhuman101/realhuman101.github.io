@@ -25,11 +25,6 @@ scene.background = backgroundColor;
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
-function onPointerMove(event) {
-	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-}
-
 // ------------
 // = LIGHTING =
 // ------------
@@ -281,6 +276,27 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
+// ---------------
+// = USER EVENTS =
+// ---------------
+
+function onPointerMove(event) {
+	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+
+	raycaster.setFromCamera(pointer, camera);
+
+	var intersects = raycaster.intersectObject(scene, true);
+
+	if (intersects.length > 0) {
+		var object = intersects[0].object;
+
+		if (object == chair) {
+			object.position.set(0,0,10)
+		}
+	}
 }
 
 // -----------
