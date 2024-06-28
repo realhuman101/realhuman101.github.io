@@ -68,7 +68,6 @@ function degToRad(degrees) {
 }
 
 function checkLoaded() {
-	console.log('checking')
 	let allAssets = document.getElementsByClassName('loadingText')
 
 	for (let i = 0; i < allAssets.length; ++i) {
@@ -88,6 +87,17 @@ function checkLoaded() {
 }
 
 function loadGLTF(fileName, name) {
+	let parentElem = document.getElementById('loading')
+	let loadingElem = document.createElement('h2')
+	loadingElem.classList.add('loadingText')
+	loadingElem.setAttribute('id', name)
+	parentElem.appendChild(loadingElem);
+
+	let stopper = document.getElementById('stopper')
+	if (stopper !== null) {
+		stopper.remove()
+	}
+
 	loader.load('assets/models/'+fileName, (gltf) => {
 		scene.add(gltf.scene);
 
