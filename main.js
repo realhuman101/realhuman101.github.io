@@ -193,17 +193,32 @@ var paperTray = loadGLTF('PaperTray.glb', 'paperTray');
 var paper = loadGLTF('Paper.glb', 'paper');
 var board = loadGLTF('NoteBoard.glb', 'board');
 var computer = loadGLTF('Computer.glb', 'computer');
-var walls = loadGLTF('Walls.glb', 'walls');
+// var walls = loadGLTF('Walls.glb', 'walls');
 var drawerMain = loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain');
 var drawer = loadGLTF('/Drawer/Drawer.glb', 'drawer');
 var files = [];
 
-// FLOOR
+// WALLS
+
+//floor
 var floor = new THREE.Mesh( new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xa3a3a3, depthWrite: true } ) );
 floor.rotation.x = - Math.PI / 2;
 floor.position.set(0, 0.02, 0)
 floor.receiveShadow = true;
 scene.add( floor );
+
+//wall1
+var wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xfff8e3, depthWrite: true } ))
+wall1.rotation.y = degToRad(90)
+wall1.recieveShadow = true;
+scene.add(wall1)
+
+//wall2
+var wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xfff8e3, depthWrite: true } ))
+wall2.rotation.y = degToRad(90)
+wall2.rotation.z = degToRad(270)
+wall2.recieveShadow = true;
+scene.add(wall2)
 
 // FILES 
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
@@ -319,7 +334,10 @@ globalThis.board = board
 globalThis.paperTray = paperTray
 globalThis.paper = paper
 globalThis.computer = computer
-globalThis.walls = walls
 globalThis.drawerMain = drawerMain
 globalThis.drawer = drawer
 globalThis.files = files
+
+globalThis.floor = floor
+globalThis.wall1 = wall1
+globalThis.wall2 = wall2
