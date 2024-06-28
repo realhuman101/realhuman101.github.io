@@ -193,7 +193,6 @@ var paperTray = loadGLTF('PaperTray.glb', 'paperTray');
 var paper = loadGLTF('Paper.glb', 'paper');
 var board = loadGLTF('NoteBoard.glb', 'board');
 var computer = loadGLTF('Computer.glb', 'computer');
-// var walls = loadGLTF('Walls.glb', 'walls');
 var drawerMain = loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain');
 var drawer = loadGLTF('/Drawer/Drawer.glb', 'drawer');
 var files = [];
@@ -215,8 +214,7 @@ scene.add(wall1)
 
 //wall2
 var wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 200, 200 ), new THREE.MeshStandardMaterial( { color: 0xfff8e3, depthWrite: true } ))
-wall2.rotation.y = degToRad(90)
-wall2.rotation.z = degToRad(270)
+wall2.rotation.z = degToRad(90)
 wall2.recieveShadow = true;
 scene.add(wall2)
 
