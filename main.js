@@ -81,7 +81,7 @@ function checkLoaded() {
 	loadingMenu.style.display = 'flex'
 }
 
-function loadGLTF(fileName, name) {
+function loadGLTF(fileName, name, result) {
 	let parentElem = document.getElementById('loading')
 	let loadingElem = document.createElement('h2')
 	loadingElem.classList.add('loadingText')
@@ -105,7 +105,7 @@ function loadGLTF(fileName, name) {
 
 		} );
 
-		return gltf;
+		result(gltf);
 	},
 	// called while loading is progressing
 	function ( xhr ) {
@@ -180,17 +180,28 @@ var amtProjects = projects.length;
 // ---------------
 
 // ASSET VARIABLES
-var chair = loadGLTF('Chair.glb', 'chair');
-var desk = loadGLTF('MainDesk.glb', 'desk');
-var plant = loadGLTF('Plant.glb', 'plant');
-var clock = loadGLTF('Clock.glb', 'clock');
-var paperTray = loadGLTF('PaperTray.glb', 'paperTray');
-var paper = loadGLTF('Paper.glb', 'paper');
-var board = loadGLTF('NoteBoard.glb', 'board');
-var computer = loadGLTF('Computer.glb', 'computer');
-var drawerMain = loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain');
-var drawer = loadGLTF('/Drawer/Drawer.glb', 'drawer');
-var files = [];
+var chair = null;
+var desk = null;
+var plant = null;
+var clock = null;
+var paperTray = null;
+var paper = null;
+var board = null;
+var computer = null;
+var drawerMain = null;
+var drawer = null;
+var files = []
+
+loadGLTF('Chair.glb', 'chair', (gltf) => {chair = gltf});
+loadGLTF('MainDesk.glb', 'desk', (gltf) => {desk = gltf});
+loadGLTF('Plant.glb', 'plant', (gltf) => {plant = gltf});
+loadGLTF('Clock.glb', 'clock', (gltf) => {clock = gltf});
+loadGLTF('PaperTray.glb', 'paperTray', (gltf) => {paperTray = gltf});
+loadGLTF('Paper.glb', 'paper', (gltf) => {paper = gltf});
+loadGLTF('NoteBoard.glb', 'board', (gltf) => {board = gltf});
+loadGLTF('Computer.glb', 'computer', (gltf) => {computer = gltf});
+loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain', (gltf) => {drawerMain = gltf});
+loadGLTF('/Drawer/Drawer.glb', 'drawer', (gltf) => {drawer = gltf});
 
 // WALLS
 
