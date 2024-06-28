@@ -216,6 +216,10 @@ loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		let message = 'File ' + ( xhr.loaded / xhr.total * 100 ) + '% loaded'
 
 		document.getElementById('file').textContent = message;
+
+		if ((xhr.loaded / xhr.total) == 1) {
+			checkLoaded()
+		}
 	},
 	// called when loading has errors
 	function ( error ) {
