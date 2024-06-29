@@ -329,7 +329,8 @@ function onPointerMove(event) {
 
 			if (ogObj !== undefined) {
 				if (obj != ogObj) {
-					new TWEEN.Tween(ogObj.scene.position).to({x: 0, y: 0, z: 0}, 1000).start()
+					document.body.style.cursor = 'auto';
+					new TWEEN.Tween(ogObj.scene.position).to({x: 0, y: 0, z: 0}, 500).start()
 				}
 			}
 
@@ -339,8 +340,9 @@ function onPointerMove(event) {
 
 			if (obj !== undefined) {
 				switch (mainObj) {
-					case 'plant':
-						new TWEEN.Tween(obj.scene.position).to({y: .5}, 1000).start()
+					case 'drawer':
+						document.body.style.cursor = 'pointer';
+						new TWEEN.Tween(obj.scene.position).to({z: .5}, 500).start()
 						break;
 				}
 			}
