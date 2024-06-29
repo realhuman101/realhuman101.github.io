@@ -340,7 +340,7 @@ function onPointerMove(event) {
 			if (obj !== undefined) {
 				switch (mainObj) {
 					case 'plant':
-						let tween = new TWEEN.Tween(obj.scene.position).to({y: 1}, 10000).start()
+						let tween = new TWEEN.Tween(obj.scene.position).to({y: 5}, 10000).start()
 						break;
 				}
 			}
@@ -363,6 +363,8 @@ function animate() {
 
 	// required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
+
+	TWEEN.update();
 
 	renderer.render(scene, camera);
 
