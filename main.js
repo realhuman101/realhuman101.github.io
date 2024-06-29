@@ -379,6 +379,51 @@ document.addEventListener('loadingDone', (e) => {
 	loaded = true;
 })
 
+// -------------------
+// = CLICK ON OBJECT =
+// -------------------
+
+document.addEventListener('mousedown', (event) => {
+	if (loaded && focus) {
+		pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+
+		raycaster.setFromCamera(pointer, camera);
+
+		var intersects = raycaster.intersectObject(scene, true);
+
+		if (intersects.length > 0) {
+			var obj = undefined;
+			try {
+				var object = intersects[0].object
+				var objectUUID = object.parent.parent.uuid
+				var mainObj = assetUUID[objectUUID]
+
+				if (mainObj === undefined) {
+					objectUUID = object.parent.uuid
+					mainObj = assetUUID[objectUUID]
+				}
+				
+				obj = assets[mainObj]
+			} catch (error) {
+				if (error == TypeError) {
+					obj = undefined;
+				}
+			}
+
+			if (obj !== undefined) {
+				switch (mainObj) {
+					case 'drawer':
+						new TWEEN.Tween(camera.position).to({x: 3.07, y: 1.93, z: 1.89}, 500).start()
+						break;
+					case 'board':
+						new TWEEN.Tween(camera.position).to({y: .1}, 100).start();
+				}
+			}
+		}
+	}
+})
+
 // -----------
 // = ANIMATE =
 // -----------
