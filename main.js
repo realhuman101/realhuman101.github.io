@@ -379,9 +379,8 @@ document.addEventListener('loadingDone', (e) => {
 	loaded = true;
 })
 
-// -------------------
-// = CLICK ON OBJECT =
-// -------------------
+
+// CLICK ON OBJECT
 
 document.addEventListener('mousedown', (event) => {
 	if (loaded && focus) {
@@ -411,10 +410,25 @@ document.addEventListener('mousedown', (event) => {
 				}
 			}
 
+			let moveToObj = (x,y,z) => {
+				// Rotate camera towards object
+				const startRot = new THREE.Euler().copy(camera.rotation);
+				camera.lookAt(obj.scene.position);
+				const endRot = new THREE.Euler().copy(camera.rotation);
+
+				camera.rotation.copy(startRot)
+
+				new TWEEN.Tween(camera.quaternion).to(endRot, 500).start();
+
+				// Move to object
+				new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
+			}
+
 			if (obj !== undefined) {
+				// Move camera
 				switch (mainObj) {
 					case 'drawer':
-						new TWEEN.Tween(camera.position).to({x: 3.07, y: 1.93, z: 1.89}, 500).start()
+						moveToObj(3.07, 1.93, 1.89);
 						break;
 					case 'board':
 						new TWEEN.Tween(camera.position).to({y: .1}, 100).start();
