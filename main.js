@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
+var loaded = false;
+
 // ------------
 // = RENDERER =
 // ------------
@@ -73,6 +75,8 @@ function checkLoaded() {
 		}
 	}
 
+	loaded = true;
+
 	let loadingText = document.getElementById('loadingText')
 	loadingText.textContent = 'LOADING COMPLETE'
 
@@ -104,7 +108,8 @@ function loadGLTF(fileName, name, result) {
 			};
 
 		} );
-
+		
+		console.log(typeof(gltf))
 		result(gltf);
 	},
 	// called while loading is progressing
@@ -224,7 +229,13 @@ wall2.rotation.z = degToRad(90)
 wall2.recieveShadow = true;
 scene.add(wall2)
 
-// FILES 
+// FILES
+let parentElem = document.getElementById('loading')
+let loadingElem = document.createElement('h2')
+loadingElem.classList.add('loadingText')
+loadingElem.setAttribute('id', 'file')
+parentElem.appendChild(loadingElem);
+
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		gltf.scene.traverse( function ( object ) {
 			if ( object.isMesh ) {
@@ -294,18 +305,30 @@ function onWindowResize() {
 // ---------------
 
 function onPointerMove(event) {
-	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+	if (loaded) {
+		pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
 
-	raycaster.setFromCamera(pointer, camera);
+		raycaster.setFromCamera(pointer, camera);
 
-	var intersects = raycaster.intersectObject(scene, true);
+		var intersects = raycaster.intersectObject(scene, true);
 
-	if (intersects.length > 0) {
-		var object = intersects[0].object;
+		if (intersects.length > 0) {
+			var objects = new THREE.Group()
+			for (let i = 0; i < intersects.length; i++) {
+				objects.add(intersects[i].object)
+			}
+			console.log('intersects ',intersects)
+			objects.rotateX(degToRad(90))
 
-		if (object == chair) {
-			object.position.set(0,0,10)
+			console.log(objects)
+			console.log(chair)
+			console.log('stff')
+
+			// if (object == chair.scene) {
+			// 	console.log('hovering over')
+			// 	object.position.set(0,0,10)
+			// }
 		}
 	}
 }
