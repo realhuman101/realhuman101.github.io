@@ -85,7 +85,7 @@ function checkLoaded() {
 	loadingMenu.style.display = 'flex'
 }
 
-function loadGLTF(fileName, name, result) {
+function loadGLTF(fileName, name) {
 	let parentElem = document.getElementById('loading')
 	let loadingElem = document.createElement('h2')
 	loadingElem.classList.add('loadingText')
@@ -109,8 +109,7 @@ function loadGLTF(fileName, name, result) {
 
 		} );
 		
-		console.log(typeof(gltf))
-		result(gltf);
+		assets[name] = gltf;
 	},
 	// called while loading is progressing
 	function ( xhr ) {
@@ -185,28 +184,18 @@ var amtProjects = projects.length;
 // ---------------
 
 // ASSET VARIABLES
-var chair = null;
-var desk = null;
-var plant = null;
-var clock = null;
-var paperTray = null;
-var paper = null;
-var board = null;
-var computer = null;
-var drawerMain = null;
-var drawer = null;
-var files = []
+var assets = {}
 
-loadGLTF('Chair.glb', 'chair', (gltf) => {chair = gltf});
-loadGLTF('MainDesk.glb', 'desk', (gltf) => {desk = gltf});
-loadGLTF('Plant.glb', 'plant', (gltf) => {plant = gltf});
-loadGLTF('Clock.glb', 'clock', (gltf) => {clock = gltf});
-loadGLTF('PaperTray.glb', 'paperTray', (gltf) => {paperTray = gltf});
-loadGLTF('Paper.glb', 'paper', (gltf) => {paper = gltf});
-loadGLTF('NoteBoard.glb', 'board', (gltf) => {board = gltf});
-loadGLTF('Computer.glb', 'computer', (gltf) => {computer = gltf});
-loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain', (gltf) => {drawerMain = gltf});
-loadGLTF('/Drawer/Drawer.glb', 'drawer', (gltf) => {drawer = gltf});
+loadGLTF('Chair.glb', 'chair');
+loadGLTF('MainDesk.glb', 'desk');
+loadGLTF('Plant.glb', 'plant');
+loadGLTF('Clock.glb', 'clock');
+loadGLTF('PaperTray.glb', 'paperTray');
+loadGLTF('Paper.glb', 'paper');
+loadGLTF('NoteBoard.glb', 'board');
+loadGLTF('Computer.glb', 'computer');
+loadGLTF('/Drawer/CabinetContainer.glb', 'drawerMain');
+loadGLTF('/Drawer/Drawer.glb', 'drawer');
 
 // WALLS
 
@@ -236,7 +225,10 @@ loadingElem.classList.add('loadingText')
 loadingElem.setAttribute('id', 'file')
 parentElem.appendChild(loadingElem);
 
+
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
+		assets['files'] = []
+		
 		gltf.scene.traverse( function ( object ) {
 			if ( object.isMesh ) {
 				object.castShadow = true
@@ -248,7 +240,7 @@ loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		for (let i = 0; i < amtProjects; i++) {
 			let newFolder = gltf.scene.clone(); // clone obj
 			newFolder.position.set(0,0, i*-10) //make each folder -10 px away from each other
-			files.push(newFolder) // add file to files list
+			assets['files'].push(newFolder) // add file to files list
 		}
 	},
 	// called while loading is progressing
@@ -316,12 +308,12 @@ function onPointerMove(event) {
 		if (intersects.length > 0) {
 			let object = intersects[0].object
 			let objectUUID = object.parent.parent.uuid
-			let chairUUID = chair.scene.uuid 
+			let chairUUID = assets.chair.scene.uuid 
 			console.log('intersects ',object)
-			console.log(chair)
+			console.log(assets.chair)
 			// objects.rotateX(degToRad(90))
 			if (objectUUID == chairUUID) {
-				chair.scene.rotateX(degToRad(90))
+				assets.chair.scene.rotateX(degToRad(90))
 			}
 			// console.log(objects)
 			// console.log(chair)
@@ -375,19 +367,3 @@ globalThis.camera = camera
 
 globalThis.light1 = light1
 globalThis.light2 = light2
-
-globalThis.desk = desk
-globalThis.chair = chair
-globalThis.plant = plant
-globalThis.clock = clock
-globalThis.board = board
-globalThis.paperTray = paperTray
-globalThis.paper = paper
-globalThis.computer = computer
-globalThis.drawerMain = drawerMain
-globalThis.drawer = drawer
-globalThis.files = files
-
-globalThis.floor = floor
-globalThis.wall1 = wall1
-globalThis.wall2 = wall2
