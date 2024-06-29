@@ -412,16 +412,18 @@ document.addEventListener('mousedown', (event) => {
 
 			let moveToObj = (x,y,z) => {
 				// Rotate camera towards object
+				// console.log(mainObj, obj, assets.drawer)
 				const startRot = new THREE.Euler().copy(camera.rotation);
-				camera.lookAt(obj.scene.position);
-				const endRot = new THREE.Euler().copy(camera.rotation);
+				// camera.lookAt(obj.scene.position);
+				const endRot = new THREE.Euler().copy(obj.scene.rotation);
 
-				camera.rotation.copy(startRot)
+				// camera.rotation.copy(startRot)
 
-				new TWEEN.Tween(camera.quaternion).to(endRot, 500).start();
+				// new TWEEN.Tween(camera.rotation).to(endRot, 500).start();
+				camera.lookAt(obj.scene.position)
 
 				// Move to object
-				new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
+				// new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
 			}
 
 			if (obj !== undefined) {
@@ -431,7 +433,8 @@ document.addEventListener('mousedown', (event) => {
 						moveToObj(3.07, 1.93, 1.89);
 						break;
 					case 'board':
-						new TWEEN.Tween(camera.position).to({y: .1}, 100).start();
+						moveToObj(2.55,2.87,1.66);
+						break;
 				}
 			}
 		}
