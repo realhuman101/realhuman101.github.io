@@ -241,7 +241,7 @@ loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 			let newFolder = gltf.scene.clone(); // clone obj
 			newFolder.position.set(0,0, i*-10) //make each folder -10 px away from each other
 			assets['files'].push(newFolder) // add file to files list
-			assetsUUID[newFolder.scene.uuid].push('files'+i)
+			assetUUID[newFolder['uuid']] = 'files'+i
 		}
 	},
 	// called while loading is progressing
@@ -309,21 +309,9 @@ function onPointerMove(event) {
 		if (intersects.length > 0) {
 			let object = intersects[0].object
 			let objectUUID = object.parent.parent.uuid
-			let chairUUID = assets.chair.scene.uuid 
 			console.log('intersects ',object)
-			console.log(assets.chair)
-			// objects.rotateX(degToRad(90))
-			if (objectUUID == chairUUID) {
-				assets.chair.scene.position.set(0,1,0)
-			}
-			// console.log(objects)
-			// console.log(chair)
-			// console.log('stff')
 
-			// if (object == chair.scene) {
-			// 	console.log('hovering over')
-			// 	object.position.set(0,0,10)
-			// }
+			console.log(assetUUID[objectUUID])
 		}
 	}
 }
