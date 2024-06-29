@@ -329,7 +329,8 @@ function onPointerMove(event) {
 
 			if (ogObj !== undefined) {
 				if (obj != ogObj) {
-					ogObj.scene.position.set(0,0,0)
+					console.log('no more touch', ogObj)
+					new TWEEN.Tween(ogObj.scene.position).to({x: 0, y: 0, z: 0}, 1000).start()
 				}
 			}
 
@@ -340,7 +341,7 @@ function onPointerMove(event) {
 			if (obj !== undefined) {
 				switch (mainObj) {
 					case 'plant':
-						let tween = new TWEEN.Tween(obj.scene.position).to({y: 5}, 10000).start()
+						new TWEEN.Tween(obj.scene.position).to({y: .5}, 1000).start()
 						break;
 				}
 			}
