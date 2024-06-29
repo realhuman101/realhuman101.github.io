@@ -337,8 +337,12 @@ function onPointerMove(event) {
 
 			console.log(assetUUID[objectUUID])
 
-			if (mainObj == 'plant') {
-				obj.scene.position.set(0,1,0)
+			if (obj !== undefined) {
+				switch (mainObj) {
+					case 'plant':
+						let tween = new TWEEN.Tween(obj.position).to({y: 1}, 10000).start()
+						break;
+				}
 			}
 		}
 	}
