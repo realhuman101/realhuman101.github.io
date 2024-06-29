@@ -2,7 +2,12 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
+// --------------------
+// = DEFINE VARIABLES =
+// --------------------
+
 var loaded = false;
+var focus = true;
 
 // ------------
 // = RENDERER =
@@ -300,7 +305,7 @@ function onWindowResize() {
 var ogObj = undefined;
 
 function onPointerMove(event) {
-	if (loaded) {
+	if (loaded && focus) {
 		pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 		pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
 
@@ -353,6 +358,23 @@ function onPointerMove(event) {
 	}
 }
 
+// FOCUS WINDOW EVENTS
+
+// Out of focus
+document.addEventListener('blur', (event) => {
+	let focusItem = document.getElementById('noFocus');
+	focusItem.style.display = 'flex';
+	focus = false;
+}, false)
+
+// In focus
+document.addEventListener('focus', (event) => {
+	let focusItem = document.getElementById('noFocus');
+	focusItem.style.display = 'none';
+	focus = true;
+}, false)
+
+// DONE LOADING
 document.addEventListener('loadingDone', (e) => {
 	loaded = true;
 })
@@ -362,23 +384,25 @@ document.addEventListener('loadingDone', (e) => {
 // -----------
 
 function animate() {
-	raycaster.setFromCamera( pointer, camera );
+	if (focus) {
+		raycaster.setFromCamera( pointer, camera );
 
-	requestAnimationFrame(animate );
+		requestAnimationFrame(animate );
 
-	// required if controls.enableDamping or controls.autoRotate are set to true
-	controls.update();
+		// required if controls.enableDamping or controls.autoRotate are set to true
+		controls.update();
 
-	TWEEN.update();
+		TWEEN.update();
 
-	renderer.render(scene, camera);
+		renderer.render(scene, camera);
 
-	if (!(helperExist) && globalThis.helper) {
-		const helper = new THREE.CameraHelper( light1.shadow.camera ); // add a helper
-		scene.add( helper );
+		if (!(helperExist) && globalThis.helper) {
+			const helper = new THREE.CameraHelper( light1.shadow.camera ); // add a helper
+			scene.add( helper );
 
-		helperExist = true;
-	} 
+			helperExist = true;
+		} 
+	}
 }
 
 window.addEventListener( 'pointermove', onPointerMove );
