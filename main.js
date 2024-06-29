@@ -344,6 +344,9 @@ function onPointerMove(event) {
 						document.body.style.cursor = 'pointer';
 						new TWEEN.Tween(obj.scene.position).to({z: .5}, 500).start()
 						break;
+					case 'board':
+						document.body.style.cursor = 'pointer';
+						new TWEEN.Tween(obj.scene.position).to({y: .1}, 100).start();
 				}
 			}
 		}
