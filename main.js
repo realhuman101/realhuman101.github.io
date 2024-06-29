@@ -340,7 +340,7 @@ function onPointerMove(event) {
 			if (obj !== undefined) {
 				switch (mainObj) {
 					case 'plant':
-						let tween = new TWEEN.Tween(obj.position).to({y: 1}, 10000).start()
+						let tween = new TWEEN.Tween(obj.scene.position).to({y: 1}, 10000).start()
 						break;
 				}
 			}
