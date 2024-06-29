@@ -329,7 +329,6 @@ function onPointerMove(event) {
 
 			if (ogObj !== undefined) {
 				if (obj != ogObj) {
-					console.log('no more touch', ogObj)
 					new TWEEN.Tween(ogObj.scene.position).to({x: 0, y: 0, z: 0}, 1000).start()
 				}
 			}
