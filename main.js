@@ -309,17 +309,23 @@ function onPointerMove(event) {
 		var intersects = raycaster.intersectObject(scene, true);
 
 		if (intersects.length > 0) {
-			// remove effect on object if no longer hovering
-			let object = intersects[0].object
-			let objectUUID = object.parent.parent.uuid
-			let mainObj = assetUUID[objectUUID]
+			var obj = undefined;
+			try {
+				var object = intersects[0].object
+				var objectUUID = object.parent.parent.uuid
+				var mainObj = assetUUID[objectUUID]
 
-			if (mainObj === undefined) {
-				objectUUID = object.parent.uuid
-				mainObj = assetUUID[objectUUID]
+				if (mainObj === undefined) {
+					objectUUID = object.parent.uuid
+					mainObj = assetUUID[objectUUID]
+				}
+				
+				obj = assets[mainObj]
+			} catch (error) {
+				if (error == TypeError) {
+					obj = undefined;
+				}
 			}
-			
-			let obj = assets[mainObj]
 
 			if (ogObj !== undefined) {
 				if (obj != ogObj) {
