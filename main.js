@@ -297,6 +297,8 @@ function onWindowResize() {
 // = USER EVENTS =
 // ---------------
 
+var ogObj = undefined;
+
 function onPointerMove(event) {
 	if (loaded) {
 		pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -307,6 +309,7 @@ function onPointerMove(event) {
 		var intersects = raycaster.intersectObject(scene, true);
 
 		if (intersects.length > 0) {
+			// remove effect on object if no longer hovering
 			let object = intersects[0].object
 			let objectUUID = object.parent.parent.uuid
 			let mainObj = assetUUID[objectUUID]
@@ -315,8 +318,22 @@ function onPointerMove(event) {
 				objectUUID = object.parent.uuid
 				mainObj = assetUUID[objectUUID]
 			}
+			
+			let obj = assets[mainObj]
+
+			if (ogObj !== undefined) {
+				if (obj != ogObj) {
+					ogObj.scene.position.set(0,0,0)
+				}
+			}
+
+			ogObj = obj;
 
 			console.log(assetUUID[objectUUID])
+
+			if (mainObj == 'plant') {
+				obj.scene.position.set(0,1,0)
+			}
 		}
 	}
 }
