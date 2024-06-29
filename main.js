@@ -108,6 +108,7 @@ function loadGLTF(fileName, name) {
 		} );
 		
 		assets[name] = gltf;
+		assetUUID[gltf.scene.uuid] = name
 	},
 	// called while loading is progressing
 	function ( xhr ) {
@@ -183,6 +184,7 @@ var amtProjects = projects.length;
 
 // ASSET VARIABLES
 var assets = {}
+var assetUUID = {}
 
 loadGLTF('Chair.glb', 'chair');
 loadGLTF('MainDesk.glb', 'desk');
@@ -239,6 +241,7 @@ loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 			let newFolder = gltf.scene.clone(); // clone obj
 			newFolder.position.set(0,0, i*-10) //make each folder -10 px away from each other
 			assets['files'].push(newFolder) // add file to files list
+			assetsUUID[newFolder.scene.uuid].push('files'+i)
 		}
 	},
 	// called while loading is progressing
