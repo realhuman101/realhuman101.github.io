@@ -309,7 +309,12 @@ function onPointerMove(event) {
 		if (intersects.length > 0) {
 			let object = intersects[0].object
 			let objectUUID = object.parent.parent.uuid
-			console.log('intersects ',object)
+			let mainObj = assetUUID[objectUUID]
+
+			if (mainObj === undefined) {
+				objectUUID = object.parent.uuid
+				mainObj = assetUUID[objectUUID]
+			}
 
 			console.log(assetUUID[objectUUID])
 		}
