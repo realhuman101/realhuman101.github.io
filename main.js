@@ -314,16 +314,18 @@ function onPointerMove(event) {
 		var intersects = raycaster.intersectObject(scene, true);
 
 		if (intersects.length > 0) {
-			var objects = new THREE.Group()
-			for (let i = 0; i < intersects.length; i++) {
-				objects.add(intersects[i].object)
-			}
-			console.log('intersects ',intersects)
-			objects.rotateX(degToRad(90))
-
-			console.log(objects)
+			let object = intersects[0].object
+			let objectUUID = object.parent.parent.uuid
+			let chairUUID = chair.scene.uuid 
+			console.log('intersects ',object)
 			console.log(chair)
-			console.log('stff')
+			// objects.rotateX(degToRad(90))
+			if (objectUUID == chairUUID) {
+				chair.scene.rotateX(degToRad(90))
+			}
+			// console.log(objects)
+			// console.log(chair)
+			// console.log('stff')
 
 			// if (object == chair.scene) {
 			// 	console.log('hovering over')
