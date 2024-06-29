@@ -10,5 +10,8 @@ function completeLoad() {
 	
 	sleep(250).then(() => {
 		loading.style.display = 'none'
+
+		const loadEvent = new CustomEvent('loadingDone')
+		document.dispatchEvent(loadEvent)
 	})
 }

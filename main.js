@@ -75,8 +75,6 @@ function checkLoaded() {
 		}
 	}
 
-	loaded = true;
-
 	let loadingText = document.getElementById('loadingText')
 	loadingText.textContent = 'LOADING COMPLETE'
 
@@ -228,7 +226,7 @@ parentElem.appendChild(loadingElem);
 
 loader.load('assets/models/Drawer/Folder.glb', (gltf) => {
 		assets['files'] = []
-		
+
 		gltf.scene.traverse( function ( object ) {
 			if ( object.isMesh ) {
 				object.castShadow = true
@@ -313,7 +311,7 @@ function onPointerMove(event) {
 			console.log(assets.chair)
 			// objects.rotateX(degToRad(90))
 			if (objectUUID == chairUUID) {
-				assets.chair.scene.rotateX(degToRad(90))
+				assets.chair.scene.position.set(0,1,0)
 			}
 			// console.log(objects)
 			// console.log(chair)
@@ -326,6 +324,10 @@ function onPointerMove(event) {
 		}
 	}
 }
+
+document.addEventListener('loadingDone', (e) => {
+	loaded = true;
+})
 
 // -----------
 // = ANIMATE =
