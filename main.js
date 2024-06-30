@@ -39,13 +39,13 @@ const pointer = new THREE.Vector2();
 // = LIGHTING =
 // ------------
 
-const shadowSize = 70
+const shadowSize = 80
 
 const light1 = new THREE.DirectionalLight(0xffffff, 3) //3
 light1.position.set(5, 50, 20)
 light1.castShadow = true;
-light1.shadow.mapSize.width = 10000
-light1.shadow.mapSize.height = 10000
+light1.shadow.mapSize.width = 25000
+light1.shadow.mapSize.height = 25000
 light1.shadow.camera.top = shadowSize;
 light1.shadow.camera.bottom = -shadowSize;
 light1.shadow.camera.left = -shadowSize;
