@@ -147,6 +147,20 @@ function loadGLTF(fileName, name) {
 
 }
 
+function getCenterPoint(mesh) {
+    var middle = new THREE.Vector3();
+    var geometry = mesh.geometry;
+
+    geometry.computeBoundingBox();
+
+    middle.x = (geometry.boundingBox.max.x + geometry.boundingBox.min.x) / 2;
+    middle.y = (geometry.boundingBox.max.y + geometry.boundingBox.min.y) / 2;
+    middle.z = (geometry.boundingBox.max.z + geometry.boundingBox.min.z) / 2;
+
+    mesh.localToWorld( middle );
+    return middle;
+}
+
 // ------------
 // = PROJECTS =
 // ------------
@@ -438,7 +452,10 @@ document.addEventListener('mousedown', (event) => {
 				// camera.rotation.copy(startRot)
 
 				// new TWEEN.Tween(camera.rotation).to(endRot, 500).start();
-				// camera.lookAt(obj.scene.position)
+				const position = new THREE.Vector3()
+				position.setFromMatrixPosition(obj.scene)
+				camera.lookAt(position)
+				controls.update()
 
 				// Move to object
 				new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
