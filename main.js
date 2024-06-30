@@ -453,8 +453,8 @@ document.addEventListener('mousedown', (event) => {
 
 				// new TWEEN.Tween(camera.rotation).to(endRot, 500).start();
 				const position = new THREE.Vector3()
-				position.setFromMatrixPosition(obj.scene)
-				camera.lookAt(position)
+				// position.setFromMatrixPosition(obj.getWorldPosition())
+				camera.lookAt(obj.scene.getWorldPosition(position))
 				controls.update()
 
 				// Move to object
