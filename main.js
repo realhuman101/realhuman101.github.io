@@ -41,10 +41,14 @@ const pointer = new THREE.Vector2();
 
 const shadowSize = 80
 
-const light1 = new THREE.SpotLight(0xffffff, 100) //3
-light1.position.set(5, 10, 10)
-light1.target.position.set(0,0,0)
+// Spotlight
+const light1 = new THREE.SpotLight(0xffffff, 7) //3
+light1.position.set(4, 3, 3)
+light1.target.position.set(2,0,0)
+light1.target.updateMatrixWorld();
+
 light1.castShadow = true;
+
 light1.shadow.mapSize.width = 25000
 light1.shadow.mapSize.height = 25000
 light1.shadow.camera.top = shadowSize;
@@ -53,9 +57,11 @@ light1.shadow.camera.left = -shadowSize;
 light1.shadow.camera.right = shadowSize;
 light1.shadow.camera.near = 0.1;
 light1.shadow.camera.far = 100;
+
 scene.add(light1)
 
-const light2 = new THREE.HemisphereLight(0x333333, 55)
+// Directional light
+const light2 = new THREE.DirectionalLight(0xffffff, 1) //3
 light2.position.set(5, 50, 20)
 scene.add(light2)
 
