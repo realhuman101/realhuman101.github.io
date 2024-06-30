@@ -39,15 +39,19 @@ const pointer = new THREE.Vector2();
 // = LIGHTING =
 // ------------
 
+const shadowSize = 70
+
 const light1 = new THREE.DirectionalLight(0xffffff, 3) //3
 light1.position.set(5, 50, 20)
 light1.castShadow = true;
-// light1.shadow.camera.top = .4;
-// light1.shadow.camera.bottom = -.4;
-// light1.shadow.camera.left = -.4;
-// light1.shadow.camera.right = .4;
-// light1.shadow.camera.near = 0.1;
-// light1.shadow.camera.far = 5;
+light1.shadow.mapSize.width = 10000
+light1.shadow.mapSize.height = 10000
+light1.shadow.camera.top = shadowSize;
+light1.shadow.camera.bottom = -shadowSize;
+light1.shadow.camera.left = -shadowSize;
+light1.shadow.camera.right = shadowSize;
+light1.shadow.camera.near = 0.1;
+light1.shadow.camera.far = 100;
 scene.add(light1)
 
 const light2 = new THREE.HemisphereLight(0x333333, 55)
