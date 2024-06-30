@@ -25,6 +25,9 @@ const backgroundColor = new THREE.Color('rgb(200, 200, 200)');
 const scene = new THREE.Scene();
 scene.background = backgroundColor;
 
+// Fog
+scene.fog = new THREE.Fog( 'rgb(200, 200, 200)', 10, 100 );
+
 // -------------
 // = RAYCASTER =
 // -------------
@@ -55,7 +58,7 @@ scene.add(light2)
 // = CONTROLS =
 // ------------
 
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100 );
 
 const controls = new OrbitControls( camera, renderer.domElement );
 
@@ -420,10 +423,10 @@ document.addEventListener('mousedown', (event) => {
 				// camera.rotation.copy(startRot)
 
 				// new TWEEN.Tween(camera.rotation).to(endRot, 500).start();
-				camera.lookAt(obj.scene.position)
+				// camera.lookAt(obj.scene.position)
 
 				// Move to object
-				// new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
+				new TWEEN.Tween(camera.position).to({x: x, y: y, z: z}, 500).start()
 			}
 
 			if (obj !== undefined) {
