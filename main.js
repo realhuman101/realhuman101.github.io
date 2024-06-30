@@ -41,8 +41,9 @@ const pointer = new THREE.Vector2();
 
 const shadowSize = 80
 
-const light1 = new THREE.DirectionalLight(0xffffff, 3) //3
-light1.position.set(5, 50, 20)
+const light1 = new THREE.SpotLight(0xffffff, 100) //3
+light1.position.set(5, 10, 10)
+light1.target.position.set(0,0,0)
 light1.castShadow = true;
 light1.shadow.mapSize.width = 25000
 light1.shadow.mapSize.height = 25000
@@ -384,6 +385,10 @@ document.addEventListener('focus', (event) => {
 // DONE LOADING
 document.addEventListener('loadingDone', (e) => {
 	loaded = true;
+
+	// Set light position
+	let targetPos = assets.computer.scene.position
+	light1.target.position.set(targetPos.x, targetPos.y, targetPos.z)
 })
 
 
